@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.801 16.216">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #be2025;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="heart" transform="translate(-613 -20.8)">
+    <g id="Ellipse_543" data-name="Ellipse 543" class="cls-1" transform="translate(616.3 20.8)">
+      <ellipse class="cls-2" cx="4.6" cy="4.6" rx="4.6" ry="4.6"/>
+      <ellipse class="cls-3" cx="4.6" cy="4.6" rx="3.6" ry="3.6"/>
+    </g>
+    <path id="Path_4118" data-name="Path 4118" class="cls-1" d="M7.9,1a6.9,6.9,0,0,1,6.9,6.9c-5.693.026-9.361.034-13.8,0A6.9,6.9,0,0,1,7.9,1Z" transform="translate(613 28.097)"/>
+  </g>
+</svg>

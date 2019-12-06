@@ -1,0 +1,61 @@
+<div class="main-nav">
+  <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <div class="row w-100">
+      <a [routerLink]="['/']" class="navbar-brand d-flex w-25 mr-auto"><img class="logo mobile-img" src="/assets/images/icons/BigOven_logo.svg" (click)="collapseMenu()"></a>
+
+      <div class="d-xs-none d-sm-none d-md-none d-lg-none user-wrapper">
+<!--        <app-userbar></app-userbar>-->
+        <!--&lt;!&ndash;<div class="col-xs-6 col-sm-6 user-wrapper">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a><img class="mobile-icons" src="/assets/images/icons/bell.svg">&ndash;&gt;-->
+        <!--&lt;!&ndash;<span><mark class="rubberBand">99</mark></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="col-xs-6 col-sm-6">-->
+        <!--<a><img class="mobile-icons" src="/assets/images/icons/user.svg"></a>-->
+        <!--</div>-->
+      </div>
+      <button class="navbar-toggler custom-toggler" type="button" (click)="collapseNavbar()">
+        <span  class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse navbar-toggleable-md {{collapse}} mr-auto w-50 mobile-nav">
+        <ul class="navbar-nav w-100 justify-content-center mobile-nav-padding">
+          <li class="nav-item" [routerLinkActive]="['link-active']" (click)="collapseMenu()" >
+            <a class="nav-link" [routerLink]="['/recipe-ideas']">Ideas</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']" (click)="collapseMenu()" >
+            <a class="nav-link" [routerLink]="['/myrecipes']">My Recipes</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']" (click)="collapseMenu()" >
+            <a class="nav-link" [routerLink]="['/grocery']">Grocery List</a>
+          </li>
+          <li class="nav-item"  [routerLinkActive]="['link-active']" (click)="collapseMenu()" >
+            <a class="nav-link" [routerLink]="['/plan']">Planner</a>
+          </li>
+          <li class="nav-item" (click)="collapseMenu()">
+            <a class="nav-link" [routerLink]="['/']">Recipe Whisker</a>
+          </li>
+          <li>
+            <!--style="display: flex"-->
+            <div class="col-12 d-block d-sm-none"  *ngIf="userInfoJWT === null">
+              <div class="row float-right">
+                <button class="btn btn-default nav-btn" routerLink="/account/join">JOIN FREE</button>
+                <button class="btn btn-primary" routerLink="/account/login">sign in</button>
+              </div>
+            </div>
+            <div class="col-12 d-block d-sm-none"  *ngIf="userInfoJWT !== null">
+              <div class="row float-right">
+                <button class="btn btn-default nav-btn" routerLink="/account/logout">Sign out</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav ml-auto w-25 justify-content-end mr-auto d-none d-md-block">
+        <li class="pull-right app-user-wrapper">
+<!--          <app-userbar></app-userbar>-->
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+</div>
