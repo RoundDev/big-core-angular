@@ -7,6 +7,7 @@
     <e p="C:\Users\mkaminski\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\mkaminski\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_BigOvenApp.-1843183562.00" t="ExcludeRecursive" />
     <e p="F:\projects\BigOvenApp" t="IncludeFlat">
+      <e p=".git\info\exclude" t="IncludeRecursive" />
       <e p="BigOvenApp" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
@@ -150,6 +151,171 @@
           <e p="node_modules\webdriver-js-extender" t="IncludeRecursive" />
           <e p="node_modules\worker-farm" t="IncludeRecursive" />
           <e p="node_modules\zone.js" t="IncludeRecursive" />
+          <e p="output" t="Include">
+            <e p="api2.ts" t="Include" />
+            <e p="models" t="Include">
+              <e p="Account" t="Include">
+                <e p="api2modelsaccounting.model.ts" t="Include" />
+              </e>
+              <e p="Article" t="Include">
+                <e p="bigovenmodelapiarticle.model.ts" t="Include" />
+              </e>
+              <e p="Collection" t="Include">
+                <e p="bigovenmodelapi2collectioninfo.model.ts" t="Include" />
+              </e>
+              <e p="folder" t="Include">
+                <e p="api2controllersfoldercontrolleraddtofolderreq.model.ts" t="Include" />
+                <e p="api2controllersfoldercontrollerfoldernamerecipesrequest.model.ts" t="Include" />
+                <e p="api2controllersfoldercontrollerpostfolderreq.model.ts" t="Include" />
+                <e p="api2controllersfoldercontrollerrenamefolderrequest.model.ts" t="Include" />
+                <e p="bigovenmodelapi2folderproperty.model.ts" t="Include" />
+              </e>
+              <e p="Grocery" t="Include">
+                <e p="api2controllersgrocerylistcontrollerdepartmentmodel.model.ts" t="Include" />
+                <e p="api2controllersgrocerylistcontrollerpostgrocerylistaddlinerequest.model.ts" t="Include" />
+                <e p="api2controllersgrocerylistcontrollerpostgrocerylistreciperequest.model.ts" t="Include" />
+                <e p="api2controllersgrocerylistcontrollerpostgrocerylistsyncrequest.model.ts" t="Include" />
+                <e p="api2controllersgrocerylistcontrollerposttogrocerylistreciperequest.model.ts" t="Include" />
+                <e p="api2controllersgrocerylistcontrollerupdateitembyguidrequest.model.ts" t="Include" />
+                <e p="api2controllersmenucontrolleraddtogroceryrequest.model.ts" t="Include" />
+                <e p="api2grocerylistdepartmentresult.model.ts" t="Include" />
+                <e p="bigovenmodelapi2grocerylist.model.ts" t="Include" />
+                <e p="bigovenmodelapigrocerygrocerylist.model.ts" t="Include" />
+                <e p="bigovenmodelapigroceryitem.model.ts" t="Include" />
+              </e>
+              <e p="Ingredients" t="Include">
+                <e p="bigovenmodelapiingredient.model.ts" t="Include" />
+                <e p="bigovenmodelapiingredientinfo.model.ts" t="Include" />
+              </e>
+              <e p="Location" t="Include">
+                <e p="api2modelslocation.model.ts" t="Include" />
+                <e p="api2modelspersonal.model.ts" t="Include" />
+              </e>
+              <e p="Me" t="Include">
+                <e p="api2controllersmecontrollereatingstyle.model.ts" t="Include" />
+                <e p="api2controllersmecontrolleroption.model.ts" t="Include" />
+                <e p="api2controllersmecontrollerpreferenceoptions.model.ts" t="Include" />
+              </e>
+              <e p="Notifications" t="Include">
+                <e p="api2controllersprivatecontrollernotifyregisterrequest.model.ts" t="Include" />
+                <e p="api2modelsstartupmessageresponse.model.ts" t="Include" />
+                <e p="api2result.model.ts" t="Include" />
+                <e p="bigovenmodelapi2inboxnotification.model.ts" t="Include" />
+                <e p="systemobject.model.ts" t="Include" />
+              </e>
+              <e p="Nutrition" t="Include">
+                <e p="bigovenmodelapinutritioninfo.model.ts" t="Include" />
+              </e>
+              <e p="Planner" t="Include">
+                <e p="api2controllersmenucontrolleraddtoplanrequest.model.ts" t="Include" />
+                <e p="api2controllersplannercontrollerpostmealplannersyncrequest.model.ts" t="Include" />
+                <e p="bigovenmodelapi2plannermealplan.model.ts" t="Include" />
+                <e p="bigovenmodelapi2plannersavedmenu.model.ts" t="Include" />
+                <e p="bigovenmodelapi2plannersavedmenuline.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannermealplan.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannermenuinfo.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannernote.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannerrecipe.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannersavedmenu.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannersavedmenuline.model.ts" t="Include" />
+              </e>
+              <e p="Premium" t="Include">
+                <e p="api2controllersprivatecontrollerpostpremiumpurchasewindowsrequest.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollerpremiumpurchaseandroidrequest.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollerpremiumpurchaseandroidrequestnew.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollerpremiumpurchaseandroidsubscriptionrequest.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollerpremiumpurchaseiosrequest.model.ts" t="Include" />
+              </e>
+              <e p="Recipe" t="Include">
+                <e p="api2bigovenrecipeinfotiny.ts" t="Include" />
+                <e p="api2controllersimagescontrollerrecipephotosresponse.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollercategoriesrootobject.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollerrecipelongviewsignalreq.model.ts" t="Include" />
+                <e p="api2controllersrecipecontrollerbookmarkreciperequest.model.ts" t="Include" />
+                <e p="api2controllersrecipecontrollerfeedbackdto.model.ts" t="Include" />
+                <e p="api2controllersrecipecontrollerrecipemobilesharerequest.model.ts" t="Include" />
+                <e p="api2controllersrecipecontrollerrecipesendrequest.model.ts" t="Include" />
+                <e p="api2sendrecipereq.ts" t="Include" />
+                <e p="bigovenmodelapi2recipe.model.ts" t="Include" />
+                <e p="bigovenmodelapi2recipeinfox.model.ts" t="Include" />
+                <e p="bigovenmodelapi2recipenote.model.ts" t="Include" />
+                <e p="bigovenmodelapi2recipesearchresult.model.ts" t="Include" />
+                <e p="bigovenmodelapi2tile.model.ts" t="Include" />
+                <e p="bigovenmodelapirecipe.model.ts" t="Include" />
+                <e p="bigovenmodelapirecipeinfo.model.ts" t="Include" />
+                <e p="bigovenmodelapirecipenote.model.ts" t="Include" />
+                <e p="bigovenmodelapirecipenotelist.model.ts" t="Include" />
+                <e p="bigovenmodelrecipecategory.model.ts" t="Include" />
+                <e p="bigovenmodelrecipeinfodatetuple2.model.ts" t="Include" />
+                <e p="bigovenmodelrecipeinforeviewtuple2.model.ts" t="Include" />
+                <e p="models.ts" t="Include" />
+              </e>
+              <e p="recipeinfotiny.ts" t="Include" />
+              <e p="Review" t="Include">
+                <e p="api2controllersreviewcontrollerpostreplyreq.model.ts" t="Include" />
+                <e p="api2controllersreviewcontrollerreviewrequest.model.ts" t="Include" />
+                <e p="api2controllersreviewcontrollerreviewrequestlegacy.model.ts" t="Include" />
+                <e p="bigovenmodelapiplannermenureview.model.ts" t="Include" />
+                <e p="bigovenmodelapireview.model.ts" t="Include" />
+              </e>
+              <e p="Search" t="Include">
+                <e p="bigovenmodelapimenusearchresult.model.ts" t="Include" />
+              </e>
+              <e p="ShoppingList" t="Include">
+                <e p="bigovenmodelshoppinglistline.model.ts" t="Include" />
+              </e>
+              <e p="Social" t="Include">
+                <e p="api2controllerssocialcontrolleractivitycommentreplyrequest.model.ts" t="Include" />
+                <e p="api2controllerssocialcontrollerinboxseenrequest.model.ts" t="Include" />
+              </e>
+              <e p="User" t="Include">
+                <e p="api2controllersusercontrollerexchangebasicauthfortokenrequest.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerfollowaddreq.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerhouseholdmember.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerinvitehouseholdreq.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerpopulateviafbrequest.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerpostfacebookinforequest.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerpreferencesreq.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerprofilepostrequest.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerprofileputrequest.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerrevokehouseholdmemberreq.model.ts" t="Include" />
+                <e p="api2controllersusercontrolleruserforgotreq.model.ts" t="Include" />
+                <e p="api2controllersusercontrollerwithdrawfromhouseholdreq.model.ts" t="Include" />
+                <e p="api2modelsbigovenuser.model.ts" t="Include" />
+                <e p="api2modelscounts.model.ts" t="Include" />
+                <e p="api2modelspreference.model.ts" t="Include" />
+                <e p="api2modelsprofile.model.ts" t="Include" />
+                <e p="bigovenloggerstreamcomment.model.ts" t="Include" />
+                <e p="bigovenmodelapi2photo.model.ts" t="Include" />
+                <e p="bigovenmodelapi2userinfotinywithemail.model.ts" t="Include" />
+                <e p="bigovenmodelapi2userinfotinyx.model.ts" t="Include" />
+                <e p="bigovenmodelapiimage.model.ts" t="Include" />
+                <e p="bigovenmodelapireply.model.ts" t="Include" />
+                <e p="bigovenmodelapiuser.model.ts" t="Include" />
+                <e p="bigovenmodelapiuserinfo.model.ts" t="Include" />
+                <e p="bigovenmodelapiuserinfogroup.model.ts" t="Include" />
+                <e p="bigovenmodelapiuserinfotiny.model.ts" t="Include" />
+                <e p="bigovenuserlocator.model.ts" t="Include" />
+              </e>
+              <e p="Utils" t="Include">
+                <e p="api2controllersnotecontrollernoterequest.model.ts" t="Include" />
+                <e p="api2controllersprivatecontrollerlogreq.model.ts" t="Include" />
+                <e p="api2controllersutilscontrolleroauth2fbreq.model.ts" t="Include" />
+                <e p="api2controllersutilscontrolleroauth2googletokeninforeq.model.ts" t="Include" />
+                <e p="api2controllersutilscontrolleroauth2putfbreq.model.ts" t="Include" />
+                <e p="api2controllersutilscontrolleroauth2request.model.ts" t="Include" />
+                <e p="api2controllersutilscontrolleroauth2requestput.model.ts" t="Include" />
+                <e p="API2ControllersUtilsUpdatePassword.model.ts" t="Include" />
+                <e p="bigovenloggeractivitylogentry.model.ts" t="Include" />
+                <e p="bigovenmodelapi2configuration.model.ts" t="Include" />
+                <e p="bigovenmodelapiadbannerpayload.model.ts" t="Include" />
+                <e p="bigovenmodelapichangelogevent.model.ts" t="Include" />
+                <e p="bigovenmodellogentry.model.ts" t="Include" />
+                <e p="bigovenmodeltip.model.ts" t="Include" />
+              </e>
+            </e>
+            <e p="models.ts" t="Include" />
+          </e>
           <e p="package-lock.json" t="Include" />
           <e p="package.json" t="Include" />
           <e p="README.md" t="Include" />
