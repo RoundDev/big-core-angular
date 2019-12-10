@@ -34,6 +34,7 @@
           <e p="node_modules\@angular\compiler-cli" t="IncludeRecursive" />
           <e p="node_modules\@angular\core" t="IncludeRecursive" />
           <e p="node_modules\@angular\forms" t="IncludeRecursive" />
+          <e p="node_modules\@angular\http" t="IncludeRecursive" />
           <e p="node_modules\@angular\platform-browser" t="IncludeRecursive" />
           <e p="node_modules\@angular\platform-browser-dynamic" t="IncludeRecursive" />
           <e p="node_modules\@angular\platform-server" t="IncludeRecursive" />
@@ -55,6 +56,8 @@
             <e p="source-list-map" t="IncludeRecursive" />
           </e>
           <e p="node_modules\ajv" t="IncludeRecursive" />
+          <e p="node_modules\angular-star-rating" t="IncludeRecursive" />
+          <e p="node_modules\angular2-jwt" t="IncludeRecursive" />
           <e p="node_modules\arg" t="IncludeRecursive" />
           <e p="node_modules\aspnet-prerendering" t="IncludeRecursive" />
           <e p="node_modules\blocking-proxy" t="IncludeRecursive" />
@@ -79,6 +82,8 @@
           <e p="node_modules\karma-jasmine-html-reporter" t="IncludeRecursive" />
           <e p="node_modules\license-webpack-plugin" t="IncludeRecursive" />
           <e p="node_modules\magic-string" t="IncludeRecursive" />
+          <e p="node_modules\ngx-bootstrap" t="IncludeRecursive" />
+          <e p="node_modules\ngx-cookie-service" t="IncludeRecursive" />
           <e p="node_modules\node-sass" t="IncludeRecursive" />
           <e p="node_modules\oidc-client" t="IncludeRecursive" />
           <e p="node_modules\popper.js" t="IncludeRecursive" />
@@ -87,6 +92,7 @@
           <e p="node_modules\protractor" t="IncludeRecursive" />
           <e p="node_modules\reflect-metadata" t="IncludeRecursive" />
           <e p="node_modules\rxjs" t="IncludeRecursive" />
+          <e p="node_modules\rxjs-compat" t="IncludeRecursive" />
           <e p="node_modules\source-map" t="IncludeRecursive" />
           <e p="node_modules\sourcemap-codec" t="IncludeRecursive" />
           <e p="node_modules\symbol-observable" t="IncludeRecursive" />
@@ -322,9 +328,33 @@
           <e p="src" t="Include">
             <e p="app" t="Include">
               <e p="app.component.html" t="Include" />
+              <e p="app.component.scss" t="Include" />
               <e p="app.component.ts" t="Include" />
               <e p="app.module.ts" t="Include" />
-              <e p="app.server.module.ts" t="Include" />
+              <e p="app.server.module111.ts" t="Include" />
+              <e p="components" t="Include">
+                <e p="home" t="Include">
+                  <e p="home.component.html" t="Include" />
+                  <e p="home.component.scss" t="Include" />
+                  <e p="home.component.ts" t="Include" />
+                </e>
+                <e p="ideas-home" t="Include">
+                  <e p="ideas-home.component.html" t="Include" />
+                  <e p="ideas-home.component.scss" t="Include" />
+                  <e p="ideas-home.component.spec.ts" t="Include" />
+                  <e p="ideas-home.component.ts" t="Include" />
+                </e>
+                <e p="nav-menu" t="Include">
+                  <e p="nav-menu.component.html" t="Include" />
+                  <e p="nav-menu.component.scss" t="Include" />
+                  <e p="nav-menu.component.ts" t="Include" />
+                </e>
+                <e p="search-box" t="Include">
+                  <e p="search-box.component.html" t="Include" />
+                  <e p="search-box.component.scss" t="Include" />
+                  <e p="search-box.component.ts" t="Include" />
+                </e>
+              </e>
               <e p="counter" t="Include">
                 <e p="counter.component.html" t="Include" />
                 <e p="counter.component.spec.ts" t="Include" />
@@ -334,20 +364,11 @@
                 <e p="fetch-data.component.html" t="Include" />
                 <e p="fetch-data.component.ts" t="Include" />
               </e>
-              <e p="home" t="Include">
-                <e p="home.component.html" t="Include" />
-                <e p="home.component.scss" t="Include" />
-                <e p="home.component.ts" t="Include" />
-              </e>
-              <e p="nav-menu" t="Include">
-                <e p="nav-menu.component.html" t="Include" />
-                <e p="nav-menu.component.scss" t="Include" />
-                <e p="nav-menu.component.ts" t="Include" />
-              </e>
-              <e p="search-box" t="Include">
-                <e p="search-box.component.html" t="Include" />
-                <e p="search-box.component.scss" t="Include" />
-                <e p="search-box.component.ts" t="Include" />
+              <e p="Shared" t="Include">
+                <e p="globaleventsmanager.ts" t="Include" />
+                <e p="globalvars.ts" t="Include" />
+                <e p="pipes" t="Include" />
+                <e p="services" t="Include" />
               </e>
             </e>
             <e p="assets" t="Include">

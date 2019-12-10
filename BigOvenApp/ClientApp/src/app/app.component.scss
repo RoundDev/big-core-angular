@@ -1,0 +1,44 @@
+.rating.color-negative .star-container .star {
+  svg {
+    fill: #BE2025 !important;
+  }
+  i {
+    color: #BE2025 !important;
+  }
+}
+
+.rating.color-ok .star-container .star {
+  svg {.rating.medium .star {
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+    .label-value {
+      color: #BE2025 !important;
+    }
+  }
+    fill: #BE2025 !important;
+  }
+  i {
+    color: #BE2025 !important;
+  }
+}
+
+.rating.color-positive .star-container .star {
+  svg {
+    fill: #BE2025 !important;
+  }
+  i {
+    color: #BE2025 !important;
+  }
+}
+
+.rating.color-default .star-container .star {
+  svg {
+    fill: #BE2025 !important;
+  }
+
+  i {
+    color: #BE2025 !important;
+  }
+}

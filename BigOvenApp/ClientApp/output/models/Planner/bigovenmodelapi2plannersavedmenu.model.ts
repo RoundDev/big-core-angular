@@ -1,6 +1,6 @@
 import { BigOvenModelAPI2PlannerSavedMenuLine } from './bigovenmodelapi2plannersavedmenuline.model'
-import { BigOvenModelAPI2RecipeInfox } from './bigovenmodelapi2recipeinfox.model'
-import { BigOvenModelAPIUserInfo } from './bigovenmodelapiuserinfo.model'
+import { BigOvenModelAPI2RecipeInfox } from '../Recipe/bigovenmodelapi2recipeinfox.model'
+import { BigOvenModelAPIUserInfo } from '../User/bigovenmodelapiuserinfo.model'
 
 export interface BigOvenModelAPI2PlannerSavedMenu {
   SubmittedByUserID: number;

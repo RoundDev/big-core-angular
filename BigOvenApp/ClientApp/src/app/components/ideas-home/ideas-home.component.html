@@ -1,0 +1,51 @@
+<div class="">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 left-description">
+      <div class="row">
+        <div class="col-12 ideas-content">
+          <p class="ideas-head">
+            Recipe<span><img class="bo-cloud" src="/assets/images/icons/bo-cloud.svg"></span><br> <strong>Ideas</strong>
+          </p>
+          <p class="ideas-body">
+            Seasonal editor’s picks
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--<div *ngIf="collectionsObs$ | async as collections; else loading">-->
+    <!--<div *ngFor="let coll of collectionsObs$; let i=index">-->
+    <!--<div *ngIf="i<3">-->
+    <!--<div *ngIf="collectionsObs$ | async as collections; else loading">-->
+    <div class="row collection-row">
+      <div *ngFor="let coll of collections | slice: 0 : 3">
+        <!--<div *ngFor="let coll of collections">-->
+        <!--<div *ngIf="i<3">  -->
+        <div class="col-xs-12 col-sm-4 col-lg-4 collection-tile-full">
+          <div class="collection-wrapper">
+            <a routerLink="{{coll.WebUrl | urlpath }}">
+              <img alt="{{ coll.Description}}"  style="width: 175px !important;" src="{{ coll.PhotoUrl }}?w=256&h=256">
+              <div class="title-wrapper"></div>
+              <div class="coll-title">{{ coll.Title }}
+              </div>
+            </a>
+          </div>
+          <div *ngIf="coll.IsSponsored===true" class="sponsored-icon tip" title="Sponsored by RiceSelect™">
+            <!-- click through url <a href="https://bs.serving-sys.com/serving/adServer.bs?cn=trd&amp;mc=click&amp;pli=21694377&amp;PluID=0&amp;ord=[timestamp]">
+                <img src="https://bigoven-res.cloudinary.com/image/upload/RiceSelect-Logo-120x60_aymzck.png">
+            </a>-->
+          </div>
+          <!-- display indicator
+          <script type="text/javascript">$.get('', function () { });</script>
+          <script type="text/javascript">$.get('https://bs.serving-sys.com/serving/adServer.bs?cn=display&c=19&mc=imp&pli=21694377&PluID=0&ord=10/18/2017 10:32:06 PM&rtu=-1', function () { });</script>
+          -->
+        </div>
+      </div> <!-- End of collection -->
+    </div>
+    <a [routerLink]="['/recipe-ideas']">
+            <span class="see-more">
+              <strong>+</strong><br>
+              See more
+            </span>
+    </a>
+  </div>
+</div>

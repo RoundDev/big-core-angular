@@ -1,6 +1,6 @@
-import { BigOvenModelAPIUserInfo } from './bigovenmodelapiuserinfo.model'
-import { BigOvenModelAPIIngredient } from './bigovenmodelapiingredient.model'
-import { BigOvenModelAPINutritionInfo } from './bigovenmodelapinutritioninfo.model'
+import { BigOvenModelAPIUserInfo } from '../User/bigovenmodelapiuserinfo.model'
+import { BigOvenModelAPIIngredient } from '../Ingredients/bigovenmodelapiingredient.model'
+import { BigOvenModelAPINutritionInfo } from '../Nutrition/bigovenmodelapinutritioninfo.model'
 
 export interface BigOvenModelAPIRecipe {
   RecipeID: number;

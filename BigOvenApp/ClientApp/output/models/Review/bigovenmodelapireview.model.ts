@@ -1,6 +1,6 @@
-import { BigOvenModelAPIUserInfo } from './bigovenmodelapiuserinfo.model'
+import { BigOvenModelAPIUserInfo } from '../User/bigovenmodelapiuserinfo.model'
 import { BigOvenModelAPIReview } from './bigovenmodelapireview.model'
-import { BigOvenModelAPIReply } from './bigovenmodelapireply.model'
+import { BigOvenModelAPIReply } from '../User/bigovenmodelapireply.model'
 
 export interface BigOvenModelAPIReview {
   ID: string;

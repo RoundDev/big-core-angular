@@ -19,7 +19,10 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
-    <Content Include="ClientApp\src\app\home\home.component.scss" />
+    <Content Include="ClientApp\src\app\app.component.scss" />
+    <Content Include="ClientApp\src\app\components\home\home.component.scss" />
+    <Content Include="ClientApp\src\app\components\ideas-home\ideas-home.component.html" />
+    <Content Include="ClientApp\src\app\components\ideas-home\ideas-home.component.scss" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <None Include="ClientApp\output\api2.ts" />
@@ -146,6 +149,13 @@
     <None Include="ClientApp\output\models\Utils\bigovenmodelapichangelogevent.model.ts" />
     <None Include="ClientApp\output\models\Utils\bigovenmodellogentry.model.ts" />
     <None Include="ClientApp\output\models\Utils\bigovenmodeltip.model.ts" />
+    <None Include="ClientApp\src\app\components\home\home.component.html" />
+    <None Include="ClientApp\src\app\components\nav-menu\nav-menu.component.html" />
+    <None Include="ClientApp\src\app\components\nav-menu\nav-menu.component.scss" />
+    <None Include="ClientApp\src\app\components\search-box\search-box.component.html" />
+    <None Include="ClientApp\src\app\components\search-box\search-box.component.scss" />
+    <None Include="ClientApp\src\app\shared\globaleventsmanager.ts" />
+    <None Include="ClientApp\src\app\shared\globalvars.ts" />
     <None Include="ClientApp\src\assets\images\home\email.svg" />
     <None Include="ClientApp\src\assets\images\home\top5.svg" />
   </ItemGroup>
@@ -178,6 +188,11 @@
     <_ContentIncludedByDefault Remove="wwwroot\images\login\btn_google_signin_light_pressed_web@2x.png" />
     <_ContentIncludedByDefault Remove="wwwroot\images\login\facebook_login.png" />
     <_ContentIncludedByDefault Remove="wwwroot\images\star-rating.icons.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\shared\pipes" />
+    <Folder Include="ClientApp\src\app\shared\services" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

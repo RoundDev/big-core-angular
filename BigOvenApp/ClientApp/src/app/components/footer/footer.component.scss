@@ -1,0 +1,91 @@
+.footer {
+  font-weight: 500;
+  letter-spacing: 0.9px;
+  height: 56px;
+  width: 100%;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background: rgb(175, 175, 175);
+  bottom: 0pt;
+  left: 0pt;
+  color: white;
+}
+
+.footer-contents {
+
+  font-size: 12px;
+  height:24px; /* Replace with the height your footer should be*/
+  margin:auto;
+  padding-top: 5px;
+}
+.footer-contents2 {
+
+  font-size: 16px;
+  height:24px; /* Replace with the height your footer should be*/
+  margin:auto;
+  padding-top: 5px;
+}
+.a-footer {
+  color: white;
+  font-size: 12px;
+}
+.a-footer:hover {
+  color: #003a6b !important;
+}
+.linksInFooter {
+  width: 800px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media only screen and (max-width: 786px) {
+  .linksInFooter {
+    width: 100%;
+    height: 85px;
+    margin-right: 0 !important;
+
+  }
+}@media only screen and (max-width: 1023px) {
+  .linksInFooter {
+    width: 100%;
+    height: 85px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .a-footerSml {
+    font-size: 10px;
+  }
+  .footer-contentsSml {
+    font-size: 10px;
+  }
+  .footer-contents2Sml {
+    font-size: 15px;
+  }
+  .footer {
+    letter-spacing: 0.5px;
+
+  }
+
+  /* .container { */
+  /*     padding-left: 0px !important; */
+  /*     padding-right: 0px !important; */
+  /*     max-width: 100% */
+  /* } */
+}
+@media only screen and (max-width: 375px) {
+  .a-footerSml {
+    font-size: 9px;
+  }
+  .footer-contentsSml {
+    font-size: 9px;
+  }
+  .footer-contents2Sml {
+    font-size: 13px;
+  }
+  .footer {
+    letter-spacing: 0.5px;
+
+  }
+}

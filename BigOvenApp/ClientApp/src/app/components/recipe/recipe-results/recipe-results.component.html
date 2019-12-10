@@ -1,0 +1,23 @@
+<div class="maxContainer">
+  <div *ngIf="recipeResults">
+    <h2>{{searchText}}</h2>
+    <!--<p *ngIf="recipeResults.ResultCount !== 1">{{ recipeResults.ResultCount | commaseparatednumber }} recipes</p>-->
+    <!--<p *ngIf="recipeResults.ResultCount === 1">1 recipe</p>-->
+  </div>
+
+  <div *ngIf="recipeResults">
+    <div class="row" style="margin: 0">
+      <div *ngFor="let recipe of recipeResults.Results">
+        <app-recipe-infobox [recipe]="recipe"></app-recipe-infobox>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="showPagination" class="col">
+        <div class="text-center">
+          <pagination [maxSize]="5" [totalItems]="recipeResults.ResultCount" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
