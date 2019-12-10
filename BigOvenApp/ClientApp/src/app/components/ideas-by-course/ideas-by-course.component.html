@@ -1,0 +1,9 @@
+<h2>Ideas by Course</h2>
+
+<div class="row">
+  <div *ngFor="let course of courses">
+    <div class="col-xs-12 col-sm-4 col-lg-2">
+      <app-recipe-course-tile [course]="course"></app-recipe-course-tile>
+    </div>
+  </div>
+</div>

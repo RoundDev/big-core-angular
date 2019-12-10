@@ -23,6 +23,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CollectionViewComponent } from './components/collection-view/collection-view.component';
 import { RecipeResultsComponent } from './components/recipe/recipe-results/recipe-results.component';
 import { RecipeInfoboxComponent } from './components/recipe/recipe-infobox/recipe-infobox.component';
+import { RecipeIdeasComponent } from './components/recipe/recipe-ideas/recipe-ideas.component';
+import { SeasonalIdeasComponent } from './components/seasonal-ideas/seasonal-ideas.component';
+import { IdeasByCourseComponent } from './components/ideas-by-course/ideas-by-course.component';
+import { RecipeCourseTileComponent } from './components/recipe/recipe-course-tile/recipe-course-tile.component';
 
 
 
@@ -42,7 +46,11 @@ import { RecipeInfoboxComponent } from './components/recipe/recipe-infobox/recip
     FooterComponent,
     CollectionViewComponent,
     RecipeResultsComponent,
-    RecipeInfoboxComponent
+    RecipeInfoboxComponent,
+    RecipeIdeasComponent,
+    SeasonalIdeasComponent,
+    IdeasByCourseComponent,
+    RecipeCourseTileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -53,6 +61,27 @@ import { RecipeInfoboxComponent } from './components/recipe/recipe-infobox/recip
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
       {path: 'fetch-data', component: FetchDataComponent},
+      {
+        path: "recipe-ideas/:title/:collId",
+        component: CollectionViewComponent
+      },
+      {
+        path: "recipe-ideas/:title/:collId/page/:page",
+        component: CollectionViewComponent
+      },
+      {
+        path: "recipes/course",
+        component: IdeasByCourseComponent
+      },
+      {
+        path: "recipes",
+        component: RecipeIdeasComponent
+      },
+      {
+        path: "recipe-ideas",
+        component: RecipeIdeasComponent
+      },
+
     ]),
     PaginationModule
   ],

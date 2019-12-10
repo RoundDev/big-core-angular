@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/"><i class="ss ss-home"></i></a></li>
+    <li class="breadcrumb-item active">Recipes</li>
+  </ol>
+</nav>
+
+<div class="maxContainer">
+  <!--<app-recipe-ideas-bar></app-recipe-ideas-bar>-->
+  <br/>
+  <app-seasonal-ideas [collections]="collectionResults"></app-seasonal-ideas>
+  <div style="clear:both;">
+    <app-ideas-by-course></app-ideas-by-course>
+  </div>
+</div>
