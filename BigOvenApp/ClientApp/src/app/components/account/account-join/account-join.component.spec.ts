@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecipeSearchviewComponent } from './recipe-searchview.component';
+import { AccountJoinComponent } from './account-join.component';
 
-describe('RecipeSearchviewComponent', () => {
-  let component: RecipeSearchviewComponent;
-  let fixture: ComponentFixture<RecipeSearchviewComponent>;
+describe('AccountJoinComponent', () => {
+  let component: AccountJoinComponent;
+  let fixture: ComponentFixture<AccountJoinComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipeSearchviewComponent ]
+      declarations: [ AccountJoinComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecipeSearchviewComponent);
+    fixture = TestBed.createComponent(AccountJoinComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

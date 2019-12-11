@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {ApiClientService} from "../../output/api2";
 import {BigOvenAuthService, ModalContentComponent} from "./shared/services/bigovenauth.service";
@@ -15,7 +15,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { IdeasHomeComponent } from './components/ideas-home/ideas-home.component';
 import {AuthGuardService} from "./shared/services/auth-guard.service";
 import {CookieService} from "ngx-cookie-service";
-import {BsModalService, PaginationModule} from "ngx-bootstrap";
+import {BsModalService, ModalModule, PaginationModule, RatingModule, TabsModule, TypeaheadModule} from "ngx-bootstrap";
 import { UrlpathPipe } from './shared/pipes/urlpath.pipe';
 import { RavesHomeComponent } from './components/raves-home/raves-home.component';
 import {StarRatingModule} from "angular-star-rating";
@@ -35,10 +35,49 @@ import { TimeConverterPipe } from './shared/pipes/time-converter.pipe';
 import { RecipeDetailReviewBoxComponent } from './components/recipe/recipe-detail-review-box/recipe-detail-review-box.component';
 import { RecipeDetailTabsComponent } from './components/recipe/recipe-detail-tabs/recipe-detail-tabs.component';
 import { RecipeInstructionsComponent } from './components/recipe/recipe-instructions/recipe-instructions.component';
-import { RecipeSearchviewComponent } from './components/recipe/recipe-searchview/recipe-searchview.component';
 import { SocialMediaShareComponent } from './components/recipe/social-media-share/social-media-share.component';
+import { AccountJoinComponent } from './components/account/account-join/account-join.component';
+import { AccountLoginComponent } from './components/account/account-login/account-login.component';
+import { AccountLogoutComponent } from './components/account/account-logout/account-logout.component';
+import { UpgradeNudgeComponent } from './components/account/upgrade-nudge/upgrade-nudge.component';
+import { UserBarComponent } from './components/user/user-bar/user-bar.component';
+import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { RecipeSearchViewComponent } from './components/recipe/recipe-search-view/recipe-search-view.component';
+import { CommaSeparatedNumberPipe } from './shared/pipes/comma-seperated-number.pipe';
+import { StringNoLongerPipe } from './shared/pipes/string-no-longer.pipe';
+import {UserService} from "./shared/services/user.service";
+import {AuthService, AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider} from "angular4-social-login";
+import {GlobalEventsManager} from "./shared/globaleventsmanager";
+import {GroceryService} from "./shared/services/grocery.service";
+import {GlobalVars} from "./shared/globalvars";
+import {RecipeSearchService} from "./shared/services/recipeSearch.service";
 
 
+// export function createTranslateLoader(http: HttpClient, baseHref) {
+//   // Temporary Azure hack
+//   if (baseHref === null && typeof window !== 'undefined') {
+//     baseHref = window.location.origin;
+//   }
+//   // i18n files are in `wwwroot/assets/`
+//   return new TranslateHttpLoader(http, `${baseHref}/assets/i18n/`, '.json');
+// }
+
+let socialAuthConfig = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    //provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider("407086068012-mve22iglck9ud0t8kcnnbhc1v31fctk5.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    //provider: new FacebookLoginProvider("Facebook-App-Id") // ********* production
+    provider: new FacebookLoginProvider("1093865790642375") // localhost
+  }
+]);
+
+export function provideConfig() {
+  return socialAuthConfig;
+}
 
 
 @NgModule({
@@ -70,12 +109,22 @@ import { SocialMediaShareComponent } from './components/recipe/social-media-shar
     RecipeDetailReviewBoxComponent,
     RecipeDetailTabsComponent,
     RecipeInstructionsComponent,
-    RecipeSearchviewComponent,
-    SocialMediaShareComponent
+    SocialMediaShareComponent,
+    AccountJoinComponent,
+    AccountLoginComponent,
+    AccountLogoutComponent,
+    UpgradeNudgeComponent,
+    UserBarComponent,
+    UserDetailComponent,
+    RecipeSearchViewComponent,
+    CommaSeparatedNumberPipe,
+    StringNoLongerPipe,
+
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
+    ModalModule.forRoot(),
     FormsModule,
     StarRatingModule.forRoot(),
     RouterModule.forRoot([
@@ -86,14 +135,14 @@ import { SocialMediaShareComponent } from './components/recipe/social-media-shar
       //   path: "account/join",
       //   component: AccountJoinComponent
       // },
-      // {
-      //   path: "account/login",
-      //   component: AccountLoginComponent
-      // },
-      // {
-      //   path: "account/logout",
-      //   component: AccountLogoutComponent
-      // },
+      {
+        path: "account/login",
+        component: AccountLoginComponent
+      },
+      {
+        path: "account/logout",
+        component: AccountLogoutComponent
+      },
       // {
       //   path: "recipes/search",
       //   component: RecipesearchviewComponent
@@ -152,14 +201,27 @@ import { SocialMediaShareComponent } from './components/recipe/social-media-shar
       // },
 
     ]),
-    PaginationModule
+    PaginationModule,
+    RatingModule,
+    TabsModule
   ],
   providers: [
-    ApiClientService,
-    BigOvenAuthService,
+    RecipeSearchService,
+    UserService,
     AuthGuardService,
+    AuthService,
+    BigOvenAuthService,
+    GroceryService,
+    GlobalEventsManager,
+    GlobalVars,
+    ApiClientService,
+    SeoifyPipe,
+    StringNoLongerPipe,
     CookieService,
-    BsModalService
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
   ],
   bootstrap: [AppComponent]
 })

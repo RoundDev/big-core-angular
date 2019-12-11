@@ -4,11 +4,11 @@ import {ActivatedRoute} from "@angular/router";
 import {RecipeSearchService} from "../../../shared/services/recipeSearch.service";
 
 @Component({
-  selector: 'app-recipe-searchview',
-  templateUrl: './recipe-searchview.component.html',
-  styleUrls: ['./recipe-searchview.component.css']
+  selector: 'app-recipe-search-view',
+  templateUrl: './recipe-search-view.component.html',
+  styleUrls: ['./recipe-search-view.component.scss']
 })
-export class RecipeSearchviewComponent implements OnInit {
+export class RecipeSearchViewComponent implements OnInit {
 
   sub: any;
   sub1: any;
@@ -19,20 +19,19 @@ export class RecipeSearchviewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipesearchService: RecipeSearchService
-  ) { }
+    private recipeSearchService: RecipeSearchService) { }
 
   ngOnInit() {
     // subscribe to results to be able to paint them
-    this.recipesearchService.getSearchCompletedEmitter().subscribe(data=>{
-      this.recipeSearchResults = this.recipesearchService.recipeResults;
+    this.recipeSearchService.getSearchCompletedEmitter().subscribe(data=>{
+      this.recipeSearchResults = this.recipeSearchService.recipeResults;
     });
 
     this.sub1 = this.route.params.subscribe(params=>{
       if (params["page"])
       {
         this.currentPage = parseInt(params["page"]);
-        this.recipesearchService.doRecipeSearchAllParams(this.include_ing, this.currentPage, 24);
+        this.recipeSearchService.doRecipeSearchAllParams(this.include_ing, this.currentPage, 24);
       }
     });
 
@@ -40,7 +39,7 @@ export class RecipeSearchviewComponent implements OnInit {
       this.include_ing = qparams["include_ing"];
 
       // now load recipesearchresults
-      this.recipesearchService.doRecipeSearchAllParams(this.include_ing, this.currentPage, 24);
+      this.recipeSearchService.doRecipeSearchAllParams(this.include_ing, this.currentPage, 24);
     });
   }
 

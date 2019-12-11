@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {BigOvenModelAPI2InboxNotification} from "../../../../output/models";
+import {UserService} from "../../shared/services/user.service";
+import {BigOvenAuthService, JWTInfo} from "../../shared/services/bigovenauth.service";
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,50 +9,50 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.scss']
 })
 export class NavMenuComponent {
-  // @Input()
-  // userInfoJWT: JWTInfo = null;
+  @Input()
+  userInfoJWT: JWTInfo = null;
   collapse: string = 'collapse';
   isLoggedIn: boolean = false;
-  // private inboxItems: BigOvenModelAPI2InboxNotification[] = [];
+  private inboxItems: BigOvenModelAPI2InboxNotification[] = [];
   private sub: any = null;
   showNav = true;
 
   constructor(
-    // private userService: UserService,
-    // private bigovenAuthService: BigOvenAuthService
+    private userService: UserService,
+    private bigovenAuthService: BigOvenAuthService
   ){
-    // if (this.sub===null)
-    // {
-    //   this.sub = this.userService.getOnInboxItemsEventEmitter().subscribe(data => {
-    //     this.inboxItems = this.userService.getInboxItems();
-    //   });
-    // }
-    //
-    // this.bigovenAuthService.getOnBigOvenUserLoginStateChangeEventEmitter().subscribe(data=>{
-    //   if (data!=null) {
-    //     this.userInfoJWT = data;
-    //     if (this.bigovenAuthService.isLoggedIn())
-    //     {
-    //       this.userService.getSocialInbox(1, 10, null);
-    //     }
-    //
-    //   } else
-    //   {
-    //     this.userInfoJWT = null;
-    //   }
-    // });
+    if (this.sub===null)
+    {
+      this.sub = this.userService.getOnInboxItemsEventEmitter().subscribe(data => {
+        this.inboxItems = this.userService.getInboxItems();
+      });
+    }
+
+    this.bigovenAuthService.getOnBigOvenUserLoginStateChangeEventEmitter().subscribe(data=>{
+      if (data!=null) {
+        this.userInfoJWT = data;
+        if (this.bigovenAuthService.isLoggedIn())
+        {
+          this.userService.getSocialInbox(1, 10, null);
+        }
+
+      } else
+      {
+        this.userInfoJWT = null;
+      }
+    });
 
   }
 
   ngOnInit()
   {
-    // this.bigovenAuthService.getOnBigOvenUserLoginStateChangeEventEmitter().subscribe(data=>{
-    //     this.isLoggedIn = this.bigovenAuthService.isLoggedIn();
-    //
-    //     this.bigovenAuthService.getOnBigOvenUserLoginStateChangeEventEmitter().subscribe(data=>{
-    //         this.userInfoJWT = null;
-    //     })
-    // });
+    this.bigovenAuthService.getOnBigOvenUserLoginStateChangeEventEmitter().subscribe(data=>{
+        this.isLoggedIn = this.bigovenAuthService.isLoggedIn();
+
+        this.bigovenAuthService.getOnBigOvenUserLoginStateChangeEventEmitter().subscribe(data=>{
+            this.userInfoJWT = null;
+        })
+    });
   }
 
   collapseNavbar(): void {
