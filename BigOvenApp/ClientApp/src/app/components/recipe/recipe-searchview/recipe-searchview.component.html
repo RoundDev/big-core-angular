@@ -1,0 +1,16 @@
+<ul class="breadcrumb">
+  <li><a routerLink="/"><i class="ss-home"></i></a></li>
+  <li><a routerLink="/recipes">Recipes</a></li>
+  <li class="active">Leftover</li>
+</ul>
+<div class="maxContainer">
+  <!--<app-recipe-ideas-bar></app-recipe-ideas-bar>-->
+  <br/>
+  <app-recipe-results [recipeResults]="recipeSearchResults"></app-recipe-results>
+</div>
+
+<p>recipesearchview</p>
+
+<div>
+  This view handles more advanced search, by mapping the query parameters and then sending it on to the results component
+</div>

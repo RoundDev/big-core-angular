@@ -27,6 +27,17 @@ import { RecipeIdeasComponent } from './components/recipe/recipe-ideas/recipe-id
 import { SeasonalIdeasComponent } from './components/seasonal-ideas/seasonal-ideas.component';
 import { IdeasByCourseComponent } from './components/ideas-by-course/ideas-by-course.component';
 import { RecipeCourseTileComponent } from './components/recipe/recipe-course-tile/recipe-course-tile.component';
+import { CategoryBrowseComponent } from './components/category-browse/category-browse.component';
+import { SeoifyPipe } from './shared/pipes/seoify.pipe';
+import { RecipeDetailComponent } from './components/recipe/recipe-detail/recipe-detail.component';
+import { RecipeDetailInfoBoxComponent } from './components/recipe/recipe-detail-info-box/recipe-detail-info-box.component';
+import { TimeConverterPipe } from './shared/pipes/time-converter.pipe';
+import { RecipeDetailReviewBoxComponent } from './components/recipe/recipe-detail-review-box/recipe-detail-review-box.component';
+import { RecipeDetailTabsComponent } from './components/recipe/recipe-detail-tabs/recipe-detail-tabs.component';
+import { RecipeInstructionsComponent } from './components/recipe/recipe-instructions/recipe-instructions.component';
+import { RecipeSearchviewComponent } from './components/recipe/recipe-searchview/recipe-searchview.component';
+import { SocialMediaShareComponent } from './components/recipe/social-media-share/social-media-share.component';
+
 
 
 
@@ -50,7 +61,17 @@ import { RecipeCourseTileComponent } from './components/recipe/recipe-course-til
     RecipeIdeasComponent,
     SeasonalIdeasComponent,
     IdeasByCourseComponent,
-    RecipeCourseTileComponent
+    RecipeCourseTileComponent,
+    CategoryBrowseComponent,
+    SeoifyPipe,
+    RecipeDetailComponent,
+    RecipeDetailInfoBoxComponent,
+    TimeConverterPipe,
+    RecipeDetailReviewBoxComponent,
+    RecipeDetailTabsComponent,
+    RecipeInstructionsComponent,
+    RecipeSearchviewComponent,
+    SocialMediaShareComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -61,14 +82,34 @@ import { RecipeCourseTileComponent } from './components/recipe/recipe-course-til
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
       {path: 'fetch-data', component: FetchDataComponent},
-      {
-        path: "recipe-ideas/:title/:collId",
-        component: CollectionViewComponent
-      },
-      {
-        path: "recipe-ideas/:title/:collId/page/:page",
-        component: CollectionViewComponent
-      },
+      // {
+      //   path: "account/join",
+      //   component: AccountJoinComponent
+      // },
+      // {
+      //   path: "account/login",
+      //   component: AccountLoginComponent
+      // },
+      // {
+      //   path: "account/logout",
+      //   component: AccountLogoutComponent
+      // },
+      // {
+      //   path: "recipes/search",
+      //   component: RecipesearchviewComponent
+      // },
+      // {
+      //   path: "recipes/search/page/:page",
+      //   component: RecipesearchviewComponent
+      // },
+      // {
+      //   path: "recipes/:searchText/best",
+      //   component: ReciperesultsComponent
+      // },
+      // {
+      //   path: "recipes/:searchText/best/page/:page",
+      //   component: ReciperesultsComponent
+      // },
       {
         path: "recipes/course",
         component: IdeasByCourseComponent
@@ -81,6 +122,34 @@ import { RecipeCourseTileComponent } from './components/recipe/recipe-course-til
         path: "recipe-ideas",
         component: RecipeIdeasComponent
       },
+      // {
+      //     path: "ideas-home",
+      //     component: IdeasHomeComponent
+      // },
+      // {
+      //   path: "recipe/:title/:recipeId",
+      //   component: RecipeDetailComponent
+      // },
+      // {
+      //   path: "recipe/:title/:recipeId/resized/:resize",
+      //   component: RecipeDetailComponent
+      // },
+      // {
+      //   path: "recipe/:title/:recipeId/resized/:metric/:resize",
+      //   component: RecipeDetailComponent
+      // },
+      {
+        path: "recipe-ideas/:title/:collId",
+        component: CollectionViewComponent
+      },
+      {
+        path: "recipe-ideas/:title/:collId/page/:page",
+        component: CollectionViewComponent
+      },
+      // {
+      //   path: "site/about",
+      //   component: AboutComponent
+      // },
 
     ]),
     PaginationModule

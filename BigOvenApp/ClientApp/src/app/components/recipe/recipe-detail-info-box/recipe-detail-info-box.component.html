@@ -1,0 +1,222 @@
+<div class="info-box col-xs-12 col-sm-12">
+  <!--<div id="more-info-box" style="position:relative;float:right;top:300px;display:none;"><a href="javascript:void(0);" onclick="toggleMoreInfo();">more...</a></div>-->
+
+  <!--<div class="menu-controls">-->
+  <!--<a title="Add to Grocery" (click)="addToGrocery();openModalIfAuth(addToGroceryTemplate);" class="btn btnstateless btn-default btn-add-grocery">-->
+  <!--<i class="ss ss-cart"></i>-->
+  <!--</a>-->
+  <!--<a title="Add to Plan" class="btn btnstateless btn-default btn-add-calendar" (click)="redirectIfNotAuth(); isCalendarCollapsed = !isCalendarCollapsed;">-->
+  <!--<i class="ss ss-calendar"></i>-->
+  <!--</a>-->
+  <!--<a class="btn btnstateless btn-default btn-share share-icon" title="Share this recipe" (click)="openModal(shareTemplate)" >-->
+  <!--<i class="ss ss-share"></i>-->
+  <!--</a>-->
+  <!--<a title="Print-friendly format" (click)="navToPrint()" class="btn btnstateless btn-default btn-print">-->
+  <!--<i class="ss ss-print"></i>-->
+  <!--</a>-->
+  <!--</div>-->
+
+  <div class="justify-content-center" style="padding: 0 30% 0 30%;">
+    <div class="row text-center details-row">
+      <!--<div  class="col-12 ">-->
+      <div *ngIf="recipe.Title" class="col-6 title-row">
+        <h1 title="{{recipe.Title}}">{{recipe.Title}}</h1>
+        <div class="row">
+          <div *ngIf="recipe.StarRating != 0" class="col-6">
+            <star-rating [starType]="'svg'" [size]="'medium'" [hoverEnabled]="true" [labelPosition]="'right'"
+                         [labelText]="recipe.ReviewCount" [space]="'around'" [showHalfStars]="true"
+                         [rating]="recipe.StarRating"></star-rating>
+          </div>
+          <div *ngIf="recipe.StarRating == 0" class="col-6">
+            <star-rating [starType]="'svg'" [size]="'medium'" [hoverEnabled]="true" [labelPosition]="'right'"
+                         [labelText]="'0'" [space]="'around'" [showHalfStars]="true" [rating]="'0'"></star-rating>
+          </div>
+          <div class="col-6">
+            <p class="see-all">
+              (see all ratings)
+            </p>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-danger">Save this Recipe</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 info-wrapper">
+        <p><i class="far fa-clock"></i> Activity minutes: {{recipe.ActiveMinutes | timeConverter}}</p>
+        <p><i class="far fa-calendar"></i> Total Minutes: {{recipe.TotalMinutes | timeConverter}}</p>
+        <p><i class="fas fa-utensils"></i> Serves: {{recipe.YieldNumber}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="justify-content-center">
+    <div class="row ads-row text-center justify-content-center">
+      <div class="ads-content">
+        <p>
+          <strong>Ads container</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="justify-content-center">
+    <div class="row text-center justify-content-center">
+      <div class="col-12 about-box">
+        <div class="text-center row justify-content-center" style="padding-bottom: 10px">
+          <div class="spacer col-6"></div>
+        </div>
+        <div class="description-wrapper" *ngIf="recipe.Description">
+          <h2 class="description">RECIPE DESCRIPTION</h2>
+          <span id="subhead" class="summary desc-summary line-breaker">
+                    {{ recipe.Description }}
+                </span>
+        </div>
+        <div class="description-wrapper" *ngIf="!recipe.Description">
+          <h2 class="description">RECIPE DESCRIPTION</h2>
+          <p class="desc-summary">
+            Link to add description if there is no recipe description
+          </p>
+        </div>
+
+        <div class="author">
+          <div *ngIf="recipe.Poster" class="row user-col">
+            <div class="col-5">
+              <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                <div class=" img-square">
+                  <img alt="{{recipe.Poster.UserName.toLowerCase()}}" class="avatar-img-sm"
+                       src="{{recipe.Poster.PhotoUrl}}">
+                </div>
+              </a>
+            </div>
+            <div *ngIf="recipe.Poster" class="col-5 user-link">
+              Provided by:
+              <strong><a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                {{recipe.Poster.UserName}}
+              </a></strong>
+            </div>
+            <div class="col-2 custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck" name="follow" value="Follow">
+              <label class="custom-control-label" for="customCheck">Follow</label>
+            </div>
+          </div>
+          <div *ngIf="recipe.Poster" class="row link-row">
+            <div class="col-4 user-page">
+              <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                https://www.bigoven.com/user/{{recipe.Poster.UserName.toLowerCase()}}
+              </a>
+            </div>
+          </div>
+          <div *ngIf="!recipe.Poster">
+            <div class="col-12 user-col">
+              <p>
+                Provided by: BigOven
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div [collapse]="isCalendarCollapsed" class="card card-block card-header">-->
+<!--<div class="well well-lg">-->
+<!--<p>Add to Plan</p>-->
+
+<!--<div class="row">-->
+<!--<span>-->
+<!--<button class="btn btn-default" (click)="dinnerTonight();isCalendarCollapsed = true;">Dinner Tonight</button>-->
+<!--</span>-->
+<!--<span>-->
+<!--<button class="btn btn-default" (click)="dinnerTomorrow();isCalendarCollapsed = true;">Dinner Tomorrow</button>-->
+<!--</span>-->
+<!--</div>-->
+
+
+<!--<datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="false" [dateDisabled]="dateDisabled"></datepicker>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<ng-template #shareTemplate>-->
+<!--<div class="modal-header"  >-->
+<!--<h4 class="modal-title pull-left">Share this Recipe</h4>-->
+<!--<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">-->
+<!--<span aria-hidden="true">&times;</span>-->
+<!--</button>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<share-buttons [theme]="'circles'"-->
+<!--[include]="['facebook','twitter','pinterest','google','email','print']"-->
+<!--[show]="14"-->
+<!--[size]="1"-->
+<!--[url]="recipe.WebURL"-->
+<!--&gt;</share-buttons>-->
+<!--</div>-->
+<!--</ng-template>-->
+
+<!--<ng-template #addToPlanTemplate>-->
+<!--<div class="modal-header">-->
+<!--<h4 class="modal-title pull-left">Add to Meal Plan</h4>-->
+<!--<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">-->
+<!--<span aria-hidden="true">&times;</span>-->
+<!--</button>-->
+<!--</div>-->
+<!--<div class="modal-body" style="min-height:360px;">-->
+
+<!--<form>-->
+<!--<select class="form-control" [(ngModel)]="mealModel"  style="width: 240px;" name="mealChoice" id="mealChoice"><option value="1">Breakfast</option><option value="3">Lunch</option><option value="5" selected>Dinner</option></select>-->
+
+
+<!--</form>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button class="btn btn-primary" (click)="modalRef.hide();addToPlanDone();">Add to Plan</button><button class="btn btn-default" (click)="modalRef.hide()">Cancel</button>-->
+<!--</div>-->
+<!--</ng-template>-->
+
+<!--<ng-template #addToGroceryTemplate>-->
+<!--<div class="modal-header">-->
+<!--<div>-->
+<!--<p class="modal-title pull-left" style="margin-top:6px;">-->
+<!--Cross off the items you already have on hand.-->
+<!--</p>-->
+
+<!--<div class="pull-right">-->
+<!--<button (click)="addItemsConfirmed();modalRef.hide();" class="btn btn-primary">Add</button>-->
+<!--<button (click)="modalRef.hide();" class="btn btn-default">Cancel</button>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<ul class="unbulleted-list">-->
+<!--<li *ngFor="let ingredient of groceryIngredients">-->
+<!--<span *ngIf="!ingredient.IsHeading" class="ingredient">-->
+<!--<span>-->
+<!--<button (click)="removeLine(ingredient.IngredientID);"><i class="glyphicon glyphicon-remove"></i></button> -->
+<!--</span>-->
+<!--<span *ngIf="!metric">-->
+<!--<span class="amount">{{ingredient.DisplayQuantity }}</span>-->
+<!--<span class="unit">{{ingredient.Unit}}</span>-->
+<!--</span>-->
+<!--<span *ngIf="metric">-->
+<!--<span class="amount">{{ingredient.MetricQuantity}}</span>-->
+<!--<span class="unit">{{ingredient.MetricUnit}}</span>-->
+<!--</span>-->
+<!--<span (click)="onDataClick($event, ingredient)" class="name" [innerHTML]="ingredient.HTMLName | urlpath"></span>-->
+<!--<span class="prepnotes" [innerHTML]="ingredient.PreparationNotes"></span>-->
+<!--</span>-->
+<!--<span *ngIf="ingredient.IsHeading" class="ingredient">-->
+<!--<span class="ingredient-heading" [innerHTML]="ingredient.Name"></span>-->
+<!--</span>-->
+<!--</li>-->
+<!--</ul>-->
+
+
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<div class="text-muted pull-left">Tip: you can add notes or edit these items after adding.</div>-->
+<!--</div>-->
+
+<!--</ng-template>-->
