@@ -1,5 +1,5 @@
 import { BigOvenModelAPIGroceryItem } from './bigovenmodelapigroceryitem.model'
-import { BigOvenModelAPI2RecipeInfox } from './bigovenmodelapi2recipeinfox.model'
+import { BigOvenModelAPI2RecipeInfox } from '../Recipe/bigovenmodelapi2recipeinfox.model'
 
 export interface BigOvenModelAPI2GroceryList {
   LastModified: string;

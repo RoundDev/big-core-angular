@@ -1,0 +1,141 @@
+<script type="text/javascript" async="async">
+    loadScript(facebookFunction());
+</script>
+
+
+<div id="fb-root"></div>
+<div class="row bg-img justify-content-center">
+  <div *ngIf="user!=null" class="container-fluid sign-in-main-content-section" style="max-width:320px;margin:0 auto;">
+    <h2>Welcome {{ user.name}}. Signing in...</h2>
+  </div>
+  <div *ngIf="user==null" class="container-fluid sign-in-header sign-in-main-content-section" id="main-signin-form">
+    <!--<h1 class="text-center">Sign In</h1>-->
+    <div class="alert" *ngIf="message!=null">{{message}}</div>
+    <div id="login-warning"></div>
+  </div>
+  <div class="d-flex section-login">
+    <div class="w-100">
+      <div class="logo-wrapper text-center">
+        <img class="bo-logo" alt="BigOven" src="/assets/images/login/bo_logo.svg">
+      </div>
+      <div class="login-wrapper d-block">
+        <div class="col-12 text-center" style="padding-top: 25px">
+          <h2 class="text-center">Sign In</h2>
+          <!--<button type="button" class="btn btn-danger text-center">Sign In</button>-->
+        </div><br>
+        <div class="col-12 text-center">
+          <p class="p-space">with</p>
+        </div><br>
+        <div class="row text-center">
+          <div class="col-12" style="width: 150px; height: 50px">
+            <button type="button" (click)="signInWithGoogle()" class="google" style="width: 150px; height: 50px"></button>
+            <!--<img src="/assets/images/login/btn_google_signin_light_normal_web@2x.png" class="google" (click)="signInWithGoogle()" alt="Google">-->
+          </div>
+          <div class="col-12 text-center ">
+            <!--<div class="col-12 text-center justify-content-center">-->
+            <!--<a>-->
+            <!---->
+            <!--<div class="rectangle">-->
+            <!--<i class="fab fa-facebook-f"></i>-->
+            <!--</div>-->
+            <!---->
+            <!--</a>-->
+            <div class="fb-login-button" data-size="medium" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <!--</div>-->
+          </div>
+        </div><br>
+        <div class="col-12 text-center">
+          <p class="p-space">or</p>
+        </div>
+        <form id="loginForm" accept-charset="UTF-8">
+          <div class="container-fluid sign-in-input-form">
+            <input type="hidden" name="ReturnUrl">
+            <input type="hidden" name="client_id">
+            <input type="hidden" name="redirect_uri">
+            <input type="hidden" name="state">
+            <div class="col-12 text-center justify-content-center">
+              <input [(ngModel)]="username" id="email" name="Email" type="text" class="login-input  si-input-form-box" placeholder="User name or email address" autocomplete="off">
+            </div>
+            <br>
+            <div class="col-12 text-center">
+              <input [(ngModel)]="password" id="password" name="Password" type="password" class="login-input  si-input-form-box" placeholder="Password" autocomplete="off">
+            </div>
+            <br>
+            <div class="col-12 text-center sign-in-btn-wrapper">
+              <button (click)="signInWithUserNamePassword();" type="submit" id="signinEmailButton" name="submit" style="width:80%;" class="btn si-submit-button btn-lg btn-success">{{buttonText}}</button>
+            </div>
+            <br>
+            <div class="row text-center">
+              <div class="col-6">
+                <label class="checkbox si-label-checkbox p-space" for="remember"> Remember me
+                  <input type="checkbox" value="true" name="remember" id="remember" checked="">
+                </label>
+              </div>
+              <div class="col-6">
+                <a class="si-forgot-password p-space" routerLink="/account/forgot">Forgot password?</a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="col-12 justify-content-end">
+          <p class="text-right sign-up">Don't have account? Sign up.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div *ngIf="user!=null" class="container-fluid sign-in-main-content-section" style="max-width:320px;margin:0 auto;">-->
+<!--<h2>Welcome {{ user.name}}. Signing in...</h2>-->
+<!--</div>-->
+
+
+
+<!--<div *ngIf="user==null" class="container-fluid sign-in-main-content-section" id="main-signin-form">-->
+<!--<div class="container-fluid sign-in-header">-->
+<!--<h1 class="text-center">Sign In</h1>-->
+<!--<div class="alert" *ngIf="message!=null">{{message}}</div>-->
+<!--<div id="login-warning"></div>-->
+<!--</div>-->
+<!--<div style="max-width:230px;margin:0 auto;">-->
+<!--<div id="hideIfUserKnown" style="margin-bottom:4px;" class="container-fluid sign-in-social-buttons">-->
+<!--<button (click)="signInWithFB()" style="width:100%;"  class="btn btn-lg btn-primary">-->
+<!--&lt;!&ndash;<i class="fa fa-facebook"></i>&ndash;&gt;-->
+<!--&nbsp;Facebook</button>-->
+<!--</div>-->
+<!--<div id="hideIfUserKnown" class="container-fluid sign-in-social-buttons">-->
+<!--<button (click)="signInWithGoogle()" id="signinButton" style="width:100%;" class="btn btnstateless btn-lg btn-danger">-->
+<!--&lt;!&ndash;<i class="fa fa-google"></i>&ndash;&gt;-->
+<!--&nbsp;Google</button>-->
+<!--</div>-->
+<!--<p class="text-center text-muted" style="margin-top:0.7em;">or</p>-->
+
+<!--<form id="loginForm" accept-charset="UTF-8">-->
+<!--<div class="container-fluid sign-in-input-form">-->
+<!--<input type="hidden" name="ReturnUrl">-->
+<!--<input type="hidden" name="client_id">-->
+<!--<input type="hidden" name="redirect_uri">-->
+<!--<input type="hidden" name="state">-->
+
+
+<!--<input [(ngModel)]="username" type="text" style="max-width: 230px;" id="email" class="form-control si-input-form-box" name="Email" placeholder="email or username" autocomplete="off">-->
+<!--<br>-->
+<!--<input [(ngModel)]="password" type="password" style="max-width: 230px;" id="password" class="form-control si-input-form-box" name="Password" placeholder="Password" autocomplete="off">-->
+<!--<div class="text-center text-muted" style="margin-top:0.7em;">-->
+<!--<label class="checkbox si-label-checkbox">-->
+<!--<input type="checkbox" name="RememberMe" value="true" checked=""> Remember Me-->
+<!--</label>-->
+<!--</div>-->
+<!--<br>-->
+<!--<button (click)="signInWithUserNamePassword();" type="submit" id="signinEmailButton" name="submit" style="width:100%;" class="btn si-submit-button btn-lg btn-success">{{buttonText}}</button>-->
+<!--<br>-->
+<!--<br>-->
+<!--<div class="text-center">-->
+<!--<a class="si-forgot-password" routerLink="/account/forgot">Forgot password?</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

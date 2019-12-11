@@ -1,0 +1,51 @@
+<div *ngIf="collection">
+
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/"><i class="ss ss-home"></i></a></li>
+      <li class="breadcrumb-item"><a routerLink="/recipes">Recipes</a></li>
+      <li class="breadcrumb-item"><a routerLink="/recipes/course">Course</a></li>
+      <li class="breadcrumb-item active" *ngIf="collectionMetaData">{{ collectionMetaData.Title }}</li>
+
+    </ol>
+  </nav>
+
+
+  <!--<app-recipe-ideas-bar></app-recipe-ideas-bar>-->
+  <div class="maxContainer">
+    <div *ngIf="collectionMetaData">
+      <h1>{{ collectionMetaData.Title }}</h1>
+      <p>{{ collectionMetaData.Description }}</p>
+    </div>
+    <app-recipe-results [recipeResults]="collection" [showPagination]="false"></app-recipe-results>
+    <div class="text-center">
+
+      <pagination [maxSize]="5" [totalItems]="collection.ResultCount" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+
+    </div>
+  </div>
+</div>
+
+<!--<div *ngIf="(category && !subcategory)">-->
+<!--  <app-category-browse [category]="category"></app-category-browse>-->
+<!--</div>-->
+
+<div *ngIf="(category && subcategory)">
+
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/"><i class="ss-home"></i></a></li>
+      <li class="breadcrumb-item"><a routerLink="/recipes">Recipes</a></li>
+      <li class="breadcrumb-item"><a routerLink="/recipes/course">Course</a></li>
+      <li class="breadcrumb-item"><a routerLink="/recipes/{{category}}">{{category}}</a></li>
+      <li class="breadcrumb-item active">{{ subcategory }}</li>
+    </ol>
+  </nav>
+
+  <!--<app-recipe-ideas-bar></app-recipe-ideas-bar>-->
+  <div class="maxContainer">
+    <h1>{{ category }} {{ subcategory }}</h1>
+    <app-recipe-results [subcategoryInt]="subcategoryInt" [categoryName]="category" [subcategoryName]="subcategory" [recipeResults]="recipeResultsColl"></app-recipe-results>
+  </div>
+</div>
+

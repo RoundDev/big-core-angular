@@ -1,0 +1,27 @@
+@import "../../../app.component";
+
+$defaultDarkGryColor: #696969;
+$defaultLightGryColor: #B5B5B5;
+
+.title-divider {
+  font-family: $defaultFont;
+  color: $defaultBOColor;
+  font-weight: 600;
+  border-top: 3px solid $defaultBOColor;
+  padding: 25px 0 30px 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #F2F2F2 !important;
+}
+.table td {
+  font-family: $defaultFont;
+  color: $defaultDarkGryColor;
+  padding: 1.75rem !important;
+  border-top: none !important;
+  //margin-left: 15%;
+  //float: left;
+}
+.step-checkbox {
+  float: right;
+}

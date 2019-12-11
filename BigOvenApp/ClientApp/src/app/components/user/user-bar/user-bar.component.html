@@ -1,0 +1,78 @@
+<div style="margin-top:7px;">
+  <div class="row">
+    <div class="col-12 buttons-wrapper" style="display: flex" *ngIf="userInfoJWT===null">
+      <button class="btn btn-default nav-btn" routerLink="/account/join">JOIN FREE</button>
+      <button class="btn btn-primary" routerLink="/account/login">sign in</button>
+    </div>
+  </div>
+  <div *ngIf="userInfoJWT!==null" class="">
+    <div class="row">
+      <div class="btn-group user-bar-padding" dropdown>
+        <div class="col-6">
+          <a dropdownToggle class="float-left notification">
+            <img class="desktop-notification" src="/assets/images/icons/bell.svg">
+            <span><mark class="rubberBand">99</mark></span>
+          </a>
+        </div>
+        <div class="col-6 col-notification">
+          <div class="btn-group user-bar" dropdown placement="bottom right">
+            <div class="btn-group float-left dropdown-name" dropdown>
+              <!--<img class="bar-avatar" src="{{ userInfoJWT.photoUrl }}?h=32&w=32" />-->
+              <a dropdownToggle class="d-none d-lg-block"><strong>Welcome </strong>&#9679;<strong class="user-name"> {{ userInfoJWT.username }}</strong>
+              </a>
+              <a  class="d-lg-none"><img class="mobile-icons user-logo" src="/assets/images/icons/user.svg"></a>
+              <ul *dropdownMenu class="dropdown-menu" role="menu">
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/account/me">Settings</a>
+                </li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/user/{{ userInfoJWT.username }}">Profile</a>
+                </li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/mobile">Get App</a>
+                </li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/user">Find Cooks</a>
+                </li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/recipe/post">Add Recipe</a>
+                </li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem">
+                  <a class="dropdown-item" href="https://support.bigoven.com">Help</a>
+                </li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/account/logout">Sign Out</a>
+                </li>
+              </ul>
+            </div>
+
+
+            <!--<ul *dropdownMenu class="dropdown-menu dropdown-menu-right inbox-items" role="menu">-->
+            <!--<li *ngFor="let item of inboxItems">-->
+            <!--&lt;!&ndash;<div *ngFor="let user of userInfo">&ndash;&gt;-->
+            <!--<div *ngIf="userInfoJWT.username || userInfoJWT.userId">-->
+            <!--<div class="row">-->
+            <!--<a routerLink="{{userInfoJWT.WebUrl | urlpath}}">-->
+            <!--<div class="col-xs-2"><img alt="{{userInfoJWT.username}}" src="{{userInfoJWT.PhotoUrl}}?h=36&w=36" /></div>-->
+            <!--<div class="col-xs-10">{{ item.ActionText }} </div>-->
+            <!--</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div *ngIf="!userInfoJWT.username || !userInfoJWT.userId">-->
+            <!--<div class="col-xs-12"> <a routerLink="{{item.WebUrl | urlpath}}"> {{ item.ActionText }}</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</li>-->
+            <!--<li><a routerLink="/activity">View All Activity</a></li>-->
+            <!--</ul>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

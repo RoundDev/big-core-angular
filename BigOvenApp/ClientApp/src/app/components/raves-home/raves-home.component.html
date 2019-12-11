@@ -1,0 +1,61 @@
+<div class="">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 left-description">
+      <div class="row">
+        <div class="col-12 ideas-content">
+          <p class="ideas-head">
+            Recent<span><img class="bo-cloud" src="/assets/images/icons/bo-cloud.svg"></span><br> <strong>Raves</strong>
+          </p>
+          <p class="ideas-body">
+            Trending recipes from BigOven cooks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row collection-row">
+      <div *ngFor="let coll of raves" class="out">
+        <div class="col-xs-12 col-sm-4 col-lg-4 collection-tile-full">
+          <!--<div class="row">-->
+          <!--<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">-->
+          <div class="collection-wrapper">
+            <a routerLink="{{coll.RecipeInfo.WebURL | urlpath }}">
+              <!--<div class="ribbon-wrapper-red">-->
+              <!--<div class="ribbon-red">collection</div>-->
+              <!--</div>-->
+              <img style="width: 175px !important;" src="{{ coll.RecipeInfo.PhotoUrl }}?w=256&h=256">
+              <div class="title-wrapper"></div>
+              <div class="coll-title">{{ coll.RecipeInfo.Title }}</div>
+              <div class="space"></div>
+              <!--<div class="coll-rating">{{ coll.RecipeInfo.StarRating}}</div>-->
+              <div class="coll-rating">
+<!--                <star-rating [starType]="'svg'" [showHalfStars]="true"  [rating]="coll.RecipeInfo.StarRating"></star-rating>-->
+              </div>
+            </a>
+          </div>
+
+          <!--</div>-->
+          <!--</div>-->
+          <div *ngIf="coll.IsSponsored===true" class="sponsored-icon tip" title="Sponsored by RiceSelect™">
+            <!-- click through url <a href="https://bs.serving-sys.com/serving/adServer.bs?cn=trd&amp;mc=click&amp;pli=21694377&amp;PluID=0&amp;ord=[timestamp]">
+                <img src="https://bigoven-res.cloudinary.com/image/upload/RiceSelect-Logo-120x60_aymzck.png">
+            </a>-->
+          </div>
+          <!-- display indicator
+          <script type="text/javascript">$.get('', function () { });</script>
+          <script type="text/javascript">$.get('https://bs.serving-sys.com/serving/adServer.bs?cn=display&c=19&mc=imp&pli=21694377&PluID=0&ord=10/18/2017 10:32:06 PM&rtu=-1', function () { });</script>
+          -->
+        </div>
+      </div>
+    </div>
+
+    <!--<app-nyi></app-nyi>-->
+
+    <!--</div>-->
+
+    <span class="see-more">
+          <strong>+</strong><br>
+          See more
+        </span>
+  </div>
+</div>

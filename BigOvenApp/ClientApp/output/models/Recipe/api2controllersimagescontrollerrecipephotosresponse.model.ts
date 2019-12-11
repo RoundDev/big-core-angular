@@ -1,4 +1,4 @@
-import { BigOvenModelAPI2Photo } from './bigovenmodelapi2photo.model'
+import { BigOvenModelAPI2Photo } from '../User/bigovenmodelapi2photo.model'
 
 export interface API2ControllersImagesControllerRecipePhotosResponse {
   ResultCount: number;

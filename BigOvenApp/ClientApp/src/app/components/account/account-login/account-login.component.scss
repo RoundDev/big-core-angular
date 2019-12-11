@@ -1,0 +1,179 @@
+$defaultBOColor: #BE2025;
+$defaultFont: 'Montserrat', sans-serif;
+$defaultWhiteColor: #FFFF;
+.bg-img {
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+  url("/assets/images/login/bkg-2.svg") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
+
+}
+.section-login {
+  padding-top: 3%;
+  padding-bottom: 10%;
+}
+.login-wrapper {
+  min-width: 450px;
+  min-height: 85%;
+  max-width: 80%;
+  background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  border-radius: 34px;
+}
+.sign-in {
+  display: block;
+  position: relative;
+  left: 75px;
+  max-width: 50%;
+  max-height: 45px;
+  text-align: center;
+  background-color: $defaultWhiteColor;
+  border-radius: 17px;
+  float: none;
+  //max-width: 80%;
+}
+
+h2 {
+  color: $defaultBOColor;
+}
+.login-input {
+  text-align: center;
+  width: 75%;
+  color: $defaultWhiteColor;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid $defaultWhiteColor;
+}
+.login-input:focus {
+  outline: none;
+}
+::placeholder {
+  color: $defaultWhiteColor;
+}
+.logo-wrapper {
+  padding-bottom: 20px;
+}
+.bo-logo {
+  max-width: 55%;
+}
+.btn-danger {
+  font-family: $defaultFont;
+  border-radius: 17px;
+  width: 150px;
+  height: 40px;
+}
+.btn-danger:hover {
+  background-color: $defaultBOColor;
+  border-color: #dc3545;
+  font-family: $defaultFont;
+}
+.btn-success {
+  border-radius: 17px;
+  background-color: $defaultWhiteColor;
+  border-color: $defaultWhiteColor;
+  color: $defaultBOColor;
+  font-family: $defaultFont;
+}
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid $defaultWhiteColor;
+  -webkit-text-fill-color: $defaultWhiteColor;
+  -webkit-box-shadow: none;
+
+  transition: background-color 5000s ease-in-out 0s;
+}
+.sign-in-btn-wrapper {
+  padding-top: 15px;
+}
+
+.google {
+  background: url("/assets/images/login/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background-size: 150px 40px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  //margin-bottom: 35px;
+}
+.google:hover {
+  background: url("/assets/images/login/btn_google_signin_light_focus_web@2x.png") no-repeat;
+  background-size: 150px 40px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  //box-shadow: 4px 3px 8px 0 #0c0c0c66;
+}
+
+.google:focus, .google:focus-within, .google:active {
+  background: url("/assets/images/login/btn_google_signin_light_pressed_web@2x.png") no-repeat;
+  background-size: 150px 40px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  //box-shadow: 4px 3px 8px 0 #0c0c0c66;
+}
+
+.p-space {
+  font-family: $defaultFont;
+  font-size: 14px;
+  color: $defaultWhiteColor;
+}
+.sign-up {
+  display: block;
+  position: relative;
+  font-family: $defaultFont;
+  font-size: 12px;
+  color: $defaultWhiteColor;
+  top: 25px;
+  right: 15px;
+}
+.fa-facebook-f {
+  font-size: 24px;
+  border: 1px solid #4267b2;
+  background-color: #4267b2;
+  color: white;
+  width: 29px;
+  height: 22px;
+  /* padding-top: 2px; */
+  /* padding-bottom: 2px; */
+  padding: 2px;
+}
+.rectangle {
+  height: 50px;
+  width: 100px;
+  background-color: #555;
+}
+
+@media only screen and (max-width: 768px) {
+  .login-wrapper {
+    min-width: 350px;
+    min-height: 85%;
+    max-width: 80%;
+    background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    border-radius: 34px;
+  }
+  .bg-img {
+    margin: 0;
+  }
+  .section-login {
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+}

@@ -1,4 +1,4 @@
-import { BigOvenModelAPI2UserInfoTinyx } from './bigovenmodelapi2userinfotinyx.model'
+import { BigOvenModelAPI2UserInfoTinyx } from '../User/bigovenmodelapi2userinfotinyx.model'
 
 export interface BigOvenModelAPI2RecipeInfox {
   RecipeID: number;

@@ -1,0 +1,28 @@
+
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/"><i class="ss ss-home"></i></a></li>
+    <li class="breadcrumb-item"><a routerLink="/recipes">Recipes</a></li>
+    <li class="breadcrumb-item"><a routerLink="/recipes/course">Course</a></li>
+    <li class="breadcrumb-item active">{{category}}</li>
+  </ol>
+</nav>
+
+<!--<app-recipe-ideas-bar></app-recipe-ideas-bar>-->
+
+<div class="maxContainer">
+  <h1>{{category}}</h1>
+
+  <div class="row">
+    <div *ngFor="let categoryTile of categories">
+      <div class="col-xs col-sm-4 col-lg-2 collection-tile-full">
+        <div class="collection-wrapper">
+          <a routerLink="/recipes/{{category}}/{{categoryTile.Category | seoify }}">
+            <img class="thumblg-img" src="{{categoryTile.PrimaryImage}}" alt="{{categoryTile.Category}} recipes" title="{{categoryTile.Category}} recipes">
+            <div class="collection-title">{{categoryTile.Category}} </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

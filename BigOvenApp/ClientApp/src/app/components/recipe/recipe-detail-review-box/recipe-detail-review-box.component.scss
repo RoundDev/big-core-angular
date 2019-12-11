@@ -1,0 +1,33 @@
+@import '../../../app.component';
+.review-this {
+  background-color: #F8F8F8;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 22px;
+}
+.comment-form {
+  margin:20px 20px;
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: $defaultBOColor;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #f03c561f;
+}
+textarea {
+  border: 1px solid $defaultBOColor !important;
+  border-radius: 8px !important;
+}
+.rating {
+  display: inline-block;
+  font-size: 2.6em;
+  color: $defaultBOColor;
+}
+.rating-row > span {
+  position: absolute;
+  bottom: 17px;
+  margin-left: 10px;
+  color: $defaultBOColor;
+  font-family: $defaultFont;
+  font-size: 1.3em;
+}

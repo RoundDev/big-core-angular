@@ -1,4 +1,4 @@
-import { BigOvenModelAPI2RecipeInfox } from './bigovenmodelapi2recipeinfox.model'
+import { BigOvenModelAPI2RecipeInfox } from '../Recipe/bigovenmodelapi2recipeinfox.model'
 
 export interface BigOvenModelAPI2CollectionInfo {
   ID: number;

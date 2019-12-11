@@ -1,0 +1,98 @@
+<!--<app-breadcrumb *ngIf="recipe" [recipe]="recipe"></app-breadcrumb>-->
+<!--<div class="w-25 add-photo">-->
+<!--<a routerLink="/media/uploaduniversal/recipe/image/{{recipeId}}" class="more-wrapper">-->
+<!--<span class="i-position"><i class="fas fa-plus-circle"></i></span> <p class="add-more">add more photos</p>-->
+<!--</a>-->
+<!--</div>-->
+<div  *ngIf="recipe">
+  <div class="hero-wrapper">
+    <div class="d-flex justify-content-center">
+      <div class="row text-center">
+        <div class="background"></div>
+        <!--Version 2-->
+        <!--<div class="d-flex img-wrapper w-100">-->
+        <!--<div class="image w-100">-->
+        <!--<img class="recipe-image" src="{{recipe.PhotoUrl}}" alt="{{recipe.Title}}" title="{{recipe.Title}}">-->
+        <!--<span class="add-photo clearfix">-->
+        <!--<a routerLink="/media/uploaduniversal/recipe/image/{{recipeId}}" class="more-wrapper">-->
+        <!--<span class="i-position"><i class="fas fa-plus-circle"></i></span> <p class="add-more">add more photos</p>-->
+        <!--</a>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--Version 1-->
+        <div class="row img-wrapper">
+          <div class="col-12 hero-img-content">
+            <img class="recipe-image" src="{{recipe.PhotoUrl}}" alt="{{recipe.Title}}" title="{{recipe.Title}}">
+            <!--<div class="col-2 add-photo clearfix">-->
+            <!--<a routerLink="/media/uploaduniversal/recipe/image/{{recipeId}}" class="more-wrapper">-->
+            <!--<span class="i-position"><i class="fas fa-plus-circle"></i></span> <p class="add-more">add more photos</p>-->
+            <!--</a>-->
+            <!--</div>-->
+          </div>
+          <span class="add-photo clearfix"><i class="fas fa-plus-circle"></i>add more photos</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-12" style="margin-bottom: 200px">
+    <div class="text-center">
+      <app-recipe-detail-info-box [recipe]="recipe"></app-recipe-detail-info-box>
+    </div>
+    <div class="clearfix"></div>
+    <div class=" col-8 text-center">
+      <app-recipe-detail-tabs [recipe]="recipe" [resizedTo]="resizedTo" [metric]="metric"></app-recipe-detail-tabs>
+    </div>
+    <div class="col-12">
+      <app-recipe-instructions [recipe]="recipe"></app-recipe-instructions>
+    </div>
+    <div class="col-12 text-center">
+      <app-social-media-share></app-social-media-share>
+    </div>
+    <div class="col-12 text-center">
+      <app-recipe-detail-review-box [recipe]="recipe" ]=""></app-recipe-detail-review-box>
+    </div>
+  </div>
+</div>
+
+<!--<div class="maxContainer">-->
+<!--<div *ngIf="recipe">-->
+<!--<h1>{{recipe.Title}}</h1>-->
+
+<!--<div class="col-xs-12 col-sm-2" style="padding-left:0;">-->
+<!--&lt;!&ndash;<app-recipe-detail-save-button></app-recipe-detail-save-button>&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="col-xs-12 col-sm-10">-->
+<!--&lt;!&ndash;<app-recipe-detail-upper-info-bar [recipe]="recipe"></app-recipe-detail-upper-info-bar>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div class="layout">-->
+<!--<div class="row justify-content-center">-->
+<!--<div class="hidden-xs col-sm-8" style="margin-top:0.9em;padding-right:0px;border-bottom:1px solid #ccc;max-width:836px;margin-left:15px;margin-bottom:0.9em;"></div>-->
+<!--<div class="col-xs-12 col-sm-8 text-center layout-left">-->
+<!--<div class="col-xs-12 col-sm-12  text-center" style="width: 400px; height: 400px">-->
+<!--<div class="col-12 text-center"  [ngStyle]="setRecipeImage()"></div>-->
+<!--&lt;!&ndash;<div [style.backgroundImage]="'url('+ recipe.PhotoUrl +')'"  [style.width.%]="50" [style.height.%]="50"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="{{ recipe.PhotoUrl }}?h=600&w=400&c_scale" class="recipe-hero-photo img-responsive" title="{{ recipe.Title}}">&ndash;&gt;-->
+<!--<a routerLink="/media/uploaduniversal/recipe/image/188958" class="btn btn-default add-recipe-photo-button">-->
+<!--<i class="ss ss-camera" title="Add Photo"></i>-->
+<!--</a>-->
+<!--</div>-->
+<!--<div class="col-xs-12 col-sm-7">-->
+<!--&lt;!&ndash;<app-recipe-detail-info-box [recipe]="recipe"></app-recipe-detail-info-box>&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="clearfix"></div>-->
+<!--&lt;!&ndash;<app-recipe-detail-tabs [recipe]="recipe" [resizedTo]="resizedTo" [metric]="metric"></app-recipe-detail-tabs>&ndash;&gt;-->
+<!--&lt;!&ndash;<app-recipe-detail-review-box [recipe]="recipe"></app-recipe-detail-review-box>&ndash;&gt;-->
+<!--&lt;!&ndash;<app-recipe-reviews [recipe]="recipe"></app-recipe-reviews>&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="col-xs-12 col-sm-4 layout-right">-->
+<!--&lt;!&ndash;<app-recipe-detail-right-bar></app-recipe-detail-right-bar>&ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

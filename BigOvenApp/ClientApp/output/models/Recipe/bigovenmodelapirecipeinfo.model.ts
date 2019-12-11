@@ -1,4 +1,4 @@
-import { BigOvenModelAPIUserInfo } from './bigovenmodelapiuserinfo.model'
+import { BigOvenModelAPIUserInfo } from '../User/bigovenmodelapiuserinfo.model'
 
 export interface BigOvenModelAPIRecipeInfo {
   RecipeID: number;

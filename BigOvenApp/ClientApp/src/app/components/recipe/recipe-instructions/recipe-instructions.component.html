@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-4 text-center">
+    <h2 class="title-divider">STEPS</h2>
+  </div>
+</div>
+<!--<div *ngIf="recipe.IsBookmark">-->
+<!--<div class="recipe-instructions instructions">-->
+<!--<br/>-->
+
+<!--<p>-->
+<!--See original recipe:-->
+<!--<a rel="nofollow" href="{{recipe.BookmarkURL}}" id="recipeBookmarkAnchor">{{recipe.BookmarkURL}}-->
+<!--<i class="fa fa-external-link-square"></i>-->
+<!--</a>-->
+<!--</p>-->
+<!--<p>-->
+<!--For preparation instructions, visit the link above. Why not here? Read our-->
+<!--<a href="http://support.bigoven.com/hc/en-us/articles/201072148-What-s-a-Bookmarked-Recipe-">Pledge to Food Bloggers.-->
+<!--<i class="fa fa-external-link-square"></i>-->
+<!--</a>-->
+<!--</p>-->
+<!--<p>-->
+<!--Are you the original author?-->
+<!--<a href="/account/welcomeblogger">Claim your page</a> on BigOven to get more exposure in our apps.-->
+<!--</p>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<div *ngIf="!recipe.IsBookmark" class="line-breaker instructions">
+  <div id="steps">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <!--{{formatSteps()}}-->
+        <!--{{recipe.Instructions | stepsFormat}} -->
+        <!--<div [innerHTML]="recipe.Instructions"></div>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let step of readInstructions(this.steps)">
+        <td>
+          <div class="row">
+            <div class="col-6 justify-content-start">{{step}}</div>
+            <div class="col-2 justify-content-end"><input class="step-checkbox" type="checkbox"></div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+.ingredients {
+  border-bottom: 1px solid #f2f2f2;
+}
+.ingredients-list {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+.ingredients-list li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+.ingredients-list li {
+  padding: 1em 1em 1em 1.4em;
+}
+
+.line-breaker {
+  white-space: pre-line;
+}
+
+.nav-tabs > li > a {
+  border-radius: 0px;
+  font-weight: normal;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+.nav-tabs > li > a {
+  background-color: #ebebeb;
+}
+
+.ingredients-list li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+.ingredients-list li {
+  padding: 1em 1em 1em 1.4em;
+}
+.ingredients-list {
+  color:#2c2c2c;
+  font-family:'Lato', 'Arial';
+  font-size:16px;
+}
+.instructions {
+  color:#2c2c2c;
+  font-family:'Lato', 'Arial';
+  line-height: 1.6em;
+  font-size: 1.2em;
+}
+.notes-list {
+  padding:2em 2em;
+
+}
+.add-note-form {
+  margin-top:2em;
+
+}
+
+

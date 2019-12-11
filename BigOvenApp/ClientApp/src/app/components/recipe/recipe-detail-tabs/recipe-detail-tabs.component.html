@@ -1,0 +1,200 @@
+<div class="recipe-tabs">
+  <tabset>
+    <tab heading="Recipe">
+      <div class="ingredients">
+        <h2>INGREDIENTS</h2>
+        <ul class="ingredients-list">
+          <li *ngFor="let ingredient of recipe.Ingredients">
+                        <span *ngIf="!ingredient.IsHeading" class="ingredient">
+                            <span *ngIf="!metric">
+                                <span class="amount">{{ingredient.DisplayQuantity }}</span>
+                                <span class="unit">{{ingredient.Unit}}</span>
+                            </span>
+
+                            <span *ngIf="metric">
+                                <span class="amount">{{ingredient.MetricQuantity}}</span>
+                                <span class="unit">{{ingredient.MetricUnit}}</span>
+                            </span>
+
+                            <span (click)="onDataClick($event, ingredient)" class="name"
+                                  [innerHTML]="ingredient.HTMLName | urlpath"></span>
+                            <span class="prepnotes" [innerHTML]="ingredient.PreparationNotes"></span>
+                            <span [routerLink]="ingredient.IngredientInfo.Name" *ngIf="ingredient.IngredientInfo!==null"
+                                  class="ingredInfo"></span>
+                        </span>
+            <span *ngIf="ingredient.IsHeading" class="ingredient">
+                            <span class="ingredient-heading" [innerHTML]="ingredient.Name"></span>
+                        </span>
+          </li>
+        </ul>
+
+        <div class="pad-left resize-control">
+          <div class="servingSize pull-left">
+            <form id="resizeForm" action="/recipe/teriyaki-chicken/530115" method="post">
+              <div style="margin-left:20px;">
+                                <span style="float: left;">
+                                    <input type="text" #resize class="form-control" name="resizedTo"
+                                           style="width: 60px; margin-right: 5px;" value="{{resizedTo}}">
+                                </span>
+                <span style="float: left; vertical-align: middle; margin: 7px 8px 0px 8px;">Servings</span>
+                <div style="float: left;">
+                  <div class="btn-group" dropdown>
+                    <button dropdownToggle type="button" class="btn btn-default dropdown-toggle">
+                      Resize
+                      <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <li role="menuitem">
+                        <a class="dropdown-item"
+                           routerLink="/recipe/{{recipe.Title | seoify}}/{{recipe.RecipeID}}/resized/{{resize.value}}">as
+                          posted</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="dropdown-item"
+                           routerLink="/recipe/{{recipe.Title | seoify}}/{{recipe.RecipeID}}/resized/metric/{{resize.value}}">to
+                          Metric</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <input type="hidden" name="usmetric" id="usmetric" value="us">
+                <input type="hidden" name="id" value="530115"> &nbsp;
+              </div>
+            </form>
+          </div>
+          <div class="pull-right" style="margin-right:2em;">
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="btn btn-default dropdown-toggle">Edit
+                <span class="caret"></span>
+              </button>
+              <ul *dropdownMenu class="dropdown-menu" role="menu">
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/recipe/{{recipe.RecipeID}}/post">Edit recipe</a>
+                </li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/recipe/{{recipe.RecipeID}}/recipe/images/edit">Edit images</a>
+                </li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/recipe/{{recipe.RecipeID}}/customize">Copy and Customize</a>
+                </li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/recipe/editingredient/{{recipe.RecipeID}}">Edit ingredient
+                    nutrition</a>
+                </li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem">
+                  <a class="dropdown-item" routerLink="/recipe/{{recipe.RecipeID}}/post">Delete</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+        <!--<h2 class="mb0 pb0">INSTRUCTIONS</h2>-->
+        <!--&lt;!&ndash;<div *ngIf="recipe.IsBookmark">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="recipe-instructions instructions">&ndash;&gt;-->
+        <!--&lt;!&ndash;<br/>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<p>&ndash;&gt;-->
+        <!--&lt;!&ndash;See original recipe:&ndash;&gt;-->
+        <!--&lt;!&ndash;<a rel="nofollow" href="{{recipe.BookmarkURL}}" id="recipeBookmarkAnchor">{{recipe.BookmarkURL}}&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="fa fa-external-link-square"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p>&ndash;&gt;-->
+        <!--&lt;!&ndash;For preparation instructions, visit the link above. Why not here? Read our&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="http://support.bigoven.com/hc/en-us/articles/201072148-What-s-a-Bookmarked-Recipe-">Pledge to Food Bloggers.&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="fa fa-external-link-square"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p>&ndash;&gt;-->
+        <!--&lt;!&ndash;Are you the original author?&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="/account/welcomeblogger">Claim your page</a> on BigOven to get more exposure in our apps.&ndash;&gt;-->
+        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div *ngIf="!recipe.IsBookmark" class="line-breaker instructions">-->
+        <!--{{recipe.Instructions}}-->
+        <!--</div>-->
+      </div>
+    </tab>
+
+    <tab heading="Photos {{photosCount}}">
+      <div class="inner-container">
+        <div *ngFor="let photo of photos">
+          <div class="col-xs-12 col-sm-4">
+            <div>
+              <img src="{{photo.PhotoUrl}}?w=256&h=256" alt="{{recipe.Title}}" title="{{photo.Caption}}"/>
+            </div>
+            <div>{{photo.Caption || ""}}</div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+    </tab>
+    <tab heading="Nutrition">
+      <div class="inner-container">
+        <div *ngIf="!this.bigovenAuthService.isPro()">
+          <app-upgrade-nudge></app-upgrade-nudge>
+        </div>
+        <div *ngIf="this.bigovenAuthService.isPro()" class="inner-container">
+          <!--<app-nutritionbox [recipe]="recipe"></app-nutritionbox>-->
+        </div>
+      </div>
+    </tab>
+    <tab heading="Notes {{noteCount}}">
+      <div class="inner-container">
+        <div *ngIf="!this.bigovenAuthService.isPro()">
+          <app-upgrade-nudge></app-upgrade-nudge>
+        </div>
+        <div *ngIf="this.bigovenAuthService.isPro()" class="notes-list">
+          <div class="add-note-form">
+            <form #addForm="ngForm" (ngSubmit)="onSubmitAddNote(addForm)">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div style="min-width: 160px;">
+                    <textarea ngModel id="note" class="form-control" placeholder="My notes on this recipe" name="note"
+                              rows="3"
+                              style="font-size: 1.4em;height: 90px; width: 100%; float: left; clear: both;"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <br/>
+                <div class="col-xs-12">
+                  <div>
+                    <input type="submit" id="addNoteBtn" class="btn btnstateless btn-primary" value="Add Note">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+          <div *ngFor="let note of notes">
+            <div class="row">
+              <div class="col-xs-3">
+                {{ note.Date }}
+              </div>
+              <div class="col-xs-9">
+                {{ note.Notes }}
+              </div>
+            </div>
+          </div>
+
+
+          <div class="clearfix"></div>
+        </div>
+
+      </div>
+
+    </tab>
+
+  </tabset>
+</div>

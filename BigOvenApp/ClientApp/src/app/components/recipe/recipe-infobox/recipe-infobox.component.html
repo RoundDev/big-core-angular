@@ -1,0 +1,113 @@
+<div *ngIf="recipe">
+  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 justify-content-center recipe-col"  >
+    <!--<p>{{recipe.TotalMinutes}} Total Minutes</p>-->
+    <!--<p>{{recipe.ActiveMinutes}} Active Minutes</p>-->
+    <div class="item recipe-tile-full">
+      <div class="panel panel-outer">
+        <div class="panel-body">
+          <a routerLink="{{ recipe.WebURL | urlpath }}">
+            <div class="heart-wrapper">
+              <div class="heart-red">
+                <i class="fas fa-heart"></i>
+              </div>
+            </div>
+            <img alt="{{recipe.Title}}" title= "{{recipe.Title}}" class="img-responsive panel-title recipe-img"
+                 src="{{ recipe.PhotoUrl }}?w=320&h=320">
+            <div class="row text-center justify-content-center title-row">
+              <div class=" col-12 recipe-title  text-center justify-content-center">
+                <div class="recipe-paragraph">
+                  <p class="title-paragraph">
+                    {{recipe.Title}}
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 recipe-rating">
+                <div class="recipe-star">
+                  <star-rating [starType]="'svg'" [showHalfStars]="true"  [rating]="recipe.StarRating"></star-rating>
+                </div>
+              </div>
+            </div>
+            <!-- Tile footer-->
+            <!--<div *ngFor="let info of recipeInfo">-->
+            <div class="row text-center justify-content-center tile-footer">
+              <span><i class="fas fa-clock sub-clock"></i></span>
+              <div class="col-4"><i class="far fa-calendar"></i>
+                <div class="col-12">
+                  <!--<div *ngFor="let info of recipeApi">-->
+                  <!--<div *ngIf="recipeApi.TotalMinutes">-->
+                  <p class="tile-paragraph">
+                    3<!--{{recipe.TotalMinutes}} &lt;!&ndash;{{recipe.TotalMinutes}}&ndash;&gt;-->
+                  </p>
+                  <!--</div>-->
+                  <!--</div>-->
+                </div>
+              </div>
+              <div class="col-4 col-border"><i class="far fa-clock"></i>
+                <div class="col-12">
+                  <p class="tile-paragraph">
+                    3<!--{{recipe.ActiveMinutes}}-->
+                  </p>
+                </div>
+              </div>
+              <div class="col-4"><i class="fas fa-utensils"></i>
+                <div class="col-12">
+                  <p class="tile-paragraph">
+                    4 <!--{{recipe.YieldNumber}}-->
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--</div>-->
+          </a>
+          <!--<a href="javascript:void(0);">-->
+          <!--<div class="action-button animate try-btn">-->
+          <!--<i data-toggle="tooltip" class="tip try-btn-attach fa fa-bookmark try-btn-attach-on" title="Remove from Try list"></i>-->
+          <!--</div>-->
+          <!--</a>-->
+          <!--<div class="upvote-counter left-arrow" data-rid="1152009">You + 43</div>-->
+          <!--<div class="remove-icon">-->
+          <!--<a href="javascript:void(0);">-->
+          <!--<i class="fa fa-remove tip" data-toggle="tooltip" data-placement="bottom" title="Remove Recipe"></i>-->
+          <!--</a>-->
+          <!--</div>-->
+          <!--data-url="https://www.bigoven.com/recipe/20-minute-lemon-pesto-penne/1152009"-->
+          <!--<ul class="list-group w280" >-->
+          <!--<li class="list-group-recipetile-1">-->
+          <!--<p>-->
+          <!--<a href="{{recipe.WebURL | urlpath}}">{{recipe.Title}}</a>-->
+          <!--</p>-->
+          <!--</li>-->
+          <!--<li class="list-group-item-2">-->
+          <!--<div class="icons">-->
+          <!--<a href="javascript:void(0);">-->
+          <!--<i title="Favorite" class="fa fa-heart fa-transition tip icon-space favorite-on">-->
+          <!--<span class="like-counter"> </span>-->
+          <!--</i>-->
+          <!--</a>-->
+          <!--<a href="javascript:void(0);">-->
+          <!--<i title="Add to Grocery List" class="fa fa-shopping-cart tip fa-transition icon-space btn-add-grocery" data-servings="4"-->
+          <!--data-rid="1152009"></i>-->
+          <!--</a>-->
+          <!--<a href="javascript:void(0);">-->
+          <!--<i title="Add to Meal Plan" class="fa fa-calendar fa-transition tip icon-space btn-add-menu" data-servings="4"-->
+          <!--data-rid="1152009"></i>-->
+          <!--</a>-->
+          <!--</div>-->
+          <!--</li>-->
+          <!--<li class="list-group-item-3">-->
+          <!--<div class="icons-2">-->
+          <!--<a href="https://www.bigoven.com/recipe/20-minute-lemon-pesto-penne/1152009">-->
+          <!--<i class="fa fa-star"></i>-->
+          <!--<i class="fa fa-star"></i>-->
+          <!--<i class="fa fa-star"></i>-->
+          <!--<i class="fa fa-star"></i>-->
+          <!--<span class="rating-counter">1</span>-->
+          <!--</a>-->
+          <!--</div>-->
+          <!--</li>-->
+          <!--</ul>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
