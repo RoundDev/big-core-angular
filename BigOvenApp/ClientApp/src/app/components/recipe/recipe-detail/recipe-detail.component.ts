@@ -20,7 +20,8 @@ export class RecipeDetailComponent implements OnInit {
   @Input() metric: boolean = false;
   @Input() resizedTo: number = 0;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiClientService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiClientService) {
+  }
 
   ngOnInit() {
 
@@ -32,12 +33,11 @@ export class RecipeDetailComponent implements OnInit {
     });
   }
 
-  getRecipeDetail(rid)
-  {
-    var Fraction = require('fractional').Fraction;
+  getRecipeDetail(rid) {
+    // let Fraction = require('fractional').Fraction;
 
     this.loading = true;
-    this.apiService.Recipe_Get(rid, false).subscribe( data => {
+    this.apiService.Recipe_Get(rid, false).subscribe(data => {
       this.loading = false;
       this.recipe = data.body;
 
@@ -46,61 +46,51 @@ export class RecipeDetailComponent implements OnInit {
 
       console.log(this.recipe);
 
-      if (this.recipe!=undefined)
-      {
+      if (this.recipe != undefined) {
         this.resizedTo = this.recipe.YieldNumber;
       }
 
 
-
-      for(var i=0; i<this.recipe.Ingredients.length; i++)
-      {
+      for (var i = 0; i < this.recipe.Ingredients.length; i++) {
         // fix glosslink
-        this.recipe.Ingredients[i].HTMLName =this.recipe.Ingredients[i].HTMLName.replace(/a href=/ig,"span dl=").replace(/<\/a>/ig,"</span>");
+        this.recipe.Ingredients[i].HTMLName = this.recipe.Ingredients[i].HTMLName.replace(/a href=/ig, "span dl=").replace(/<\/a>/ig, "</span>");
       }
 
 
       this.route.params.subscribe(params => {
-        this.metric = params['metric']=="metric";
-        if (params["resize"]!=null)
-        {
-          this.resizedTo = Number(params['resize']);
-          let ratio = this.resizedTo / this.recipe.YieldNumber;
+        this.metric = params['metric'] == "metric";
+        // if (params["resize"] != null) {
+        //   this.resizedTo = Number(params['resize']);
+        //   let ratio = this.resizedTo / this.recipe.YieldNumber;
 
-          if (ratio!=1)
-          {
-            for(var i=0; i<this.recipe.Ingredients.length; i++)
-            {
-              // resize ingredients
-              if (this.resizedTo!=this.recipe.YieldNumber)
-              {
-                if (!this.recipe.Ingredients[i].IsHeading)
-                {
-                  this.recipe.Ingredients[i].Quantity = this.recipe.Ingredients[i].Quantity * ratio;
-
-                  var fract = new Fraction(this.recipe.Ingredients[i].Quantity).toString();
-                  this.recipe.Ingredients[i].DisplayQuantity = fract;
-
-                  //this.recipe.Ingredients[i].DisplayQuantity = (this.recipe.Ingredients[i].Quantity * ratio).toString();
-                  this.recipe.Ingredients[i].MetricQuantity = this.recipe.Ingredients[i].MetricQuantity * ratio;
-
-                }
-              }
-            }
-          }
+          // if (ratio != 1) {
+          //   for (var i = 0; i < this.recipe.Ingredients.length; i++) {
+          //     // resize ingredients
+          //     if (this.resizedTo != this.recipe.YieldNumber) {
+          //       if (!this.recipe.Ingredients[i].IsHeading) {
+          //         this.recipe.Ingredients[i].Quantity = this.recipe.Ingredients[i].Quantity * ratio;
+          //
+          //         var fract = new Fraction(this.recipe.Ingredients[i].Quantity).toString();
+          //         this.recipe.Ingredients[i].DisplayQuantity = fract;
+          //
+          //         //this.recipe.Ingredients[i].DisplayQuantity = (this.recipe.Ingredients[i].Quantity * ratio).toString();
+          //         this.recipe.Ingredients[i].MetricQuantity = this.recipe.Ingredients[i].MetricQuantity * ratio;
+          //
+          //       }
+          //     }
+          //   }
+          // }
 
           console.log(this.recipe.Ingredients);
 
 
-        }
+        // }
       });
-
-
-
 
 
     });
   }
+
   // 'background-image': 'url(' + this.recipe.PhotoUrl + '?h=100&w=100&c_scale)',
   setRecipeImage() {
     return {

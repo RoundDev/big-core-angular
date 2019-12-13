@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { RecipeSearchService } from '../../shared/recipesearch.service';
 import { Router } from '@angular/router';
+import {RecipeSearchService} from "../../shared/services/recipeSearch.service";
 
 @Component({
   selector: 'app-search-box',
@@ -13,29 +14,29 @@ export class SearchBoxComponent implements OnInit {
   private subscription: any;
 
   constructor(
-    // private recipesearchService:RecipeSearchService,
+    private recipesearchService:RecipeSearchService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    // this.subscription = this.recipesearchService.getSearchCompletedEmitter()
-    //   .subscribe(status => this.onSearchCompleted(status));
+    this.subscription = this.recipesearchService.getSearchCompletedEmitter()
+      .subscribe(status => this.onSearchCompleted(status));
   }
 
   onSearchCompleted(status)
   {
-    // this.searchText = this.recipesearchService.getSearchText();
-    // console.log(this.searchText);
+    this.searchText = this.recipesearchService.getSearchText();
+    console.log(this.searchText);
   }
 
   setSearchText(value)
   {
-    // this.searchText = value;
+    this.searchText = value;
   }
 
   getSearchText()
   {
-    // return this.searchText;
+    return this.searchText;
   }
 
   keyDownFunction(event)
@@ -44,13 +45,13 @@ export class SearchBoxComponent implements OnInit {
       //alert('you just clicked enter');
       //console.log(event);
       //alert(event.target.value);
-      // let searchText = event.target.value;
+      let searchText = event.target.value;
 
       // now route it
-      // event.target.blur();
+      event.target.blur();
 
-      // this.router.navigate(["/recipes",searchText,"best"]);
-      // this.recipesearchService.doRecipeSearch(searchText, 1, 20);
+      this.router.navigate(["/recipes",searchText,"best"]);
+      this.recipesearchService.doRecipeSearch(searchText, 1, 20);
 
 
     }

@@ -11,11 +11,13 @@ import {BigOvenAuthService} from "../../../shared/services/bigovenauth.service";
 import {RecipeSearchService} from "../../../shared/services/recipeSearch.service";
 import {UserService} from "../../../shared/services/user.service";
 import {NgForm} from "@angular/forms";
+import {TofractionPipe} from "../../../shared/pipes/tofraction.pipe";
 
 @Component({
   selector: 'app-recipe-detail-tabs',
   templateUrl: './recipe-detail-tabs.component.html',
-  styleUrls: ['./recipe-detail-tabs.component.scss']
+  styleUrls: ['./recipe-detail-tabs.component.scss'],
+  providers: [UrlpathPipe, TofractionPipe]
 })
 export class RecipeDetailTabsComponent implements OnInit {
 

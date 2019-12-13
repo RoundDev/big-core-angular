@@ -15,7 +15,15 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { IdeasHomeComponent } from './components/ideas-home/ideas-home.component';
 import {AuthGuardService} from "./shared/services/auth-guard.service";
 import {CookieService} from "ngx-cookie-service";
-import {BsModalService, ModalModule, PaginationModule, RatingModule, TabsModule, TypeaheadModule} from "ngx-bootstrap";
+import {
+  BsDropdownModule,
+  BsModalService,
+  ModalModule,
+  PaginationModule,
+  RatingModule,
+  TabsModule,
+  TypeaheadModule
+} from "ngx-bootstrap";
 import { UrlpathPipe } from './shared/pipes/urlpath.pipe';
 import { RavesHomeComponent } from './components/raves-home/raves-home.component';
 import {StarRatingModule} from "angular-star-rating";
@@ -51,6 +59,9 @@ import {GlobalEventsManager} from "./shared/globaleventsmanager";
 import {GroceryService} from "./shared/services/grocery.service";
 import {GlobalVars} from "./shared/globalvars";
 import {RecipeSearchService} from "./shared/services/recipeSearch.service";
+import { TofractionPipe } from './shared/pipes/tofraction.pipe';
+import {ErrorInterceptor} from "./shared/httpinterceptor";
+import { HreftorouterlinkPipe } from './shared/pipes/hreftorouterlink.pipe';
 
 
 // export function createTranslateLoader(http: HttpClient, baseHref) {
@@ -119,6 +130,8 @@ export function provideConfig() {
     RecipeSearchViewComponent,
     CommaSeparatedNumberPipe,
     StringNoLongerPipe,
+    TofractionPipe,
+    HreftorouterlinkPipe,
 
   ],
   imports: [
@@ -131,10 +144,10 @@ export function provideConfig() {
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
       {path: 'fetch-data', component: FetchDataComponent},
-      // {
-      //   path: "account/join",
-      //   component: AccountJoinComponent
-      // },
+      {
+        path: "account/join",
+        component: AccountJoinComponent
+      },
       {
         path: "account/login",
         component: AccountLoginComponent
@@ -143,22 +156,22 @@ export function provideConfig() {
         path: "account/logout",
         component: AccountLogoutComponent
       },
-      // {
-      //   path: "recipes/search",
-      //   component: RecipesearchviewComponent
-      // },
-      // {
-      //   path: "recipes/search/page/:page",
-      //   component: RecipesearchviewComponent
-      // },
-      // {
-      //   path: "recipes/:searchText/best",
-      //   component: ReciperesultsComponent
-      // },
-      // {
-      //   path: "recipes/:searchText/best/page/:page",
-      //   component: ReciperesultsComponent
-      // },
+      {
+        path: "recipes/search",
+        component: RecipeSearchViewComponent
+      },
+      {
+        path: "recipes/search/page/:page",
+        component: RecipeSearchViewComponent
+      },
+      {
+        path: "recipes/:searchText/best",
+        component: RecipeSearchViewComponent
+      },
+      {
+        path: "recipes/:searchText/best/page/:page",
+        component: RecipeResultsComponent
+      },
       {
         path: "recipes/course",
         component: IdeasByCourseComponent
@@ -175,18 +188,18 @@ export function provideConfig() {
       //     path: "ideas-home",
       //     component: IdeasHomeComponent
       // },
-      // {
-      //   path: "recipe/:title/:recipeId",
-      //   component: RecipeDetailComponent
-      // },
-      // {
-      //   path: "recipe/:title/:recipeId/resized/:resize",
-      //   component: RecipeDetailComponent
-      // },
-      // {
-      //   path: "recipe/:title/:recipeId/resized/:metric/:resize",
-      //   component: RecipeDetailComponent
-      // },
+      {
+        path: "recipe/:title/:recipeId",
+        component: RecipeDetailComponent
+      },
+      {
+        path: "recipe/:title/:recipeId/resized/:resize",
+        component: RecipeDetailComponent
+      },
+      {
+        path: "recipe/:title/:recipeId/resized/:metric/:resize",
+        component: RecipeDetailComponent
+      },
       {
         path: "recipe-ideas/:title/:collId",
         component: CollectionViewComponent
@@ -201,9 +214,10 @@ export function provideConfig() {
       // },
 
     ]),
-    PaginationModule,
-    RatingModule,
-    TabsModule
+    PaginationModule.forRoot(),
+    RatingModule.forRoot(),
+    TabsModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [
     RecipeSearchService,
@@ -221,6 +235,11 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi:true
     },
   ],
   bootstrap: [AppComponent]
