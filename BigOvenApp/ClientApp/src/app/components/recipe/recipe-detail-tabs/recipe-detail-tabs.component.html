@@ -17,7 +17,7 @@
                             </span>
 
                             <span (click)="onDataClick($event, ingredient)" class="name"
-                                  [innerHTML]="ingredient.HTMLName | urlpath"></span>
+                                  [innerHTML]="ingredient.HTMLName "></span>
                             <span class="prepnotes" [innerHTML]="ingredient.PreparationNotes"></span>
                             <span [routerLink]="ingredient.IngredientInfo.Name" *ngIf="ingredient.IngredientInfo!==null"
                                   class="ingredInfo"></span>
