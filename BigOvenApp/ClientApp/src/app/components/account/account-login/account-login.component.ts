@@ -97,7 +97,7 @@ export class AccountLoginComponent implements OnInit {
 
   }
 
-  ignInWithGoogle(): void {
+  signInWithGoogle(): void {
     this.chosenProvider = "GOOGLE";
     this.buttonText = "Signing in...";
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);

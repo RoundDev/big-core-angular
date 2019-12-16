@@ -2741,7 +2741,9 @@ export class ApiClientService {
 
     var jwt = this.cookieService.get("sess");
     let fullHeaders = new HttpHeaders().append("Authorization", "Bearer " + jwt).append('Accept', 'application/json').append("X-BigOven-API-Key", "glFUKikehWjLW900etpS564VgIzOWSW5");
-
+      if (uri.indexOf("recipes/raves") < 0) {
+        fullHeaders = fullHeaders.append("Access-Control-Allow-Origin", "*");
+      }
     if (uri.indexOf("user/image") < 0) {
       fullHeaders = fullHeaders.append("Content-Type", "application/json");
     }

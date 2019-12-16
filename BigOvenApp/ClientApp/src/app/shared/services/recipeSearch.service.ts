@@ -149,7 +149,7 @@ export class RecipeSearchService {
         this.loading =false;
         this.ravesResults = data.body;
         this.searchCompleted.emit('complete');
-//                console.log(this.ravesResults);
+                console.log(this.ravesResults);
       }
     )
 
