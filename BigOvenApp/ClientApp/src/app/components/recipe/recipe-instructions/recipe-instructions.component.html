@@ -27,26 +27,36 @@
 
 <!--</div>-->
 <!--</div>-->
-<div *ngIf="!recipe.IsBookmark" class="line-breaker instructions">
+<div *ngIf="!recipe.IsBookmark" class="row justify-content-center line-breaker instructions">
   <div id="steps">
     <table class="table table-striped">
-      <thead>
-      <tr>
-        <!--{{formatSteps()}}-->
-        <!--{{recipe.Instructions | stepsFormat}} -->
-        <!--<div [innerHTML]="recipe.Instructions"></div>-->
-      </tr>
-      </thead>
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        {{formatSteps(this.steps)}}-->
+<!--        {{recipe.Instructions | stepsFormat}}-->
+<!--        <div [innerHTML]="recipe.Instructions"></div>-->
+<!--      </tr>-->
+<!--      </thead>-->
       <tbody>
       <tr *ngFor="let step of readInstructions(this.steps)">
         <td>
           <div class="row">
-            <div class="col-6 justify-content-start">{{step}}</div>
-            <div class="col-2 justify-content-end"><input class="step-checkbox" type="checkbox"></div>
+            <div class="col-8 justify-content-start">{{step}}</div>
+            <div class="col-4 justify-content-end"><input class="step-checkbox" type="checkbox"></div>
           </div>
         </td>
       </tr>
       </tbody>
     </table>
+  </div>
+</div>
+<div *ngIf="recipe.IsBookmark" class="row justify-content-center line-breaker instructions">
+  <div class="row justify-content-center">
+    <div class="col-12 blogger-col">
+      <p>
+        Blogger reciep follow the link for instructions
+        <a href="{{recipe.BookmarkURL}}">{{recipe.BookmarkURL}}</a>
+      </p>
+    </div>
   </div>
 </div>

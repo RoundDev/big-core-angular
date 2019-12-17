@@ -89,57 +89,57 @@ export class RecipeInstructionsComponent implements OnInit {
 //     console.log('Read Instructions' + ' ' + this.readInstructions(this.steps));
 // }
 
-//     formatSteps(steps){
-//     // check for predefined steps
-//     let instructions = this.recipe.Instructions;
-//     // console.log("Instr function" + " " + instructions);
-//     let patternStart =  /((\d{1,2})(\.\s+))/g;
-//         // /(\b([A-Z]))/gm;
-//     let patternEnd = /(\.\s+)/ig;
-//     // console.log("Pattern" + " " + pattern);
-//     let str = instructions.match(patternStart);
-//
-//     let str2 = instructions.match(patternEnd);
-//     const conStr = '';
-//     console.log("--------------Str---------" + " " + JSON.stringify(str));
-//     console.log("--------------Str2---------" + " " + JSON.stringify(str2));
-//
-//         // if (str.length > 1 || str2.length > 1) {
-//             //split string via predefined steps
-//             // let instructionsOne = instructions.replace(patternStart, '<div>');
-//             // steps = instructions.replace(patternEnd, '</div>'+'<br>');
-//             steps = instructions.replace(patternStart, conStr);
-//             console.log('Replace instr' + ' ' + steps);
-//             // console.log("Instructions IF:" + " " + regexInstructions)
-//         // }
-//         // else {
-//         //     // Parse for Steps:
-//         //     // Construct a delimiter for preparation steps
-//         //     pattern = /((((?<!\.\.\.|approx|\sc|\sg|\sgal|\skg|\smg|\sl|\slb|\smin|\sml|\soz|\spt|\st|\stb|\stbl|\stbsp|\stsp|\sstep)\.)(\))?\s+)(?!\())/i;
-//         //     instructions = instructions.replace(pattern, '$1 step');
-//         //     // console.log("Instructions Else:" + " " + regexInstructions)
-//         //     }
-//
-//     // split instructions into steps:
-//     return steps;
-//     // str.split('{{step}}', instructions);
-//
-//
-//
-//
-//       // let str = this.recipe.Instructions;
-//  // return str;
-//  //    str.trim();
-//  //    str.split('<div>');
-//  //    if (str.match(/^\d/g)) {
-//  //        str.replace(/([0-9])\W+/g, '<div>')
-//  //    }
-//
-//     // return str.replace(/\n/g, '<br/>');
-//  //  replace(/([0-9])\W+/g, '<div>')
-//  //        return str.replace(/\n/g, '<br/>');
-//     // str.replace(/\n/g, '<br/>');
-//         // replace(/\n/g, '<br/>');
-// }
+    formatSteps(steps){
+    // check for predefined steps
+    let instructions = this.recipe.Instructions;
+    // console.log("Instr function" + " " + instructions);
+    let patternStart =  /((\d{1,2})(\.\s+))/g;
+        // /(\b([A-Z]))/gm;
+    let patternEnd = /(\.\s+)/ig;
+    // console.log("Pattern" + " " + pattern);
+    let str = instructions.match(patternStart);
+
+    let str2 = instructions.match(patternEnd);
+    const conStr = '';
+    console.log("--------------Str---------" + " " + JSON.stringify(str));
+    console.log("--------------Str2---------" + " " + JSON.stringify(str2));
+
+        // if (str.length > 1 || str2.length > 1) {
+            //split string via predefined steps
+            // let instructionsOne = instructions.replace(patternStart, '<div>');
+            // steps = instructions.replace(patternEnd, '</div>'+'<br>');
+            steps = instructions.replace(patternStart, conStr);
+            console.log('Replace instr' + ' ' + steps);
+            // console.log("Instructions IF:" + " " + regexInstructions)
+        // }
+        // else {
+        //     // Parse for Steps:
+        //     // Construct a delimiter for preparation steps
+        //     pattern = /((((?<!\.\.\.|approx|\sc|\sg|\sgal|\skg|\smg|\sl|\slb|\smin|\sml|\soz|\spt|\st|\stb|\stbl|\stbsp|\stsp|\sstep)\.)(\))?\s+)(?!\())/i;
+        //     instructions = instructions.replace(pattern, '$1 step');
+        //     // console.log("Instructions Else:" + " " + regexInstructions)
+        //     }
+
+    // split instructions into steps:
+    return steps;
+    // str.split('{{step}}', instructions);
+
+
+
+
+      // let str = this.recipe.Instructions;
+ // return str;
+ //    str.trim();
+ //    str.split('<div>');
+ //    if (str.match(/^\d/g)) {
+ //        str.replace(/([0-9])\W+/g, '<div>')
+ //    }
+
+    // return str.replace(/\n/g, '<br/>');
+ //  replace(/([0-9])\W+/g, '<div>')
+ //        return str.replace(/\n/g, '<br/>');
+    // str.replace(/\n/g, '<br/>');
+        // replace(/\n/g, '<br/>');
+}
 
 }

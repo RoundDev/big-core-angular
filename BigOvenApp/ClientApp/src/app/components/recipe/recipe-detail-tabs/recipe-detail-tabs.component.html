@@ -1,9 +1,9 @@
-<div class="recipe-tabs">
+<div class="container-fluid recipe-tabs">
   <tabset>
     <tab heading="Recipe">
-      <div class="ingredients">
+      <div class="col-12 ingredients">
         <h2>INGREDIENTS</h2>
-        <ul class="ingredients-list">
+        <ul class="ingredients-list text-left">
           <li *ngFor="let ingredient of recipe.Ingredients">
                         <span *ngIf="!ingredient.IsHeading" class="ingredient">
                             <span *ngIf="!metric">

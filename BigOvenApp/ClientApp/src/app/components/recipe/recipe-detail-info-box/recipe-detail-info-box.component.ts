@@ -4,6 +4,7 @@ import {BigOvenModelAPI2Recipe, BigOvenModelAPIIngredient} from "../../../../../
 import {ActivatedRoute, Router} from "@angular/router";
 import {BigOvenAuthService} from "../../../shared/services/bigovenauth.service";
 import {GroceryService} from "../../../shared/services/grocery.service";
+import {faClock, faCalendar, faUtensils, faClipboard} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-recipe-detail-info-box',
@@ -32,6 +33,11 @@ export class RecipeDetailInfoBoxComponent implements OnInit {
     startingDay: 1
   };
 
+  // FontAwesome Icons
+  faClock = faClock;
+  faCalendar = faCalendar;
+  faUtensils = faUtensils;
+  faClipboard =faClipboard;
   opened: boolean = false;
   isCalendarCollapsed = true;
   groceryIngredients: BigOvenModelAPIIngredient[] =[];

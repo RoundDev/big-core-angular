@@ -16,54 +16,55 @@
   <!--</a>-->
   <!--</div>-->
 
-  <div class="justify-content-center" style="padding: 0 30% 0 30%;">
+  <div class="justify-content-center" > <!-- style="padding: 0 30% 0 30%;" -->
     <div class="row text-center details-row">
       <!--<div  class="col-12 ">-->
       <div *ngIf="recipe.Title" class="col-6 title-row">
         <h1 title="{{recipe.Title}}">{{recipe.Title}}</h1>
         <div class="row">
-          <div *ngIf="recipe.StarRating != 0" class="col-6">
+          <div *ngIf="recipe.StarRating != 0" class="col-6 col-sm-6">
             <star-rating [starType]="'svg'" [size]="'medium'" [hoverEnabled]="true" [labelPosition]="'right'"
-                         [labelText]="recipe.ReviewCount" [space]="'around'" [showHalfStars]="true"
+                         [labelText]="recipe.ReviewCount.toString()" [space]="'around'" [showHalfStars]="true"
                          [rating]="recipe.StarRating"></star-rating>
           </div>
-          <div *ngIf="recipe.StarRating == 0" class="col-6">
+          <div *ngIf="recipe.StarRating == 0" class="col-6 col-sm-6">
             <star-rating [starType]="'svg'" [size]="'medium'" [hoverEnabled]="true" [labelPosition]="'right'"
                          [labelText]="'0'" [space]="'around'" [showHalfStars]="true" [rating]="'0'"></star-rating>
           </div>
-          <div class="col-6">
+          <div class="col-6 col-sm-6">
             <p class="see-all">
               (see all ratings)
             </p>
           </div>
-          <div class="col-12">
-            <button class="btn btn-danger">Save this Recipe</button>
+          <div class="col-12 save-btn">
+            <button class="btn"><fa-icon [icon]="faClipboard"></fa-icon> Save this Recipe</button>
           </div>
         </div>
       </div>
       <div class="col-6 info-wrapper">
-        <p><i class="far fa-clock"></i> Activity minutes: {{recipe.ActiveMinutes | timeConverter}}</p>
-        <p><i class="far fa-calendar"></i> Total Minutes: {{recipe.TotalMinutes | timeConverter}}</p>
-        <p><i class="fas fa-utensils"></i> Serves: {{recipe.YieldNumber}}</p>
+        <p><fa-icon [icon]="faClock"></fa-icon> Prep time: {{recipe.ActiveMinutes | timeConverter}}</p>
+        <p><fa-icon [icon]="faCalendar"></fa-icon> Total Minutes: {{recipe.TotalMinutes | timeConverter}}</p>
+        <p><fa-icon [icon]="faUtensils"></fa-icon> Serves: {{recipe.YieldNumber}}</p>
       </div>
     </div>
   </div>
 
-  <div class="justify-content-center">
-    <div class="row ads-row text-center justify-content-center">
-      <div class="ads-content">
-        <p>
-          <strong>Ads container</strong>
-        </p>
-      </div>
-    </div>
-  </div>
+<!--ADS CONTAINER-->
+<!--  <div class="justify-content-center">-->
+<!--    <div class="row ads-row text-center justify-content-center">-->
+<!--      <div class="ads-content">-->
+<!--        <p>-->
+<!--          <strong>Ads container</strong>-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <div class="justify-content-center">
     <div class="row text-center justify-content-center">
       <div class="col-12 about-box">
-        <div class="text-center row justify-content-center" style="padding-bottom: 10px">
-          <div class="spacer col-6"></div>
+        <div class="text-center justify-content-center" style="padding-bottom: 10px">
+          <div class="spacer col-4 mx-auto"></div>
         </div>
         <div class="description-wrapper" *ngIf="recipe.Description">
           <h2 class="description">RECIPE DESCRIPTION</h2>
@@ -80,39 +81,40 @@
 
         <div class="author">
           <div *ngIf="recipe.Poster" class="row user-col">
-            <div class="col-5">
-              <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
-                <div class=" img-square">
-                  <img alt="{{recipe.Poster.UserName.toLowerCase()}}" class="avatar-img-sm"
-                       src="{{recipe.Poster.PhotoUrl}}">
+            <div class="col-6">
+                <div class="col-5">
+                  <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                    <div class=" img-square">
+                      <img alt="{{recipe.Poster.UserName.toLowerCase()}}" class="avatar-img-sm"
+                           src="{{recipe.Poster.PhotoUrl}}">
+                    </div>
+                  </a>
                 </div>
-              </a>
+                <div *ngIf="recipe.Poster" class="col-6 user-link">
+                  Provided by:
+                  <strong><a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                    {{recipe.Poster.UserName}}
+                  </a></strong>
+                </div>
+                <div class="col-2 custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="follow" value="Follow">
+                <label class="custom-control-label" for="customCheck">Follow</label>
+              </div>
             </div>
-            <div *ngIf="recipe.Poster" class="col-5 user-link">
-              Provided by:
-              <strong><a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
-                {{recipe.Poster.UserName}}
-              </a></strong>
+            <div *ngIf="recipe.Poster" class="col-6 link-row">
+              <div class=" user-page">
+                <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                  <p>https://www.bigoven.com/user/{{recipe.Poster.UserName.toLowerCase()}}</p>
+                </a>
+              </div>
             </div>
-            <div class="col-2 custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck" name="follow" value="Follow">
-              <label class="custom-control-label" for="customCheck">Follow</label>
+            <div *ngIf="!recipe.Poster">
+              <div class="col-12 user-col">
+                <p>
+                  Provided by: BigOven
+                </p>
+              </div>
             </div>
-          </div>
-          <div *ngIf="recipe.Poster" class="row link-row">
-            <div class="col-4 user-page">
-              <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
-                https://www.bigoven.com/user/{{recipe.Poster.UserName.toLowerCase()}}
-              </a>
-            </div>
-          </div>
-          <div *ngIf="!recipe.Poster">
-            <div class="col-12 user-col">
-              <p>
-                Provided by: BigOven
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -220,3 +222,4 @@
 <!--</div>-->
 
 <!--</ng-template>-->
+</div>

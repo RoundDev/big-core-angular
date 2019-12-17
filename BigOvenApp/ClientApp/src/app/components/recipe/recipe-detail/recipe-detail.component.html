@@ -8,7 +8,7 @@
   <div class="hero-wrapper">
     <div class="d-flex justify-content-center">
       <div class="row text-center">
-        <div class="background"></div>
+<!--        <div class="background"></div>-->
         <!--Version 2-->
         <!--<div class="d-flex img-wrapper w-100">-->
         <!--<div class="image w-100">-->
@@ -22,9 +22,9 @@
         <!--</div>-->
 
         <!--Version 1-->
-        <div class="row img-wrapper">
+        <div class="img-wrapper">
           <div class="col-12 hero-img-content">
-            <img class="recipe-image" src="{{recipe.PhotoUrl}}" alt="{{recipe.Title}}" title="{{recipe.Title}}">
+            <img class="img-fluid" src="{{recipe.PhotoUrl}}" alt="{{recipe.Title}}" title="{{recipe.Title}}">
             <!--<div class="col-2 add-photo clearfix">-->
             <!--<a routerLink="/media/uploaduniversal/recipe/image/{{recipeId}}" class="more-wrapper">-->
             <!--<span class="i-position"><i class="fas fa-plus-circle"></i></span> <p class="add-more">add more photos</p>-->
@@ -42,7 +42,7 @@
       <app-recipe-detail-info-box [recipe]="recipe"></app-recipe-detail-info-box>
     </div>
     <div class="clearfix"></div>
-    <div class=" col-8 text-center">
+    <div class=" col-7 text-center mx-auto">
       <app-recipe-detail-tabs [recipe]="recipe" [resizedTo]="resizedTo" [metric]="metric"></app-recipe-detail-tabs>
     </div>
     <div class="col-12">

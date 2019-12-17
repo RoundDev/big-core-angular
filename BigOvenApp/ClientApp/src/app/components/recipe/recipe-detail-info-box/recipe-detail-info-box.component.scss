@@ -8,157 +8,235 @@ body {
   font-family: $defaultFont !important;
   color: $defaultBOColor !important;
 }
+.info-box {
 
-h1 {
-  font-family: $defaultFont;
-  font-size: 40px;
-  font-weight: 600;
-  color: $defaultBOColor;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.details-row {
-  padding-top: 50px;
-  height: 260px;
-  margin-bottom: 75px;
-  overflow: hidden;
-}
-.title-row {
-  padding-right: 50px;
-  border-right: 1px solid rgba(181, 181, 181, 0.49);
-}
-.label-value {
-  color: #BE2025 !important;
-}
-.see-all {
-  font-family: $defaultFont;
-  font-size: 22px;
-  color: $defaultBOColor;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.info-wrapper {
-  font-family: $defaultFont;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: left;
-  padding-left: 75px;
-  padding-top: 10px;
-}
-
-.info-wrapper > p  > .fa-clock{
-  font-size: 28px !important;
-  color: $defaultBOColor;
-  margin-right: 5px;
-}
-.info-wrapper > p  > .fa-calendar{
-  font-size: 28px !important;
-  color: $defaultBOColor;
-  margin-right: 5px;
-}
-.info-wrapper > p  > .fa-utensils{
-  font-size: 28px !important;
-  color: $defaultBOColor;
-  margin-right: 6px;
-}
-.info-wrapper > p {
-  color: #696969;
-  font-weight: 500;
-}
-
-.btn-danger {
-  width: 99%;
-  height: 50px;
-}
-.ads-row {
-  margin-bottom: 50px;
-}
-.ads-content {
-  width: 50%;
-  height: 100px;
-  border: $defaultBorderBla;
-}
-
-.about-box {
   padding: 0;
-  background-color: #F8F8F8;
-  max-width: 1000px;
-  margin-bottom: 100px;
-  height: 520px;
-}
-.user-col {
-  padding: 0;
-  height: 140px;
-  background-color: $defaultBOColor;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 70px;
-}
 
-.avatar-img-sm {
-  position: absolute;
-  top: -20px;
-  right: 110px;
-  height: 180px;
-  width: 180px;
-  border-radius: 9px;
-  border: 15px solid #FFFFFF;
-  box-shadow: 3px 3px 5px 0 #00000052;
-}
+  h1 {
+    font-family: $defaultFont;
+    font-size: 18px;
+    font-weight: 600;
+    color: $defaultBOColor;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    overflow: hidden;
+    text-align: left;
+  }
 
-.user-link {
-  text-align: left;
-  font-family: $defaultFont;
-  font-size: 20px;
-  color: $defaultWhiteColor;
-  padding-top: 90px;
-  margin-left: -90px;
-}
+  .details-row {
+    background-color: #F8F8F8;
+    padding-top: 50px;
+    //margin-bottom: 75px;
+    overflow: hidden;
+    padding-bottom: 10px;
+  }
 
-.user-link > strong > a {
-  font-weight: 600;
-  color: $defaultWhiteColor;
-}
-.user-link > strong > a:hover {
-  text-shadow: 4px 6px 8px #0000008c;
-}
-.user-page {
-  font-family: $defaultFont;
-  font-size: 15px;
-  color: #4C5264;
-  position: relative;
-  left: 350px;
-  top: 10px
-}
-.user-page > a {
-  color: #4C5264;
-}
-.user-page > a:hover {
-  color: #262834;
-  //text-shadow: 4px 6px 8px #0000008c;
-}
-.description {
-  font-family: $defaultFont;
-  color: $defaultBOColor;
-  font-weight: 600;
-}
-.spacer {
-  height: 50px;
-  border-bottom: 3px solid $defaultBOColor;
-  max-width: 450px;
-}
+  .title-row {
+    padding-right: 50px;
+    border-right: 1px solid rgba(181, 181, 181, 0.49);
+  }
 
-.desc-summary {
-  font-family: $defaultFont;
-  font-weight: 600;
-  color: #5E5E5F;
-}
-.description-wrapper {
-  padding: 0 10% 0 10%;
-}
+  .label-value {
+    color: #BE2025 !important;
+  }
 
+  .see-all {
+    font-family: $defaultFont;
+    font-size: 8px;
+    color: $defaultBOColor;
+    font-weight: 600;
+    white-space: nowrap;
+    margin: 0.1em 0 0 0 !important;
 
+  }
+
+  .save-btn {
+    .btn {
+      color: $white;
+      font-size: 8px;
+      width: 117px;
+      height: 40px;
+      line-height: 24px;
+      background-color: $defaultBOColor;
+
+      &:hover {
+        box-shadow: 2px 2px 9px 1px grey;
+      }
+    }
+
+    .ng-fa-icon {
+      padding-right: 5px;
+    }
+  }
+
+  .info-wrapper {
+    font-family: $defaultFont;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    padding-top: 10px;
+  }
+
+  .info-wrapper {
+    .ng-fa-icon {
+      color: $defaultBOColor;
+      margin-right: 5px;
+    }
+  }
+
+  .info-wrapper > p {
+    color: #696969;
+    font-weight: 500;
+  }
+
+  .btn-danger {
+    width: 99%;
+    height: 50px;
+  }
+
+  .ads-row {
+    margin-bottom: 50px;
+  }
+
+  .ads-content {
+    width: 50%;
+    height: 100px;
+    border: $defaultBorderBla;
+  }
+
+  .about-box {
+    padding: 0;
+    background-color: #F8F8F8;
+    max-width: 1000px;
+    margin-bottom: 100px;
+    height: 520px;
+  }
+
+  .user-col {
+    padding: 0;
+    height: 140px;
+    background-color: $defaultBOColor;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 70px;
+  }
+
+  .avatar-img-sm {
+    //position: absolute;
+    top: -20px;
+    right: 110px;
+    height: 140px;
+    width: 140px;
+    border-radius: 9px;
+    border: 15px solid #FFFFFF;
+    box-shadow: 3px 3px 5px 0 #00000052;
+  }
+
+  .user-link {
+    text-align: left;
+    font-family: $defaultFont;
+    font-size: 20px;
+    color: $defaultWhiteColor;
+    //padding-top: 90px;
+    //margin-left: -90px;
+  }
+
+  .user-link > strong > a {
+    font-weight: 600;
+    color: $defaultWhiteColor;
+  }
+
+  .user-link > strong > a:hover {
+    text-shadow: 4px 6px 8px #0000008c;
+  }
+
+  .user-page {
+    font-family: $defaultFont;
+    font-size: 12px;
+    color: #4C5264;
+    position: relative;
+    //left: 350px;
+    top: 10px;
+
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .user-page > a {
+    color: #4C5264;
+  }
+
+  .user-page > a:hover {
+    color: #262834;
+    //text-shadow: 4px 6px 8px #0000008c;
+  }
+
+  .description {
+    font-family: $defaultFont;
+    color: $defaultBOColor;
+    font-weight: 600;
+  }
+
+  .spacer {
+    height: 50px;
+    border-bottom: 3px solid $defaultBOColor;
+    max-width: 335px;
+  }
+
+  .desc-summary {
+    font-family: $defaultFont;
+    font-weight: 600;
+    color: #5E5E5F;
+  }
+
+  .description-wrapper {
+    padding: 0 10% 0 10%;
+  }
+}
+@media only screen and(min-width: 576px)  {
+  .info-box {
+   .avatar-img-sm {
+     //position: absolute;
+     top: -20px;
+     right: 110px;
+     height: 180px;
+     width: 180px;
+     border-radius: 9px;
+     border: 15px solid #FFFFFF;
+     box-shadow: 3px 3px 5px 0 #00000052;
+   }
+
+   h1 {
+     font-family: $defaultFont;
+     font-size: 40px;
+     font-weight: 600;
+     color: $defaultBOColor;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+   }
+
+   .details-row {
+     padding-top: 50px;
+     height: 260px;
+     margin-bottom: 75px;
+     overflow: hidden;
+   }
+
+   .see-all {
+     font-size: 22px;
+   }
+
+   .info-wrapper {
+
+     font-size: 20px;
+     padding-left: 75px;
+     padding-top: 10px;
+   }
+  }
+}
 //input[type="checkbox"] {
 //  padding: 15px;
 //}

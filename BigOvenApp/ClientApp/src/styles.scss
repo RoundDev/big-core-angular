@@ -1,19 +1,33 @@
-@import 'variables';
-/* *** Overall APP Styling can go here ***
-   --------------------------------------------
-   Note: This Component has ViewEncapsulation.None so the styles will bleed out
-
-*/
-
-//body {
-//line-height: 18px;
-//padding-top: $header-height;
-//}
-
-$fa-font-path: "~font-awesome/fonts";
 @import '~css-star-rating/scss/star-rating';
-//@import "../../wwwroot/assets/fonts/ss-pika.css";
-//@import '~font-awesome/scss/font-awesome.scss';
+@import 'variables';
+
+
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+.main-container-wrapper {
+  padding: 0;
+}
+@media only screen and (min-width: 1024px) {
+  .main-container-wrapper {
+    max-width: 100% !important;
+    margin: 0;
+  }
+}
+$fa-font-path: "~font-awesome/fonts";
 
 $defaultColor: #444;
 $defaultFont: 'Montserrat', sans-serif;
@@ -29,13 +43,7 @@ $defaultBOColor: #BE2025;
 $defaultWhiteColor: #ffffff;
 
 
-.label-value {
-  color: #BE2025 !important;
-  font-family: $defaultFont;
-  font-weight: 600;
-  font-size: 12px !important;
-  margin-top: 1px;
-}
+
 /* Override Star Rating Colors */
 .rating.color-negative .star-container .star {
   svg {
@@ -45,12 +53,29 @@ $defaultWhiteColor: #ffffff;
     color: #BE2025 !important;
   }
 }
-
+.rating.medium {
+  .label-value {
+    color: #BE2025 !important;
+    font-family: $defaultFont;
+    font-weight: 600;
+    font-size: 7px;
+    padding-bottom: 0.5em;
+    position: relative;
+    bottom: 0.7em;
+    //margin-top: 1px;
+  }
+  .star {
+    svg {
+      width: 7px;
+      height: 7px;
+    }
+  }
+}
 .rating.color-ok .star-container .star {
   svg {.rating.medium .star {
     svg {
-      width: 12px;
-      height: 12px;
+      width: 7px;
+      height: 7px;
     }
     .label-value {
       color: #BE2025 !important;
@@ -61,6 +86,14 @@ $defaultWhiteColor: #ffffff;
   i {
     color: #BE2025 !important;
   }
+}
+.rating {
+  width: fit-content;
+}
+
+.star.medium, .rating.medium .star {
+  width: 10px;
+  height: 20px;
 }
 
 .rating.color-positive .star-container .star {
@@ -81,6 +114,68 @@ $defaultWhiteColor: #ffffff;
   }
 }
 
+.star-container.space-around, .rating.space-around .star-container {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -moz-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+
+@include media-breakpoint-up(md){
+
+  .rating.medium {
+    .label-value {
+      color: #BE2025 !important;
+      font-family: $defaultFont;
+      font-weight: 600;
+      font-size: 16px;
+      padding-bottom: 0.5em;
+      //margin-top: 1px;
+    }
+    .star {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .rating.color-ok .star-container .star {
+    svg {.rating.medium .star {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+      .label-value {
+        color: #BE2025 !important;
+      }
+    }
+      fill: #BE2025 !important;
+    }
+    i {
+      color: #BE2025 !important;
+    }
+  }
+
+  .star-container.space-around, .rating.space-around .star-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+
+}
 
 
 .body-content {

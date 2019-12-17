@@ -15,36 +15,38 @@ $defaultFont: 'Montserrat', sans-serif;
   filter: blur(4px) grayscale(80%);
   -webkit-filter: blur(4px) grayscale(80%);
   //-webkit-filter: blur(3px);
-  width: 800px;
-  height: 500px;
+  max-width: 800px;
+  max-height: 500px;
 
 }
 
 .img-wrapper {
-  position: absolute;
-  top: 250px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 500px;
+  //position: absolute;
+  //top: 250px;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+  max-width: 370px;
+  max-height: 500px;
   //border: $defaultBorderBlu;
   z-index: 2;
+  margin: 0;
 }
 .hero-img-content {
   clear: right;
-  position: relative;
-  top: 255px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  //position: relative;
+  //top: 255px;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
   text-align: -webkit-center;
   text-align: -moz-center;
-  padding-bottom: 10px;
+  //padding-bottom: 10px;
   //z-index: 999;
   overflow: hidden;
+  padding: 0 !important;
 }
 .recipe-image {
   //max-width: 600px;
-  height: 500px;
+  max-height: 500px;
   overflow: hidden;
   position: relative;
   //z-index: 999;
@@ -54,7 +56,7 @@ $defaultFont: 'Montserrat', sans-serif;
   background-color: $defaultBOColor;
   position: relative;
   bottom: 180px;
-  left: 63%;
+  left: 60%;
   width: 145px;
   height: 70px;
   font-family: "Montserrat", sans-serif;
@@ -102,4 +104,89 @@ $defaultFont: 'Montserrat', sans-serif;
   content: "";
   clear: both;
   display: table;
+}
+@media only screen and (min-width: 576px) {
+  .img-wrapper {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    height: 500px;
+    //border: $defaultBorderBlu;
+    z-index: 2;
+  }
+  .hero-img-content {
+    clear: right;
+    //position: relative;
+    //top: 255px;
+    //left: 50%;
+    //transform: translate(-50%, -50%);
+    text-align: -webkit-center;
+    text-align: -moz-center;
+    padding-bottom: 10px;
+    //z-index: 999;
+    overflow: hidden;
+  }
+  .recipe-image {
+    //max-width: 600px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    //z-index: 999;
+  }
+  .add-photo {
+    //float: right;
+    background-color: $defaultBOColor;
+    position: relative;
+    bottom: 180px;
+    left: 63%;
+    width: 145px;
+    height: 70px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    display: block;
+    padding-top: 23px;
+    z-index: 9999;
+
+    //position: sticky;
+    //display: -webkit-inline-box;
+    //display: -moz-inline-box;
+    //display: inline-flex;
+    //right: -15em;
+
+    border: $defaultBorderYel;
+
+  }
+  .fa-plus-circle {
+    color: $defaultWhiteColor;
+    font-size: 20px;
+  }
+
+  .i-position {
+    position: relative;
+    right: 40px;
+    top: 0;
+    border: $defaultBorderGrn;
+  }
+  .add-more {
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+    max-width: 80%;
+    position: relative;
+    bottom: 35px;
+    left: 25px;
+    line-height: 1.2;
+    border: $defaultBorderBlu;
+  }
+  .more-wrapper:hover {
+    font-weight: 600;
+  }
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 }

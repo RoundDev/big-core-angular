@@ -62,6 +62,8 @@ import {RecipeSearchService} from "./shared/services/recipeSearch.service";
 import { TofractionPipe } from './shared/pipes/tofraction.pipe';
 import {ErrorInterceptor} from "./shared/httpinterceptor";
 import { HreftorouterlinkPipe } from './shared/pipes/hreftorouterlink.pipe';
+import { StepsFormatPipe } from './shared/pipes/steps-format.pipe';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 // export function createTranslateLoader(http: HttpClient, baseHref) {
@@ -132,6 +134,7 @@ export function provideConfig() {
     StringNoLongerPipe,
     TofractionPipe,
     HreftorouterlinkPipe,
+    StepsFormatPipe,
 
   ],
   imports: [
@@ -139,6 +142,7 @@ export function provideConfig() {
     HttpClientModule,
     ModalModule.forRoot(),
     FormsModule,
+    FontAwesomeModule,
     StarRatingModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
