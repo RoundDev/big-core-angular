@@ -64,6 +64,7 @@ import {ErrorInterceptor} from "./shared/httpinterceptor";
 import { HreftorouterlinkPipe } from './shared/pipes/hreftorouterlink.pipe';
 import { StepsFormatPipe } from './shared/pipes/steps-format.pipe';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 // export function createTranslateLoader(http: HttpClient, baseHref) {
@@ -142,6 +143,7 @@ export function provideConfig() {
     HttpClientModule,
     ModalModule.forRoot(),
     FormsModule,
+    MatTabsModule,
     FontAwesomeModule,
     StarRatingModule.forRoot(),
     RouterModule.forRoot([
@@ -221,7 +223,8 @@ export function provideConfig() {
     PaginationModule.forRoot(),
     RatingModule.forRoot(),
     TabsModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    MatTabsModule
   ],
   providers: [
     RecipeSearchService,

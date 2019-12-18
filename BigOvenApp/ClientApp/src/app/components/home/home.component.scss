@@ -4,6 +4,10 @@ $defaultFont: 'Montserrat', sans-serif;
 $defaultBOColor: #BE2025;
 $defaultBackgroundColor :#CBDEDA;
 
+.desktop {
+  background-color: #fff;
+}
+
 h1 {
   font-family: $defaultFont;
   border: none;

@@ -16,7 +16,7 @@
   <!--</a>-->
   <!--</div>-->
 
-  <div class="justify-content-center" > <!-- style="padding: 0 30% 0 30%;" -->
+  <div class="justify-content-center"> <!-- style="padding: 0 30% 0 30%;" -->
     <div class="row text-center details-row">
       <!--<div  class="col-12 ">-->
       <div *ngIf="recipe.Title" class="col-6 title-row">
@@ -37,40 +37,49 @@
             </p>
           </div>
           <div class="col-12 save-btn">
-            <button class="btn"><fa-icon [icon]="faClipboard"></fa-icon> Save this Recipe</button>
+            <button class="btn">
+              <fa-icon [icon]="faClipboard"></fa-icon>
+              Save this Recipe
+            </button>
           </div>
         </div>
       </div>
       <div class="col-6 info-wrapper">
-        <p><fa-icon [icon]="faClock"></fa-icon> Prep time: {{recipe.ActiveMinutes | timeConverter}}</p>
-        <p><fa-icon [icon]="faCalendar"></fa-icon> Total Minutes: {{recipe.TotalMinutes | timeConverter}}</p>
-        <p><fa-icon [icon]="faUtensils"></fa-icon> Serves: {{recipe.YieldNumber}}</p>
+        <p>
+          <fa-icon [icon]="faClock"></fa-icon>
+          Prep time: {{recipe.ActiveMinutes | timeConverter}}</p>
+        <p>
+          <fa-icon [icon]="faCalendar"></fa-icon>
+          Total Minutes: {{recipe.TotalMinutes | timeConverter}}</p>
+        <p>
+          <fa-icon [icon]="faUtensils"></fa-icon>
+          Serves: {{recipe.YieldNumber}}</p>
       </div>
     </div>
   </div>
 
-<!--ADS CONTAINER-->
-<!--  <div class="justify-content-center">-->
-<!--    <div class="row ads-row text-center justify-content-center">-->
-<!--      <div class="ads-content">-->
-<!--        <p>-->
-<!--          <strong>Ads container</strong>-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <!--ADS CONTAINER-->
+  <!--  <div class="justify-content-center">-->
+  <!--    <div class="row ads-row text-center justify-content-center">-->
+  <!--      <div class="ads-content">-->
+  <!--        <p>-->
+  <!--          <strong>Ads container</strong>-->
+  <!--        </p>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
   <div class="justify-content-center">
     <div class="row text-center justify-content-center">
       <div class="col-12 about-box">
         <div class="text-center justify-content-center" style="padding-bottom: 10px">
-          <div class="spacer col-4 mx-auto"></div>
+          <div class="spacer col-8 mx-auto"></div>
         </div>
-        <div class="description-wrapper" *ngIf="recipe.Description">
+        <div *ngIf="recipe.Description" class="description-wrapper">
           <h2 class="description">RECIPE DESCRIPTION</h2>
           <span id="subhead" class="summary desc-summary line-breaker">
                     {{ recipe.Description }}
-                </span>
+          </span>
         </div>
         <div class="description-wrapper" *ngIf="!recipe.Description">
           <h2 class="description">RECIPE DESCRIPTION</h2>
@@ -79,44 +88,95 @@
           </p>
         </div>
 
-        <div class="author">
-          <div *ngIf="recipe.Poster" class="row user-col">
-            <div class="col-6">
-                <div class="col-5">
-                  <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
-                    <div class=" img-square">
-                      <img alt="{{recipe.Poster.UserName.toLowerCase()}}" class="avatar-img-sm"
-                           src="{{recipe.Poster.PhotoUrl}}">
-                    </div>
-                  </a>
-                </div>
-                <div *ngIf="recipe.Poster" class="col-6 user-link">
-                  Provided by:
-                  <strong><a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
-                    {{recipe.Poster.UserName}}
-                  </a></strong>
-                </div>
-                <div class="col-2 custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck" name="follow" value="Follow">
-                <label class="custom-control-label" for="customCheck">Follow</label>
+        <div *ngIf="recipe.Poster" class="row author user-col" style="margin: 0; padding-top: 1em;">
+          <div class="col-3">
+            <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+              <div class=" img-square">
+                <img alt="{{recipe.Poster.UserName.toLowerCase()}}" class="avatar-img-sm"
+                     src="{{recipe.Poster.PhotoUrl}}">
               </div>
-            </div>
-            <div *ngIf="recipe.Poster" class="col-6 link-row">
-              <div class=" user-page">
-                <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
-                  <p>https://www.bigoven.com/user/{{recipe.Poster.UserName.toLowerCase()}}</p>
+            </a>
+          </div>
+          <div class="col-6">
+            <div *ngIf="recipe.Poster" class="user-link">
+              <p>
+                Provided by:
+                <span>
+                  <strong>
+                <a class="author user-link" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                  {{recipe.Poster.UserName}}
                 </a>
-              </div>
+              </strong>
+                </span>
+              </p>
             </div>
-            <div *ngIf="!recipe.Poster">
-              <div class="col-12 user-col">
-                <p>
-                  Provided by: BigOven
-                </p>
-              </div>
+            <div class=" user-page">
+              <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">
+                <p>https://www.bigoven.com/user/{{recipe.Poster.UserName.toLowerCase()}}</p>
+              </a>
             </div>
+          </div>
+          <div class="col-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck" name="follow" value="Follow">
+              <label class="custom-control-label" for="customCheck"></label>
+              <span>Follow</span>
+            </div>
+          </div>
+          <div *ngIf="!recipe.Poster">
+            <div class="col-12 user-col">
+              <p>
+                Provided by: BigOven
+              </p>
+            </div>
+          </div>
+          <div class="col-8 mx-auto user-border"></div>
         </div>
+
+
       </div>
+
+      <!--        <div class="row author" style="margin: 0;">-->
+      <!--          <div *ngIf="recipe.Poster" class="row user-col">-->
+
+      <!--            <div class="col-6">-->
+      <!--                <div class="col-3">-->
+      <!--                  <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">-->
+      <!--                    <div class=" img-square">-->
+      <!--                      <img alt="{{recipe.Poster.UserName.toLowerCase()}}" class="avatar-img-sm"-->
+      <!--                           src="{{recipe.Poster.PhotoUrl}}">-->
+      <!--                    </div>-->
+      <!--                  </a>-->
+      <!--                </div>-->
+      <!--                <div *ngIf="recipe.Poster" class="col-3 user-link">-->
+      <!--                  <p>Provided by:</p>-->
+      <!--                  <strong><a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">-->
+      <!--                    {{recipe.Poster.UserName}}-->
+      <!--                  </a></strong>-->
+      <!--                </div>-->
+      <!--                <div class="col-2 custom-control custom-checkbox">-->
+      <!--                  <input type="checkbox" class="custom-control-input" id="customCheck" name="follow" value="Follow">-->
+      <!--                  <label class="custom-control-label" for="customCheck">Follow</label>-->
+      <!--                </div>-->
+      <!--            </div>-->
+
+      <!--            <div *ngIf="recipe.Poster" class="col-6 link-row">-->
+      <!--              <div class=" user-page">-->
+      <!--                <a class="author" routerLink="/user/{{recipe.Poster.UserName.toLowerCase()}}">-->
+      <!--                  <p>https://www.bigoven.com/user/{{recipe.Poster.UserName.toLowerCase()}}</p>-->
+      <!--                </a>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--            <div *ngIf="!recipe.Poster">-->
+      <!--              <div class="col-12 user-col">-->
+      <!--                <p>-->
+      <!--                  Provided by: BigOven-->
+      <!--                </p>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
     </div>
   </div>
 </div>
@@ -222,4 +282,4 @@
 <!--</div>-->
 
 <!--</ng-template>-->
-</div>
+
