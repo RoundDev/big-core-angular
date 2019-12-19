@@ -23,7 +23,7 @@ export class RecipeInstructionsComponent implements OnInit {
   readInstructions(steps){
 
     let inst = this.recipe.Instructions;
-    console.log(inst);
+    // console.log(inst);
     let patternStart =  /((\d{1,2})(\.\s+)((\W[A-Z])(\.\s)))/gm;
     let patterHeading = /((\w*[A-Z])(:))/gi;
     // let patternEnd = /((((?<!|approx|\sc|\sg|\sgal|\skg|\smg|\sl|\slb|\smin|\sml|\soz|\spt|\st|\stb|\stbl|\stbsp|\stsp|\sstep))(\))?\s+)(?!\())/i;
@@ -31,7 +31,7 @@ export class RecipeInstructionsComponent implements OnInit {
     // let str2 = inst.match(patternEnd);
     let headingMatch = inst.match(patterHeading);
 
-    console.log('Pattern' + ' ' + headingMatch + '\n' + JSON.stringify(patternStart) );
+    // console.log('Pattern' + ' ' + headingMatch + '\n' + JSON.stringify(patternStart) );
 
     // console.log(inst);
 
@@ -39,7 +39,7 @@ export class RecipeInstructionsComponent implements OnInit {
       if (strartMatch.length > 1) {
         inst = inst.replace(patternStart, ' ');
         // inst = inst.replace(patternEnd, '.');
-        console.log(inst);
+        // console.log(inst);
 
       }
       else {
@@ -69,7 +69,7 @@ export class RecipeInstructionsComponent implements OnInit {
 
 
     let arr = inst.split('.');
-    console.log(arr);
+    // console.log(arr);
     let outputSteps = [];
 
     for (let i = 0; i < arr.length; i++) {
@@ -77,7 +77,7 @@ export class RecipeInstructionsComponent implements OnInit {
       steps = outputSteps;
     }
 
-    console.log(steps);
+    // console.log(steps);
     return steps;
     // console.log(JSON.stringify(lines[i]));
 

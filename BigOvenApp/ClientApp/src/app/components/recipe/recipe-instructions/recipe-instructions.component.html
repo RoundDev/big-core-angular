@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
-  <div class="col-4 text-center">
-    <h2 class="title-divider">STEPS</h2>
-  </div>
+<!--  <div class="col-8 text-center">-->
+    <h2 class="col-8 title-divider text-center">STEPS</h2>
+<!--  </div>-->
 </div>
 <!--<div *ngIf="recipe.IsBookmark">-->
 <!--<div class="recipe-instructions instructions">-->
@@ -38,11 +38,16 @@
 <!--      </tr>-->
 <!--      </thead>-->
       <tbody>
-      <tr *ngFor="let step of readInstructions(this.steps)">
+      <tr *ngFor="let step of readInstructions(this.steps); let i = index">
         <td>
           <div class="row">
-            <div class="col-8 justify-content-start">{{step}}</div>
-            <div class="col-4 justify-content-end"><input class="step-checkbox" type="checkbox"></div>
+            <div class="col-8 step justify-content-start">{{step}}</div>
+            <div class="col-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck{{i+1}}" name="follow" value="Follow">
+                <label class="custom-control-label float-right" for="customCheck{{i+1}}"></label>
+              </div>
+            </div>
           </div>
         </td>
       </tr>

@@ -1,11 +1,18 @@
 @import '../../../app.component';
+
+h2 {
+  font-size: 14px;
+  color: $defaultBOColor;
+  font-weight: 600;
+}
+
 .review-this {
   background-color: #F8F8F8;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
   border-radius: 22px;
 }
 .comment-form {
-  margin:20px 20px;
+  margin:10px 10px;
 }
 .form-control:focus {
   color: #495057;
@@ -17,6 +24,14 @@
 textarea {
   border: 1px solid $defaultBOColor !important;
   border-radius: 8px !important;
+  height: 110px !important;
+  max-width: 305px;
+}
+::placeholder {
+  font-size: 11px;
+  color: #b5b5b5;
+  font-weight: 500;
+  line-height: 20px;
 }
 .rating {
   display: inline-block;

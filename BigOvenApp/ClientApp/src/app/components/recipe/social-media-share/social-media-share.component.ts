@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {faFacebook, faYoutube, faPinterest} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: 'app-social-media-share',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialMediaShareComponent implements OnInit {
 
+  faFacebook = faFacebook;
+  faYoutube = faYoutube;
+  faPinterest = faPinterest;
   constructor() { }
 
   ngOnInit() {

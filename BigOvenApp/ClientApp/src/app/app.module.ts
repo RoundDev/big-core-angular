@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {ExtraOptions, RouterModule} from '@angular/router';
 import {ApiClientService} from "../../output/api2";
 import {BigOvenAuthService, ModalContentComponent} from "./shared/services/bigovenauth.service";
 
@@ -92,6 +92,10 @@ let socialAuthConfig = new AuthServiceConfig([
 export function provideConfig() {
   return socialAuthConfig;
 }
+const routerOptions: ExtraOptions = {
+  useHash: false,
+  anchorScrolling: 'enabled',
+};
 
 
 @NgModule({
@@ -146,6 +150,7 @@ export function provideConfig() {
     MatTabsModule,
     FontAwesomeModule,
     StarRatingModule.forRoot(),
+
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
@@ -219,13 +224,14 @@ export function provideConfig() {
       //   component: AboutComponent
       // },
 
-    ]),
+    ] ,routerOptions),
     PaginationModule.forRoot(),
     RatingModule.forRoot(),
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     MatTabsModule
   ],
+  exports: [MatTabsModule],
   providers: [
     RecipeSearchService,
     UserService,

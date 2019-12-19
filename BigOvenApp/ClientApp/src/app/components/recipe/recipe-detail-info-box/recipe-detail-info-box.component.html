@@ -76,13 +76,17 @@
           <div class="spacer col-8 mx-auto"></div>
         </div>
         <div *ngIf="recipe.Description" class="description-wrapper">
-          <h2 class="description">RECIPE DESCRIPTION</h2>
+          <h2 class="description">
+            RECIPE DESCRIPTION
+          </h2>
           <span id="subhead" class="summary desc-summary line-breaker">
                     {{ recipe.Description }}
           </span>
         </div>
         <div class="description-wrapper" *ngIf="!recipe.Description">
-          <h2 class="description">RECIPE DESCRIPTION</h2>
+          <h2 class="description">
+            RECIPE DESCRIPTION
+          </h2>
           <p class="desc-summary">
             Link to add description if there is no recipe description
           </p>

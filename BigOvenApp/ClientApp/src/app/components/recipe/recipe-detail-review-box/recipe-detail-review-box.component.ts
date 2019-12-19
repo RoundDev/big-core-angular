@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {BigOvenModelAPIRecipe, BigOvenModelAPIReview} from "../../../../../output/models";
 import {BigOvenAuthService} from "../../../shared/services/bigovenauth.service";
 import {RecipeSearchService} from "../../../shared/services/recipeSearch.service";
@@ -11,7 +11,7 @@ import {NgForm} from "@angular/forms";
 })
 export class RecipeDetailReviewBoxComponent implements OnInit {
 
-  rate: number=4;
+  rate: number;
   @Input()
   recipe: BigOvenModelAPIRecipe;
   review: BigOvenModelAPIReview;
@@ -24,10 +24,12 @@ export class RecipeDetailReviewBoxComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     if (this.bigovenAuthService.isLoggedIn())
     {
       this.recipeSearchService.GetMyRecipeReview(this.recipe.RecipeID).subscribe(data =>{
           this.review = data.body;
+          console.log("Review:" + " " + this.review);
           this.comment = data.body.Comment;
           this.rate = data.body.StarRating;
           this.buttonLabel = "Update My Review";
@@ -36,6 +38,10 @@ export class RecipeDetailReviewBoxComponent implements OnInit {
           console.log(err);
         })
     }
+
+  }
+  ngOnChanges() {
+    console.log("Rate:" + "" + this.rate);
   }
 
   onSubmit(form: NgForm)
