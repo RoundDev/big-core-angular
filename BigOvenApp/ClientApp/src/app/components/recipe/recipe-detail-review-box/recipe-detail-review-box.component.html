@@ -1,5 +1,5 @@
-<div class="row justify-content-center">
-  <div class="w-75 text-center">
+<div class="row recipe-detail-review justify-content-center">
+  <div class="col-12 text-center">
     <a name="reviews-section"></a>
     <div class="review-this">
       <form #f="ngForm" (ngSubmit)="onSubmit(f)">
@@ -11,33 +11,38 @@
               </div>
             </div>
           </div>
-          <div class="row justify-content-center">
-            <div class="w-75">
-                            <textarea [ngModel]="comment"
-                                      class="form-control"
-                                      id="mycomment"
-                                      placeholder="What did you like? What didn't you like? What tip would you tell a friend to make it perfectly?"
-                                      name="comment"
-                                      rows="10">
-                            </textarea>
+          <div class="row justify-content-center mx-auto">
+            <div class="col-12">
+                 <textarea [ngModel]="comment"
+                           class="form-control"
+                           id="mycomment"
+                           placeholder="What did you like? What didn't you like? What tip would you tell a friend to make it perfectly?"
+                           name="comment"
+                           rows="10">
+                 </textarea>
             </div>
           </div>
           <div class="row justify-content-center"></div>
           <div class="col-12">
-            <div class="text-center rating-row">
+            <div *ngIf="recipe.StarRating != 0 && recipe.StarRating != null" class="text-center rating-row">
               <br/><br/>
               <!--<label for="rate" class="float-right">Rate</label>-->
-              <rating id="rate" class="rating" name="rate" [(ngModel)]="rate"></rating>
-              <span> Rate</span>
+<!--              <rating id="rate" class="rating" name="rate" [(ngModel)]="rate"></rating>-->
+              <star-rating
+                id="rate" name="rate" class="rating" [starType]="'svg'" [labelPosition]="'right'" [rating]="rate" [(rating)]="rate"
+                [hoverEnabled]="true" [size]="'medium'"  [showHalfStars]="true" [labelText]="'Rate'" >
+              </star-rating>
+<!--              <span></span>-->
             </div>
+
           </div>
           <div class="row justify-content-center">
             <div class="col-12">
               <br/>
               <div class="pad-left">
                 <input [attr.disabled]="!this.bigovenAuthService.isLoggedIn()?'':null" type="submit" disabled
-                       id="submit-review-button" class="btnstateless btn btn-lg btn-danger pad-left"
-                       [value]="buttonLabel"/>
+                       id="submit-review-button" class="btnstateless btn btn-review pad-left"
+                       [value]="buttonLabel" />
               </div>
               <br/>
               <br/>

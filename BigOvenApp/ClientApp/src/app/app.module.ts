@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {ExtraOptions, RouterModule} from '@angular/router';
 import {ApiClientService} from "../../output/api2";
 import {BigOvenAuthService, ModalContentComponent} from "./shared/services/bigovenauth.service";
 
@@ -62,6 +62,17 @@ import {RecipeSearchService} from "./shared/services/recipeSearch.service";
 import { TofractionPipe } from './shared/pipes/tofraction.pipe';
 import {ErrorInterceptor} from "./shared/httpinterceptor";
 import { HreftorouterlinkPipe } from './shared/pipes/hreftorouterlink.pipe';
+import { StepsFormatPipe } from './shared/pipes/steps-format.pipe';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatTabsModule} from "@angular/material/tabs";
+import { AccountForgotComponent } from './components/account/account-forgot/account-forgot.component';
+import { AccountMeComponent } from './components/account/account-me/account-me.component';
+import { AccountSetNewPasswordComponent } from './components/account/account-set-new-password/account-set-new-password.component';
+import { RecipeReviewsComponent } from './components/recipe/recipe-reviews/recipe-reviews.component';
+import { RecipeReviewReplyComponent } from './components/recipe/recipe-review-reply/recipe-review-reply.component';
+import {MomentModule} from "angular2-moment";
+import { AccountEnsureLoginComponent } from './components/account/account-ensure-login/account-ensure-login.component';
+
 
 
 // export function createTranslateLoader(http: HttpClient, baseHref) {
@@ -89,6 +100,10 @@ let socialAuthConfig = new AuthServiceConfig([
 export function provideConfig() {
   return socialAuthConfig;
 }
+const routerOptions: ExtraOptions = {
+  useHash: false,
+  anchorScrolling: 'enabled',
+};
 
 
 @NgModule({
@@ -132,6 +147,13 @@ export function provideConfig() {
     StringNoLongerPipe,
     TofractionPipe,
     HreftorouterlinkPipe,
+    StepsFormatPipe,
+    AccountForgotComponent,
+    AccountMeComponent,
+    AccountSetNewPasswordComponent,
+    RecipeReviewsComponent,
+    RecipeReviewReplyComponent,
+    AccountEnsureLoginComponent,
 
   ],
   imports: [
@@ -139,7 +161,11 @@ export function provideConfig() {
     HttpClientModule,
     ModalModule.forRoot(),
     FormsModule,
+    MatTabsModule,
+    FontAwesomeModule,
     StarRatingModule.forRoot(),
+    MomentModule,
+
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'counter', component: CounterComponent},
@@ -155,6 +181,18 @@ export function provideConfig() {
       {
         path: "account/logout",
         component: AccountLogoutComponent
+      },
+      {
+        path: "account/forgot",
+        component: AccountForgotComponent
+      },
+      {
+        path: "account/me",
+        component: AccountMeComponent
+      },
+      {
+        path: "account/ensurelogin",
+        component: AccountEnsureLoginComponent
       },
       {
         path: "recipes/search",
@@ -213,12 +251,14 @@ export function provideConfig() {
       //   component: AboutComponent
       // },
 
-    ]),
+    ] ,routerOptions),
     PaginationModule.forRoot(),
     RatingModule.forRoot(),
     TabsModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    MatTabsModule
   ],
+  exports: [MatTabsModule],
   providers: [
     RecipeSearchService,
     UserService,

@@ -1,0 +1,81 @@
+<div id="{{review.GUID}}">
+  <div>
+    <div class="author-name">
+      <span class="pull-right">
+<!--        <rating [readonly]="isReadOnly" style="font-size:1.6em;" [(ngModel)]="review.StarRating"></rating>-->
+        <star-rating [starType]="'svg'"  [size]="'medium'" [showHalfStars]="true" [readOnly]="true" [rating]="review.StarRating"></star-rating>
+      </span>
+
+    </div>
+    <div class="comment line-breaker">
+      {{review.Comment}}
+    </div>
+    <br/>
+    <img alt="{{review.Poster.UserName}}" src="{{review.Poster.PhotoUrl}}?h=48&w=48" class="avatar-img-sm">
+    <a routerLink="/user/{{review.Poster.UserName}}">{{review.Poster.UserName}}</a>
+  </div>
+
+  <div class="below-review-bar">
+    <ul class="list-inline">
+      <li>{{review.CreationDate | amTimeAgo:true}} ago</li>
+      <li class="pull-right">
+        <a>Reply</a>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="review.FeaturedReply!=null">
+    <div style="margin-left:4em;">
+      <div class="author-name">
+        <img src="{{review.FeaturedReply.Poster.PhotoUrl}}?h=48&w=48" class="avatar-img-sm">
+        <a routerLink="/user/{{review.FeaturedReply.Poster.UserName}}">{{review.Poster.UserName}}</a>
+        <span class="pull-right">
+        </span>
+
+      </div>
+      <div class="comment line-breaker">
+        {{review.FeaturedReply.Comment}}
+      </div>
+      <div class="below-review-bar">
+        <ul class="list-inline">
+          <li>{{review.FeaturedReply.CreationDate | amTimeAgo:true}} ago</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(review.ReplyCount)>0">
+    <a *ngIf="replies.length==0" class="pull-right btn btn-default btn-xs"
+       (click)="showReplies(review.ID)">{{review.ReplyCount}} replies</a>
+    <div *ngFor="let reply of replies">
+      <div style="margin-left:4em;">
+        <div class="author-name">
+          <img src="{{reply.Poster.PhotoUrl}}?h=48&w=48" class="avatar-img-sm">
+          <a routerLink="/user/{{reply.Poster.UserName}}">{{reply.Poster.UserName}}</a>
+
+        </div>
+        <div class="comment line-breaker">
+          {{reply.Comment}}
+        </div>
+        <div class="below-review-bar">
+          <ul class="list-inline">
+            <li>{{reply.CreationDate | amTimeAgo:true}} ago</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="replies.length>0">
+      <div class="clearfix"></div>
+      <textarea style="margin-left:4em;" class="form-control" placeholder="Add reply here"></textarea>
+      <div class="pull-right">
+        <a class="btn btn-xs btn-default">Add Reply</a>
+      </div>
+      <br/><br/>
+      <div class="clearfix"></div>
+    </div>
+
+
+  </div>
+
+</div>

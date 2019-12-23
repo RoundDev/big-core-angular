@@ -1,3 +1,13 @@
+//@import "src/variables";
+.recipe-tabs {
+  margin-top: 5em;
+}
+.tab-set {
+  max-width: 100%;
+}
+.image-wrapper {
+  margin-bottom: 10px;
+}
 .ingredients {
   border-bottom: 1px solid #f2f2f2;
 }
@@ -55,4 +65,8 @@
 
 }
 
-
+@media only screen and (min-width: 768px) {
+  .tab-set {
+    max-width: 22%;
+  }
+}

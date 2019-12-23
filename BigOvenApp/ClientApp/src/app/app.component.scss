@@ -33,7 +33,7 @@ $defaultWhiteColor: #ffffff;
   color: #BE2025 !important;
   font-family: $defaultFont;
   font-weight: 600;
-  font-size: 22px !important;
+  font-size: 12px !important;
   margin-top: 1px;
 }
 /* Override Star Rating Colors */
@@ -49,8 +49,8 @@ $defaultWhiteColor: #ffffff;
 .rating.color-ok .star-container .star {
   svg {.rating.medium .star {
     svg {
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
     }
     .label-value {
       color: #BE2025 !important;

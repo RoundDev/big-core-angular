@@ -1,0 +1,36 @@
+@import "../ClientApp/src/app/app.component";
+
+.social-media-row {
+  padding: 2em 0 2em 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  h4 {
+    font-size: 12px;
+  }
+
+  .social-links-row {
+    font-size: 12px;
+    //span {
+    //  position: relative;
+    //  top: 2em;
+    //  right: 3em;
+    //}
+    .col-border {
+      border-left: 1px solid #e2e8ed;
+      border-right: 1px solid #e2e8ed;
+    }
+    .ng-fa-icon {
+      font-size: 25px;
+      color: $defaultBOColor;
+    }
+  }
+  .btn-share {
+    background-color: $defaultBOColor;
+    color: $white;
+    font-size: 8px;
+    border-radius: 8px;
+  }
+  .social-border {
+    border-bottom: 1px solid $defaultBOColor;
+    padding-top: 2em;
+  }
+}

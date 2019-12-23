@@ -1,5 +1,5 @@
-<div class="recipe-tabs">
-  <tabset>
+<div class="recipe-tabs row justify-content-center" >
+  <tabset class="tab-set">
     <tab heading="Recipe">
       <div class="ingredients">
         <h2>INGREDIENTS</h2>
@@ -7,8 +7,8 @@
           <li *ngFor="let ingredient of recipe.Ingredients">
                         <span *ngIf="!ingredient.IsHeading" class="ingredient">
                             <span *ngIf="!metric">
-                                <span class="amount">{{ingredient.DisplayQuantity }}</span>
-                                <span class="unit">{{ingredient.Unit}}</span>
+                                <span class="amount"> {{ingredient.DisplayQuantity }}</span>
+                                <span class="unit"> {{ingredient.Unit}} </span>
                             </span>
 
                             <span *ngIf="metric">
@@ -17,7 +17,7 @@
                             </span>
 
                             <span (click)="onDataClick($event, ingredient)" class="name"
-                                  [innerHTML]="ingredient.HTMLName "></span>
+                                  [innerHTML]="ingredient.HTMLName | urlpath"></span>
                             <span class="prepnotes" [innerHTML]="ingredient.PreparationNotes"></span>
                             <span [routerLink]="ingredient.IngredientInfo.Name" *ngIf="ingredient.IngredientInfo!==null"
                                   class="ingredInfo"></span>
@@ -98,22 +98,22 @@
         <!--&lt;!&ndash;<div class="recipe-instructions instructions">&ndash;&gt;-->
         <!--&lt;!&ndash;<br/>&ndash;&gt;-->
 
-        <!--&lt;!&ndash;<p>&ndash;&gt;-->
-        <!--&lt;!&ndash;See original recipe:&ndash;&gt;-->
-        <!--&lt;!&ndash;<a rel="nofollow" href="{{recipe.BookmarkURL}}" id="recipeBookmarkAnchor">{{recipe.BookmarkURL}}&ndash;&gt;-->
-        <!--&lt;!&ndash;<i class="fa fa-external-link-square"></i>&ndash;&gt;-->
-        <!--&lt;!&ndash;</a>&ndash;&gt;-->
-        <!--&lt;!&ndash;</p>&ndash;&gt;-->
-        <!--&lt;!&ndash;<p>&ndash;&gt;-->
-        <!--&lt;!&ndash;For preparation instructions, visit the link above. Why not here? Read our&ndash;&gt;-->
-        <!--&lt;!&ndash;<a href="http://support.bigoven.com/hc/en-us/articles/201072148-What-s-a-Bookmarked-Recipe-">Pledge to Food Bloggers.&ndash;&gt;-->
-        <!--&lt;!&ndash;<i class="fa fa-external-link-square"></i>&ndash;&gt;-->
-        <!--&lt;!&ndash;</a>&ndash;&gt;-->
-        <!--&lt;!&ndash;</p>&ndash;&gt;-->
-        <!--&lt;!&ndash;<p>&ndash;&gt;-->
-        <!--&lt;!&ndash;Are you the original author?&ndash;&gt;-->
-        <!--&lt;!&ndash;<a href="/account/welcomeblogger">Claim your page</a> on BigOven to get more exposure in our apps.&ndash;&gt;-->
-        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<p>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;See original recipe:&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<a rel="nofollow" href="{{recipe.BookmarkURL}}" id="recipeBookmarkAnchor">{{recipe.BookmarkURL}}&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<i class="fa fa-external-link-square"></i>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;</a>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;</p>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<p>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;For preparation instructions, visit the link above. Why not here? Read our&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<a href="http://support.bigoven.com/hc/en-us/articles/201072148-What-s-a-Bookmarked-Recipe-">Pledge to Food Bloggers.&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<i class="fa fa-external-link-square"></i>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;</a>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;</p>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<p>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;Are you the original author?&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;<a href="/account/welcomeblogger">Claim your page</a> on BigOven to get more exposure in our apps.&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;</p>&ndash;&gt;&ndash;&gt;-->
 
 
         <!--&lt;!&ndash;</div>&ndash;&gt;-->
@@ -125,16 +125,17 @@
     </tab>
 
     <tab heading="Photos {{photosCount}}">
-      <div class="inner-container">
-        <div *ngFor="let photo of photos">
-          <div class="col-xs-12 col-sm-4">
-            <div>
+      <div class="col-12 inner-container">
+        <h2>Photos</h2>
+        <div class="col-12 mx-auto" *ngFor="let photo of photos">
+<!--          <div class="col-12 ">-->
+            <div class="image-wrapper">
               <img src="{{photo.PhotoUrl}}?w=256&h=256" alt="{{recipe.Title}}" title="{{photo.Caption}}"/>
             </div>
             <div>{{photo.Caption || ""}}</div>
-          </div>
+<!--          </div>-->
         </div>
-        <div class="clearfix"></div>
+<!--        <div class="clearfix"></div>-->
       </div>
 
     </tab>
