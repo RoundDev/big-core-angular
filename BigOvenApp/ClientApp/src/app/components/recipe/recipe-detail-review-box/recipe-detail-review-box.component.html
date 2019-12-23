@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row recipe-detail-review justify-content-center">
   <div class="col-12 text-center">
     <a name="reviews-section"></a>
     <div class="review-this">
@@ -30,24 +30,19 @@
 <!--              <rating id="rate" class="rating" name="rate" [(ngModel)]="rate"></rating>-->
               <star-rating
                 id="rate" name="rate" class="rating" [starType]="'svg'" [labelPosition]="'right'" [rating]="rate" [(rating)]="rate"
-                [hoverEnabled]="true"  [showHalfStars]="true" [labelText]="'Rate'" [space]="'around'">
+                [hoverEnabled]="true" [size]="'medium'"  [showHalfStars]="true" [labelText]="'Rate'" >
               </star-rating>
 <!--              <span></span>-->
             </div>
-            <div *ngIf="recipe.StarRating == 0 && recipe.StarRating == null" class="text-center rating-row">
-              <star-rating
-                id="rate" name="rate" class="rating" [starType]="'svg'" [labelPosition]="'right'" [rating]="0" [(rating)]="rate"
-                [hoverEnabled]="true"  [showHalfStars]="true" [labelText]="'Rate'" [space]="'around'">
-              </star-rating>
-            </div>
+
           </div>
           <div class="row justify-content-center">
             <div class="col-12">
               <br/>
               <div class="pad-left">
                 <input [attr.disabled]="!this.bigovenAuthService.isLoggedIn()?'':null" type="submit" disabled
-                       id="submit-review-button" class="btnstateless btn btn-lg btn-danger pad-left"
-                       [value]="buttonLabel"/>
+                       id="submit-review-button" class="btnstateless btn btn-review pad-left"
+                       [value]="buttonLabel" />
               </div>
               <br/>
               <br/>

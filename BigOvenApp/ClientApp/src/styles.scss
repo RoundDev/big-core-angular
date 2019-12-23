@@ -58,25 +58,25 @@ $defaultWhiteColor: #ffffff;
     color: #BE2025 !important;
     font-family: $defaultFont;
     font-weight: 600;
-    font-size: 7px;
+    font-size: 12px;
     padding-bottom: 0.5em;
     position: relative;
     bottom: 0.7em;
     //margin-top: 1px;
   }
-  .star {
-    svg {
-      width: 7px;
-      height: 7px;
-    }
-  }
+  //.star {
+  //  svg {
+  //    width: 7px;
+  //    height: 7px;
+  //  }
+  //}
 }
 .rating.color-ok .star-container .star {
   svg {.rating.medium .star {
-    svg {
-      width: 7px;
-      height: 7px;
-    }
+    //svg {
+    //  width: 7px;
+    //  height: 7px;
+    //}
     .label-value {
       color: #BE2025 !important;
     }
@@ -91,10 +91,10 @@ $defaultWhiteColor: #ffffff;
   width: fit-content;
 }
 
-.star.medium, .rating.medium .star {
-  width: 10px;
-  height: 20px;
-}
+//.star.medium, .rating.medium .star {
+//  width: 10px;
+//  height: 20px;
+//}
 
 .rating.color-positive .star-container .star {
   svg {
@@ -229,6 +229,14 @@ blockquote {
 blockquote a,
 blockquote a:hover {
   color: $green;
+}
+
+
+.recipe-detail-review {
+
+  .label-value {
+    padding-top: 2em !important;
+  }
 }
 
 @include media-breakpoint-up(lg) {

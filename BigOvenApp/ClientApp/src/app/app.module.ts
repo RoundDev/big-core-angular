@@ -65,6 +65,14 @@ import { HreftorouterlinkPipe } from './shared/pipes/hreftorouterlink.pipe';
 import { StepsFormatPipe } from './shared/pipes/steps-format.pipe';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MatTabsModule} from "@angular/material/tabs";
+import { AccountForgotComponent } from './components/account/account-forgot/account-forgot.component';
+import { AccountMeComponent } from './components/account/account-me/account-me.component';
+import { AccountSetNewPasswordComponent } from './components/account/account-set-new-password/account-set-new-password.component';
+import { RecipeReviewsComponent } from './components/recipe/recipe-reviews/recipe-reviews.component';
+import { RecipeReviewReplyComponent } from './components/recipe/recipe-review-reply/recipe-review-reply.component';
+import {MomentModule} from "angular2-moment";
+import { AccountEnsureLoginComponent } from './components/account/account-ensure-login/account-ensure-login.component';
+
 
 
 // export function createTranslateLoader(http: HttpClient, baseHref) {
@@ -140,6 +148,12 @@ const routerOptions: ExtraOptions = {
     TofractionPipe,
     HreftorouterlinkPipe,
     StepsFormatPipe,
+    AccountForgotComponent,
+    AccountMeComponent,
+    AccountSetNewPasswordComponent,
+    RecipeReviewsComponent,
+    RecipeReviewReplyComponent,
+    AccountEnsureLoginComponent,
 
   ],
   imports: [
@@ -150,6 +164,7 @@ const routerOptions: ExtraOptions = {
     MatTabsModule,
     FontAwesomeModule,
     StarRatingModule.forRoot(),
+    MomentModule,
 
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -166,6 +181,18 @@ const routerOptions: ExtraOptions = {
       {
         path: "account/logout",
         component: AccountLogoutComponent
+      },
+      {
+        path: "account/forgot",
+        component: AccountForgotComponent
+      },
+      {
+        path: "account/me",
+        component: AccountMeComponent
+      },
+      {
+        path: "account/ensurelogin",
+        component: AccountEnsureLoginComponent
       },
       {
         path: "recipes/search",

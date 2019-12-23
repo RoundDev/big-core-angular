@@ -46,3 +46,11 @@ textarea {
   font-family: $defaultFont;
   font-size: 1.3em;
 }
+.btn-review {
+  width: 155px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: $defaultFont;
+  color: $white;
+  background-color: $defaultBOColor;
+}

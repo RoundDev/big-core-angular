@@ -16,6 +16,7 @@ export class RecipeDetailReviewBoxComponent implements OnInit {
   recipe: BigOvenModelAPIRecipe;
   review: BigOvenModelAPIReview;
   comment: string = "";
+  @Input()
   buttonLabel: string = 'Sign in to add review';
 
   constructor(
@@ -24,15 +25,18 @@ export class RecipeDetailReviewBoxComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    if (this.bigovenAuthService.isLoggedIn())
+    let login =  this.bigovenAuthService.isLoggedIn();
+    console.log("Login State:" + " " + login);
+    if (login == true)
     {
       this.recipeSearchService.GetMyRecipeReview(this.recipe.RecipeID).subscribe(data =>{
-          this.review = data.body;
-          console.log("Review:" + " " + this.review);
-          this.comment = data.body.Comment;
-          this.rate = data.body.StarRating;
-          this.buttonLabel = "Update My Review";
+
+            this.review = data.body;
+            console.log("Review:" + " " + this.review);
+            this.comment = data.body.Comment;
+            this.rate = data.body.StarRating;
+            this.buttonLabel = "Update My Review";
+
         },
         err=>{
           console.log(err);

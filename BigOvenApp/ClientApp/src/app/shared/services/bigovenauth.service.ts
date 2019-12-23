@@ -217,7 +217,7 @@ export class BigOvenAuthService {
           jwtInfo.photoUrl = this.photoUrlFromJWT();
           jwtInfo.userId = this.userIdFromJWT();
           jwtInfo.username = this.userNameFromJWT();
-          this.onBigOvenUserLoginStateChange.emit(jwtInfo)
+          this.onBigOvenUserLoginStateChange.emit(jwtInfo);
           this.getMeJWT();
         }}
       catch(e)
@@ -231,8 +231,15 @@ export class BigOvenAuthService {
 
 
   public isLoggedIn() {
+      // let possibleJWT = this.cookieService.get("sess");
+      // let jwtHelper: JwtHelper = new JwtHelper();
+      // if (jwtHelper.decodeToken(possibleJWT)) {
+      //   this.loggedIn = true;
+      //   return this.loggedIn;
+      // }
     return this.loggedIn;
-  }
+    }
+
 
   public logOut() {
     this._jwt = null;
@@ -382,7 +389,7 @@ export class BigOvenAuthService {
             this.meLoading = false;
             this.user = data.body;
             this.loggedIn = true;
-            //this.router.navigateByUrl("/");
+            // this.router.navigateByUrl("./");
           } else {
             this.meLoading = false;
             if (data.status === 401 || data.status === 403) {

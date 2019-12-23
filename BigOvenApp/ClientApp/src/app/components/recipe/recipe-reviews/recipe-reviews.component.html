@@ -1,0 +1,14 @@
+<div>
+  <div class="light-accent-box">
+    <h2>REVIEWS</h2>
+  </div>
+  <div id="recipe-review-list">
+    <div class="reviews">
+      <div class="review-block">
+        <div *ngFor="let review of reviews">
+          <app-recipe-review-reply [review]="review"></app-recipe-review-reply>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

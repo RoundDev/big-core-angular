@@ -23,8 +23,11 @@
     <Content Include="ClientApp\src\app\components\home\home.component.scss" />
     <Content Include="ClientApp\src\app\components\ideas-home\ideas-home.component.html" />
     <Content Include="ClientApp\src\app\components\ideas-home\ideas-home.component.scss" />
+    <Content Include="ClientApp\src\app\shared\js\fontawesome.js" />
     <Content Include="ClientApp\src\app\_styles.scss" />
     <Content Include="ClientApp\src\app\_variables.scss" />
+    <Content Include="ClientApp\src\_styles.scss" />
+    <Content Include="ClientApp\src\_variables.scss" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <None Include="ClientApp\output\api2.ts" />
