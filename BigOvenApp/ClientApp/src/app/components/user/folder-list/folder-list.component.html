@@ -1,0 +1,19 @@
+<div class="folder-list">
+  <ul class="folder-list">
+    <li [ngClass]="{'active': folder===activeFolder}"
+        *ngFor="let folder of folders"
+        (click)="toggleFolder(folder)"><i *ngIf="folder!==activeFolder" class="fa fa-folder"></i><i
+      *ngIf="folder===activeFolder" class="fa fa-folder-open"></i>
+      {{folder.Name}} ({{folder.Count}})
+    </li>
+  </ul>
+</div>
+<div style="width:100%;">
+  <div class="btn-group" style="width:100%;">
+    <button class="btn btn-default" style="width:60%;">New folder...</button>
+    <button class="btn btn-default" style="width:40%;">Manage</button>
+  </div>
+  <div>
+    <button style="width:100%;" class="btn btn-default"><i class="fa fa-plus"></i> Add Recipe</button>
+  </div>
+</div>

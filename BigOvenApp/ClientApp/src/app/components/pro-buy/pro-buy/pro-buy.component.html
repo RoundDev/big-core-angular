@@ -1,0 +1,346 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/"><i class="ss ss-home"></i></a></li>
+    <li class="breadcrumb-item"><a routerLink="/account/me">My Account</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Upgrade to Pro</li>
+  </ol>
+</nav>
+
+<div class="upper-banner">
+  <div style="height:350px;margin-bottom:-20px;background:url(/assets/images/bigoven-app-use-coffee.jpg) center center;">
+  </div>
+</div>
+
+<div class="maxContainer">
+  <div class="visible-xs">
+    <h1 class="text-center">Cooking simplified.</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <div *ngIf="isPro">
+    <br/>
+    <br/>
+    <br/>
+    <h1 class="text-center">You're already a Pro member!</h1>
+    <p class="text-center">Thanks for your membership.</p>
+    <br/>
+    <br/>
+    <br/>
+
+  </div>
+
+  <div *ngIf="!isPro">
+
+    <div class="hidden-xs row">
+      <div class="container box-choices" style="max-width: 800px; margin: 0px auto;">
+        <div class="row">
+          <div class="col-xs-12 col-md-4" style="position:relative;left:38px; ">
+            <div class="panel panel-default text-center">
+              <div class="panel-accent-blue">
+                <h3 class="panel-title">
+                  Basic
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="the-price">
+                  <h1>
+                    Free<span class="subscript"></span>
+                  </h1>
+                  <hr>
+                  <p>Recipe inspiration and basic features.</p>
+                  <br>
+                  <br>
+
+
+                  <br>
+                  <p>
+                    <a routerLink="/account/join" class="btn btn-lg btnstateless panel-accent-blue hover-bluer" style="width:100%;" role="button">Continue</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="col-xs-12 col-md-4" routerLink="/account/ensurelogin"  [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/year-pro-9'}" style="position:relative;top:-12px;z-index:100;">
+            <div>
+              <div class="panel panel-default text-center">
+                <div class="panel-accent-red">
+                  <h3 class="panel-title">
+                    <i class="fa fa-star"></i> Pro
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <div class="the-price">
+                    <h1>
+                      $24.99/yr
+                    </h1>
+                    <hr>
+                    <p><b>For the ultimate cook</b>. Enhanced discovery, money-saving organization and nutrition tools. Save 40% off monthly rate.</p>
+
+                    <br>
+                    <p>
+                      <a routerLink="/account/ensurelogin" [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/year-pro-9'}" class="hover-redder btn btn-lg btnstateless panel-accent-red" style="width:100%;" role="button">Start Free Trial</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="col-xs-12 col-md-4" routerLink="/account/ensurelogin"  [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/bigoven-pro-monthly-plan'}" style="position:relative;left:-38px;z-index:0;">
+            <div class="panel panel-default text-center">
+              <div class="panel-accent-blue">
+                <h3 class="panel-title">
+                  <i class="fa fa-star"></i> Pro
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="the-price">
+                  <h1>
+                    $2.99/mo
+                  </h1>
+                  <hr>
+                  <p><b>For the ultimate cook.</b> Enhanced discovery, money-saving organization and nutrition tools.</p>
+
+                  <br>
+                  <p>
+                    <a routerLink="/account/ensurelogin"  [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/bigoven-pro-monthly-plan'}" class="btn btn-lg btnstateless panel-accent-blue hover-bluer" style="width: 100%;" role="button">Start Free Trial</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="clear:both;">
+          <p class="text-center text-smaller text-muted"><i class="fa fa-cc-amex"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-amazon"></i> Amazon Pay accepted. Don't like subscriptions? <a routerLink="/account/ensurelogin?ReturnUrl=https://bigoven.recurly.com/subscribe/pro-lifetime-plan">Lifetime Pro Membership</a> is also available for just $79! <a routerLink="/gift">Gift card</a> also available.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visible-xs container box-choices">
+      <div class="row">
+        <div class="col-xs-12 col-md-4" style="max-width:300px;">
+          <div class="panel panel-default">
+            <div class="panel-accent-blue">
+              <h3 class="panel-title">
+                Basic
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="the-price">
+                <h1>
+                  Free<span class="subscript"></span>
+                </h1>
+                <hr>
+                <p>Recipe inspiration and basic features.</p>
+                <br/>
+                <p>
+                  <a routerLink="/account/join" class="btn btn-lg btnstateless panel-accent-blue hover-bluer" style="width:100%;" role="button">Continue</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xs-12 col-md-4" style="max-width:300px;" routerLink="/account/ensurelogin" [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/year-pro-9'}">
+          <div>
+            <div class="panel panel-default">
+              <div class="panel-accent-red">
+                <h3 class="panel-title">
+                  <i class="fa fa-star"></i> Pro
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="the-price">
+                  <h1>
+                    $24.99/yr
+                  </h1>
+                  <hr>
+                  <p>For the ultimate cook. Enhanced discovery, organization and nutrition tools.</p>
+
+                  <br>
+                  <p>
+                    <a routerLink="/account/ensurelogin" [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/year-pro-9'}" class="hover-redder btn btn-lg btnstateless panel-accent-red" style="width:100%;" role="button">Start Free Trial</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4" style="max-width:300px;" routerLink="/account/ensurelogin" [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/bigoven-pro-monthly-plan'}">
+          <div class="panel panel-default">
+            <div class="panel-accent-blue">
+              <h3 class="panel-title">
+                <i class="fa fa-star"></i> Pro
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="the-price">
+                <h1>
+                  $2.99/mo
+                </h1>
+                <hr>
+                <p>Enhanced discovery, organization and nutrition tools.</p>
+
+                <br>
+                <p>
+                  <a routerLink="/account/ensurelogin"  [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/bigoven-pro-monthly-plan'}" class="btn btn-lg btnstateless panel-accent-blue hover-bluer" style="width:100%;" role="button">Start Free Trial</a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="visible-xs">
+      <div><b>Basic (free) Membership</b>
+        <ul>
+          <li>Discover 350,000+ recipes</li>
+          <li>Basic search</li>
+          <li>Create a grocery list</li>
+          <li>Save up to 200 recipes</li>
+          <li>Use up Leftovers</li>
+          <li>Access on web, mobile, tablet</li>
+          <li>3 RecipeScans</li>
+        </ul>
+        <br>
+        <div>
+          <b>BigOven Pro Membership</b>
+          <ul>
+            <li><b>Everything in Basic, plus:</b></li>
+            <li>30-day free trial</li>
+            <li>Remove all advertising</li>
+            <li>Save unlimited recipes</li>
+            <li>Organize recipes into custom folders</li>
+            <li>Copy and customize recipes</li>
+            <li>Add private notes</li>
+            <li>Access specially curated collections</li>
+            <li>Meal planner</li>
+            <li>Detailed nutrition facts</li>
+            <li>Search using dietary filters</li>
+            <li>25 RecipeScans</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="container box-choices hidden-xs" style="max-width: 1000px; margin: 0px auto;">
+      <br><br>
+      <div class="row">
+        <div class="col-xs-12 col-md-4" style="position:relative;left:38px;">
+          <div>
+            <div class="">
+              <div class="">
+                <p><b>Includes:</b></p>
+                <p>Discover 350,000+ recipes</p>
+                <p>Basic search</p>
+                <p>Create a grocery list</p>
+                <p>Save up to 200 recipes</p>
+                <p>Use up Leftovers</p>
+                <p>Access on web, mobile, tablet</p>
+                <p>3 RecipeScans</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xs-12 col-md-4" routerLink="/account/ensurelogin" [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/year-pro-9'}">
+          <div>
+            <div class="">
+              <div>
+                <div>
+                </div>
+                <div class="">
+                  <div class="" style="border-right:1px solid #cecece;border-left:1px solid #cecece;">
+                    <p><b>Everything in Basic, plus:</b></p>
+                    <p>Remove all advertising</p>
+                    <p>Save unlimited recipes</p>
+                    <p>Organize recipes into custom folders</p>
+                    <p>Meal planning calendar</p>
+                    <p>Copy and customize recipes</p>
+                    <p>Add private notes</p>
+                    <p>Access specially curated collections</p>
+                    <p>Detailed nutrition facts</p>
+                    <p>Search using dietary filters</p>
+                    <p>25 RecipeScans</p>
+                    <p>30-day free trial</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4" routerLink="/account/ensurelogin"  [queryParams]="{ReturnUrl:'https://bigoven.recurly.com/subscribe/bigoven-pro-monthly-plan'}" style="position:relative;left:-38px;z-index:0;">
+          <div class="">
+            <div>
+              <div>
+              </div>
+              <div class="">
+                <div class="">
+                  <p><b>Everything in Basic, plus:</b></p>
+                  <p>Remove all advertising</p>
+                  <p>Save unlimited recipes</p>
+                  <p>Organize recipes into custom folders</p>
+                  <p>Copy and customize recipes</p>
+                  <p>Meal planning calendar</p>
+                  <p>Add private notes</p>
+                  <p>Access specially curated collections</p>
+                  <p>Detailed nutrition facts</p>
+                  <p>Search using dietary filters</p>
+                  <p>25 RecipeScans</p>
+                  <p>30-day free trial</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 centered">
+          <br>
+          <p><a routerLink="/pro/features">Learn more</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div style="display:block; text-align:center;margin-left:20px;">
+    <a href="http://www.nytimes.com/2012/08/30/technology/personaltech/big-oven-my-recipe-book-epicurious-and-other-cookbook-apps-app-smart.html?_r=2"><img style="max-width:200px;" title="&quot;A shelf full of cookbooks at your fingertips&quot; - New York Times" src="/assets/images/new-york-times.png"></a>
+    <a href="http://www.fastcompany.com/1600270/ipad-slays-tablet-competitors-killer-apps"><img title="&quot;My personal fave - BigOven -- a recipes and grocery-shopping app that makes perfect sense&quot; - Fast Company" src="/assets/images/fast-company.png"></a>
+    <a href="http://online.wsj.com/article/SB10001424052702303754904577532723510452412.html"><img title="&quot;One of the best apps for preparing a meal&quot; - Wall Street Journal" src="/assets/images/wall-street-journal.png"></a>
+    <a href="http://mashable.com/2013/01/22/bigoven-app/"><img src="/assets/images/mashable.png" title="Your new best friend in the kitchen"></a>
+    <br>
+    <a href="http://www.geekwire.com/2013/recipe-finder-bigoven-tops-8m-app-downloads/"><img src="/assets/images/geekwire.png"></a>
+    <img src="/assets/images/instyle.png">
+    <a href="http://www.time.com/time/specials/packages/article/0,28804,1896919_1896920_1896916,00.html"><img src="/assets/images/time-magazine.png"></a>
+    <a href="http://www.today.com/video/today/52148306#52148306"><img src="/assets/images/today-show-bigoven.png"></a>
+  </div>
+
+  <br>
+  <br>
+  <div>
+    <img class="img-responsive" style="position:relative;bottom:-27px; margin:0 auto;width:1000px;vertical-align:bottom;" src="/assets/images/translucent-footer-clipped.png">
+  </div>
+</div>
+
+

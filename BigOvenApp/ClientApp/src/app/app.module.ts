@@ -72,6 +72,11 @@ import { RecipeReviewsComponent } from './components/recipe/recipe-reviews/recip
 import { RecipeReviewReplyComponent } from './components/recipe/recipe-review-reply/recipe-review-reply.component';
 import {MomentModule} from "angular2-moment";
 import { AccountEnsureLoginComponent } from './components/account/account-ensure-login/account-ensure-login.component';
+import { AboutComponent } from './components/about/about.component';
+import { ProBuyComponent } from './components/pro-buy/pro-buy/pro-buy.component';
+import { ProFeaturesComponent } from './components/pro-buy/pro-features/pro-features.component';
+import { MyRecipesComponent } from './components/user/my-recipes/my-recipes.component';
+import { FolderListComponent } from './components/user/folder-list/folder-list.component';
 
 
 
@@ -154,6 +159,11 @@ const routerOptions: ExtraOptions = {
     RecipeReviewsComponent,
     RecipeReviewReplyComponent,
     AccountEnsureLoginComponent,
+    AboutComponent,
+    ProBuyComponent,
+    ProFeaturesComponent,
+    MyRecipesComponent,
+    FolderListComponent,
 
   ],
   imports: [
@@ -193,6 +203,20 @@ const routerOptions: ExtraOptions = {
       {
         path: "account/ensurelogin",
         component: AccountEnsureLoginComponent
+      },
+      {
+        path: "myrecipes",
+        component: MyRecipesComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "myrecipes/:userName",
+        component: MyRecipesComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "myrecipes/:userName/:view",
+        component: MyRecipesComponent
       },
       {
         path: "recipes/search",
@@ -246,10 +270,22 @@ const routerOptions: ExtraOptions = {
         path: "recipe-ideas/:title/:collId/page/:page",
         component: CollectionViewComponent
       },
-      // {
-      //   path: "site/about",
-      //   component: AboutComponent
-      // },
+      {
+        path: "pro",
+        component: ProBuyComponent
+      },
+      {
+        path: "pro/features",
+        component: ProFeaturesComponent
+      },
+      {
+        path: "user/:username",
+        component: UserDetailComponent
+      },
+      {
+        path: "site/about",
+        component: AboutComponent
+      },
 
     ] ,routerOptions),
     PaginationModule.forRoot(),
