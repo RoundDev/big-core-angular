@@ -3,6 +3,7 @@ import {BigOvenModelAPI2FolderProperty, BigOvenModelAPI2RecipeSearchResult} from
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../shared/services/user.service";
 import {BigOvenAuthService} from "../../../shared/services/bigovenauth.service";
+import {faPhotoVideo, faList, faEdit} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-my-recipes',
@@ -11,6 +12,10 @@ import {BigOvenAuthService} from "../../../shared/services/bigovenauth.service";
 })
 export class MyRecipesComponent implements OnInit {
 
+  faPhotoVideo = faPhotoVideo;
+  faList = faList;
+  faEdit = faEdit;
+
   recipesInActiveFolder: BigOvenModelAPI2RecipeSearchResult;
   private subscriptionFoldersFetched: any = null;
   private subscriptionFolderChanged: any = null;
@@ -18,6 +23,8 @@ export class MyRecipesComponent implements OnInit {
   folders: BigOvenModelAPI2FolderProperty[] = [];
   activeFolder: BigOvenModelAPI2FolderProperty = null;
   currentView: string = "gallery";
+
+
 
   recipesText: string;
 
@@ -30,7 +37,8 @@ export class MyRecipesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    // let defaultFolder: BigOvenModelAPI2FolderProperty = {} as any;
+    // defaultFolder.Name = 'added';
     if (this.subscriptionNewRecipesLoaded === null) {
       this.subscriptionNewRecipesLoaded = this.userService.getonRecipesLoadedForFolderEmitter()
         .subscribe(status => this.recipesReloaded(status));
@@ -40,6 +48,7 @@ export class MyRecipesComponent implements OnInit {
     if (this.subscriptionFolderChanged === null) {
       this.subscriptionFolderChanged = this.userService.getOnFolderChangedEventEmitter()
         .subscribe(activeFolder => this.folderChanged(activeFolder));
+
     }
 
     // get the params on the route
@@ -81,8 +90,10 @@ export class MyRecipesComponent implements OnInit {
   }
 
 
+
   folderChanged(activeFolder: BigOvenModelAPI2FolderProperty) {
     this.activeFolder = activeFolder;
+
     // now load the results
     this.userService.getRecipesInFolder(activeFolder, this.authService.userIdFromJWT());
   }

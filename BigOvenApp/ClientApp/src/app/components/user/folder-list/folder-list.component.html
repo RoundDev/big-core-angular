@@ -2,8 +2,8 @@
   <ul class="folder-list">
     <li [ngClass]="{'active': folder===activeFolder}"
         *ngFor="let folder of folders"
-        (click)="toggleFolder(folder)"><i *ngIf="folder!==activeFolder" class="fa fa-folder"></i><i
-      *ngIf="folder===activeFolder" class="fa fa-folder-open"></i>
+        (click)="toggleFolder(folder)"><fa-icon *ngIf="folder!==activeFolder" [icon]="faFolder"></fa-icon>
+      <fa-icon *ngIf="folder===activeFolder" [icon]="faFolderOpen"></fa-icon>
       {{folder.Name}} ({{folder.Count}})
     </li>
   </ul>

@@ -4,12 +4,15 @@
   </div>
   <div class="col-12 col-sm-10">
     <div class="pull-right" style="padding-right:2em;">
-      <button (click)="showGallery()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}"><i
-        class="fa fa-photo"></i></button>
-      <button (click)="showList()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}/list"><i
-        class="fa fa-list"></i></button>
-      <button (click)="showNotes()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}/notes"><i
-        class="fa fa-edit"></i></button>
+      <button (click)="showGallery()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}">
+        <fa-icon [icon]="faPhotoVideo"></fa-icon>
+      </button>
+      <button (click)="showList()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}/list">
+        <fa-icon [icon]="faList"></fa-icon>
+      </button>
+      <button (click)="showNotes()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}/notes">
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
     </div>
 
     <div *ngIf="currentView==='gallery'">

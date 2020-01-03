@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {BigOvenModelAPI2FolderProperty} from "../../../../../output/models";
 import {UserService} from "../../../shared/services/user.service";
+import {faFolder, faFolderOpen} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-folder-list',
@@ -10,6 +11,9 @@ import {UserService} from "../../../shared/services/user.service";
 export class FolderListComponent implements OnInit {
 
   onFolderChanged: EventEmitter<BigOvenModelAPI2FolderProperty> = new EventEmitter<BigOvenModelAPI2FolderProperty>();
+
+  faFolder = faFolder;
+  faFolderOpen = faFolderOpen;
 
   @Input()
   activeFolder: BigOvenModelAPI2FolderProperty;
