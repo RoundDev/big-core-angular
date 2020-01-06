@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12 col-sm-3 col-lg-2 col-xl-1">
+    <app-folder-list [folders]="folders" [activeFolder]="activeFolder"></app-folder-list>
+  </div>
+  <div class="col-12 col-sm-10">
+    <div class="pull-right" style="padding-right:2em;">
+      <button (click)="showGallery()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}">
+        <fa-icon [icon]="faPhotoVideo"></fa-icon>
+      </button>
+      <button (click)="showList()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}/list">
+        <fa-icon [icon]="faList"></fa-icon>
+      </button>
+      <button (click)="showNotes()" routerLink="/myrecipes/{{authService.getUserNameOrBlank()}}/notes">
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+    </div>
+
+    <div *ngIf="currentView==='gallery'">
+      <div *ngIf="activeFolder">
+        <div *ngIf="recipesInActiveFolder" class="row">
+          <div class="col-12 col-sm-3" *ngFor="let recipe of recipesInActiveFolder.Results">
+
+              <app-recipe-infobox [recipe]="recipe"></app-recipe-infobox>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="currentView==='list'"><h2>List</h2></div>
+    <div *ngIf="currentView==='notes'"><h2>Notes</h2></div>
+
+
+  </div>
+</div>
+

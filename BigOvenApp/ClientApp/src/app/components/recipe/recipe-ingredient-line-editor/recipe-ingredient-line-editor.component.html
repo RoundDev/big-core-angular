@@ -1,0 +1,30 @@
+<div class="form-inline">
+  <div>
+    <span>
+      <input type="checkbox" [(ngModel)]="ingredientLine.IsHeading" value="true"/>
+    </span>
+    <span>
+      <input class="form-control" style="width:80px;" [(ngModel)]="ingredientLine.Quantity" type="text"
+                 placeholder="qty"/>
+    </span>
+    <span>
+      <input [(ngModel)]="ingredientLine.Unit"
+                 [typeahead]="measures"
+                 class="form-control" placeholder="measure">
+    </span>
+    <span>
+      <input [(ngModel)]="ingredientLine.Name" style="width:200px"
+                 [typeahead]="ingredients" placeholder="ingredient"
+                 class="form-control">
+    </span>
+    <span>
+      <input class="form-control" [(ngModel)]="ingredientLine.PreparationNotes" type="text" placeholder="notes"/>
+    </span>
+    <span>
+      <button class="btn btn-default" (click)="addBeforeLine();"><i class="fa fa-plus"></i></button>
+    </span>
+    <span>
+      <button class="btn btn-default" (click)="removeLine();"><i class="fa fa-minus"></i></button>
+    </span>
+  </div>
+</div>

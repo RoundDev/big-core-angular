@@ -1,0 +1,332 @@
+<ul class="breadcrumb">
+  <li>
+    <a routerLink="/">
+      <i class="ss-home" title="Home"></i>
+    </a>
+  </li>
+  <li>
+    <a routerLink="/recipes">Recipes</a>
+  </li>
+  <li>
+    <a routerLink="/myrecipes">My Recipes</a>
+  </li>
+  <li class="active">Add a new recipe</li>
+</ul>
+
+
+<div class="container">
+  <h1>Add a recipe... 4 easy ways</h1>
+  <p>Add your recipes, and take them anywhere! Recipes should be in your own words, with your own photos. Read our
+    <a target="_blank" href="http://blog.bigoven.com/2014/11/03/our-pledge-to-food-bloggers/">
+      <i class="fa fa-external-link-square"></i> Pledge to Food Bloggers</a>.</p>
+  <div class="row">
+    <div class="col-xs-3 col-lg-3 col-sm-3 col-md-3 centered">
+      <a href="#dataEntry">
+        <fa-icon [icon]="faAlignJustify"></fa-icon>
+<!--        <img class="hovImage img-thumbnail" src="/assets/images/post-keyboard.png" id="typeItIn" title="Type it in">-->
+      </a>
+      <p class="caption centered">Type it in</p>
+    </div>
+    <div class="col-xs-3  col-lg-3 col-sm-3 col-md-3 centered">
+      <a routerLink="/recipe/quickimport">
+<!--        <img class="hovImage img-thumbnail" src="/assets/images/post-clipboard.png">-->
+        <fa-icon [icon]="faCopy"></fa-icon>
+      </a>
+      <p class="caption centered">
+        <a routerLink="/recipe/quickimport">Copy/Paste</a> import from my text
+      </p>
+    </div>
+    <div class="col-xs-3  col-lg-3 col-sm-3 col-md-3 centered">
+      <a routerLink="/recipe/scan">
+<!--        <img class="hovImage img-thumbnail" src="/assets/images/post-scan.png">-->
+        <fa-icon [icon]="faImage"></fa-icon>
+      </a>
+      <p class="caption centered">
+        <a routerLink="/recipe/scan">Upload a photo or scan</a>
+      </p>
+    </div>
+    <div class="col-xs-3  col-lg-3 col-sm-3 col-md-3 centered">
+      <a routerLink="/clipper">
+<!--        <img class="hovImage img-thumbnail" src="/assets/images/post-clipper.png">-->
+        <fa-icon [icon]="faPaperclip"></fa-icon>
+      </a>
+      <p class="caption centered">
+        <a routerLink="/clipper">Clip it from any recipe site</a>
+      </p>
+    </div>
+  </div>
+  <br/>
+
+  <form #bookmarkForm="ngForm" (ngSubmit)="onSubmitBookmark(bookmarkForm)" id="bookmarkForm" class="form-horizontal" role="form"
+        style="background-color: #dfdfdf; border: 1px solid #cecece; box-shadow: 2px 2px 10px;">
+    <div class="form-group">
+      <br/>
+      <label for="addbyurl" class="col-xs-2 control-label">Add by URL</label>
+      <div class="col-xs-10">
+        <input type="text" id="addbyurl" ngModel name="url" placeholder="https://www.recipe-site.com/recipe-detail-page" class="form-control"
+               name="url" style="float: left; width: 60%;">
+        <input class="btn btn-primary form-control" value="import" id="importButton" style="float: left; margin-left: 1%; width: 30%;"
+               type="submit">
+        <p style="clear: both; padding-top: 0.4em;">
+          <a routerLink="/clipper">Get the free Recipe Clipper</a> to clip web recipes!
+        </p>
+      </div>
+    </div>
+  </form>
+
+
+  <br/>
+  <div style="background-color:#dfdfdf;margin:auto;padding:0px 14px 14px 14px;border:1px solid #cecece;box-shadow:2px 2px 10px;">
+
+    <br/>
+
+    <div class="recipeentry">
+      <form #recipeForm="ngForm" (ngSubmit)="onSubmit(recipeForm)">
+        <input type="hidden" ngForm name="theHitId">
+        <input type="hidden" ngForm name="theAssignmentId">
+        <input type="hidden" ngForm name="theWorkerId">
+
+        <input ngForm id="RecipeID" name="RecipeID" type="hidden" value="0">
+        <input ngForm id="ScaleMultiple" name="ScaleMultiple" type="hidden" value="">
+        <input ngForm id="UniqueSuffix" name="UniqueSuffix" type="hidden" value="">
+        <input ngForm id="MaxImageSquare" name="MaxImageSquare" type="hidden" value="">
+        <input ngForm id="DupeInt" name="DupeInt" type="hidden" value="">
+        <input ngForm name="AbuseVotes" type="hidden" value="">
+        <input ngForm id="RecipeMicroCategory" name="RecipeMicroCategory" type="hidden" value="">
+        <input id="ImageAbsoluteURL" name="ImageAbsoluteURL" type="hidden" value="">
+        <input id="HeroPhotoUrl" name="HeroPhotoUrl" type="hidden" value="">
+        <input ngForm id="ApprovedImageCount" name="ApprovedImageCount" type="hidden" value="">
+        <input ngForm id="IsBookmark" name="IsBookmark" type="hidden" value="">
+        <input ngForm id="HideFromPublicSearch" name="HideFromPublicSearch" type="hidden" value="">
+        <input ngForm data-val="true" id="BookmarkedByUserID" name="BookmarkedByUserID" type="hidden" value="">
+        <input ngForm data-val="true" id="BookmarkSiteID" name="BookmarkSiteID" type="hidden" value="">
+        <input ngForm id="BookmarkImageURL" name="BookmarkImageURL" type="hidden" value="">
+        <input data-val="true" ngForm id="VariantOfRecipeID" name="VariantOfRecipeID" type="hidden" value="">
+        <input id="HighlightedReview" ngForm name="HighlightedReview" type="hidden" value="">
+        <input data-val="true" ngForm id="AffordableRating" name="AffordableRating" type="hidden" value="">
+        <input id="AllCategoriesText" ngForm name="AllCategoriesText" type="hidden" value="">
+        <input id="AllIngredientsText" ngForm name="AllIngredientsText" type="hidden" value="">
+        <input data-val="true" ngForm id="AppearanceRating" name="AppearanceRating" type="hidden" value="">
+        <input data-val="true" ngForm id="Approved" name="Approved" type="hidden" value="">
+        <input id="ApprovedImageCount" ngForm name="ApprovedImageCount" type="hidden" value="">
+        <input id="ASIN1" name="ASIN1" ngForm type="hidden" value="">
+        <input data-val="true" ngForm id="Color" name="Color" type="hidden" value="">
+        <input data-val="true" ngForm id="CreationDate" name="CreationDate" type="hidden" value="">
+        <input data-val="true" ngForm id="DefaultVersion" name="DefaultVersion" type="hidden" value="">
+        <input id="Edited" name="Edited" type="hidden" value="">
+        <input data-val="true" ngForm id="EffortRating" name="EffortRating" type="hidden" value="">
+        <input id="InstructionsHTML" ngForm name="InstructionsHTML" type="hidden" value="">
+        <input id="IsAppetizer" ngForm name="IsAppetizer" type="hidden" value="">
+        <input id="IsDessert" ngForm name="IsDessert" type="hidden" value="">
+        <input id="IsMainDish" ngForm name="IsMainDish" type="hidden" value="">
+        <input id="IsSalad" ngForm name="IsSalad" type="hidden" value="">
+        <input id="IsSideDish" ngForm name="IsSideDish" type="hidden" value="">
+        <input id="IsSoup" ngForm name="IsSoup" type="hidden" value="">
+        <input data-val="true" ngForm id="LastGlossified" name="LastGlossified" type="hidden" value="">
+        <input data-val="true" ngForm id="LastModified" name="LastModified" type="hidden" value="">
+        <input data-val="true" ngForm id="MedalCount" name="MedalCount" type="hidden" value="">
+        <input data-val="true" ngForm id="ActiveMinutes" name="ActiveMinutes" type="hidden" value="">
+        <input data-val="true" ngForm id="TotalMinutes" name="TotalMinutes" type="hidden" value="">
+        <input data-val="true" ngForm id="MedianActiveMinutes" name="MedianActiveMinutes" type="hidden" value="">
+        <input data-val="true" ngForm id="MedianTotalMinutes" name="MedianTotalMinutes" type="hidden" value="">
+        <input id="OnlineBlurb" ngForm name="OnlineBlurb" type="hidden" value="">
+        <input data-val="true" ngForm id="OriginalPoster" name="OriginalPoster" type="hidden" value="">
+        <input data-val="true" ngForm id="PercentMakeAgain" name="PercentMakeAgain" type="hidden" value="">
+        <input id="PictureFile1" ngForm name="PictureFile1" type="hidden" value="">
+        <input id="OnlineBlurb" ngForm name="OnlineBlurb" type="hidden" value="">
+        <input id="OriginalPoster" ngForm name="OriginalPoster" type="hidden" value="">
+        <input id="PercentMakeAgain" ngForm name="PercentMakeAgain" type="hidden" value="">
+        <input id="PictureFile1" ngForm name="PictureFile1" type="hidden" value="">
+        <input id="PrimaryImage" ngForm name="PrimaryImage" type="hidden" value="">
+        <input data-val="true" ngForm id="QualityScore" name="QualityScore" type="hidden" value="">
+        <input data-val="true" ngForm id="RecycleVotes" name="RecycleVotes" type="hidden" value="">
+        <input id="ScaleMultiple" ngForm name="ScaleMultiple" type="hidden" value="">
+        <input data-val="true" ngForm id="SubmittedByUserID" name="SubmittedByUserID" type="hidden" value="">
+        <input data-val="true" ngForm id="TasteRating" name="TasteRating" type="hidden" value="">
+        <input id="TotalMinutes" ngForm name="TotalMinutes" type="hidden" value="">
+        <input data-val="true" ngForm id="UniqueID" name="UniqueID" type="hidden" value="">
+        <input data-val="true" ngForm id="Viewings" name="Viewings" type="hidden" value="">
+        <input data-val="true" ngForm id="Visible" name="Visible" type="hidden" value="">
+        <input data-val="true" ngForm id="VotesNo" name="VotesNo" type="hidden" value="">
+        <input data-val="true" ngForm id="VotesYes" name="VotesYes" type="hidden" value="">
+        <input id="YieldText" ngForm name="YieldText" type="hidden" value="">
+        <input data-val="true" ngForm id="VerifiedBy" name="VerifiedBy" type="hidden" value="">
+        <input data-val="true" ngForm id="VerifiedDate" name="VerifiedDate" type="hidden" value="">
+        <input data-val="true" ngForm id="AdminBoost" name="AdminBoost" type="hidden" value="">
+        <input id="metaNoIndex" ngForm name="metaNoIndex" type="hidden" value="">
+        <input id="Family" ngForm name="Family" type="hidden" value="">
+        <input id="BookmarkURL" ngForm name="BookmarkURL" type="hidden" value="">
+        <input id="UserTags" ngForm name="UserTags" type="hidden" value="">
+
+        <fieldset>
+          <legend>Recipe</legend>
+
+          <div>
+          </div>
+
+          <div style="width:95%;">
+            <div style="float:left;width:100%;">
+              <a name="dataEntry"></a>
+              <div class="form-group" style="width:100%;">
+                <label for="Title">Title
+                  <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Example: Beef Teriyaki"></fa-icon>
+                </label>
+                <br>
+                <input class="form-control" ngForm id="Title" maxlength="75" name="Title" placeholder="Recipe Title" style="width: 100%; font-weight: bold; font-size: 12pt;"
+                       type="text" value="">
+              </div>
+            </div>
+
+            <div>
+              <label for="Subhead">Brief description
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="1-2 sentences please"></fa-icon>
+              </label>
+              <br>
+              <textarea ngForm class="form-control" cols="20" id="Subhead" maxlength="2000" name="Subhead" placeholder="Enter one or two sentences that describe the recipe. Is it easy to make or hard? What would you serve it with? How long does it take?"
+                        rows="2" style="width:100%;font-size:11pt;height:60px;"></textarea>
+            </div>
+
+            <div>
+              <label for="Source">Source
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Where did you get this recipe? Cookbook, web address, friend's name, inspiration for credit"></fa-icon>
+              </label>
+              <br>
+              <input class="form-control" ngForm id="Source" maxlength="500" name="Source" placeholder="(optional, skip this for none)"
+                     style="display:inline;" type="text" value="">
+            </div>
+
+            <div style="clear:left;">
+              <label style="font-weight:normal;clear:both;">
+                <input ngForm type="radio" value="off" name="is_private" checked="checked"> Public - viewable by other cooks &nbsp;&nbsp;</label>
+              <label style="font-weight:normal;">
+                <input ngForm type="radio" value="on" name="is_private"> Private - viewable only to you</label>
+
+            </div>
+
+
+
+            <div id="categorize">
+              <label for="PrimaryRecipeCategory">Categorize this recipe
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Please categorize this recipe so you can find it online and on mobile apps easily.  First set the main category, then set the subcategory."></fa-icon>
+              </label>
+              <div id="catpicker">
+                <app-recipe-category-chooser></app-recipe-category-chooser>
+
+
+              </div>
+            </div>
+
+            <div *ngIf="isAdmin" id="ChampStateDiv" style="clear: both; width: 165px; display: block;">
+              <label for="champState">ChampionState
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Admin-only. Is this a hero recipe?"></fa-icon>
+              </label>
+              <select ngForm class="form-control" name="ChampionState" style="font-size:10pt;">
+                <option value="0"> reviewed and NOT (0)</option>
+                <option value="1">Candidate (1)</option>
+                <option value="2">In review (2)</option>
+                <option value="3">VERIFIED (3)</option>
+              </select>
+            </div>
+
+            <div style="clear:both;">
+              <label for="PrimaryIngredient">Main Ingredient
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="example: Chicken.  Enter just one."></fa-icon>
+              </label>
+              <br/>
+
+              <input ngForm name="mainIngredient" [(ngModel)]="selectedMainIngredient" placeholder="" [typeahead]="mainIngredients" class="form-control"/>
+
+            </div>
+
+            <div>
+              <label for="Cuisine">Cuisine
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="ex: American, Japanese, etc.; leave blank if unknown"></fa-icon>
+              </label>
+              <br/>
+              <input ngForm name="cuisine" [(ngModel)]="cuisine" placeholder="" [typeahead]="cuisines" class="form-control" />
+
+            </div>
+
+            <div>
+              <label for="">Yields (#)
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="example: 12   Leave blank if unknown."></fa-icon>
+              </label>
+              <br>
+              <input class="form-control" ngForm data-val="true" id="YieldNumber" maxlength="4" name="YieldNumber" style="width:55px;display:inline;"
+                     type="text" value="">&nbsp;
+              <input type="hidden" name="YieldUnit"> Serving(s)
+            </div>
+
+            <div>
+              <table>
+                <tbody>
+                <tr>
+                  <td style="padding-right:44px;">
+                    <label for="TotalHrs">TOTAL time
+                      <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Start-to-finish time to make the recipe, including any baking, resting, etc.  Leave blank if unknown."></fa-icon>
+                    </label>
+                    <br>
+
+                    <input ngForm class="form-control" id="totalhrs" maxlength="5" name="totalhrs" style="width:60px;display:inline;" type="text"
+                           value="0"> hrs
+                    <input ngForm class="form-control" id="totalmins" maxlength="5" name="totalmins" style="width:60px;display:inline;" type="text"
+                           value="0"> min
+                  </td>
+                  <td>
+                    <label for="TotalHrs">ACTIVE time
+                      <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Time you spend actively working, NOT counting passive time for resting, baking, braising, marinading, broiling, etc."></fa-icon>
+                    </label>
+                    <br>
+
+
+                    <input ngForm class="form-control" id="activehrs" maxlength="5" name="activehrs" style="width:60px;display:inline;" type="text"
+                           value="0"> hrs
+                    <input ngForm class="form-control" id="activemins" maxlength="5" name="activemins" style="width:60px;display:inline;" type="text"
+                           value="0"> min
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>INGREDIENTS</h3>
+            <app-recipe-ingredient-list name="ingredientLines" [(ingredientLines)]="ingredientLines" ngDefaultControl></app-recipe-ingredient-list>
+            <br/>
+            <br/>
+            <div>
+              <label for="Instructions">Preparation
+                <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="Please write in complete sentences, thanks.  And don't use special characters -- e.g., instead of writing 350°, type '350 degrees'."></fa-icon>
+              </label>
+              <textarea ngForm class="form-control" cols="20" id="Instructions" maxlength="4000" name="Instructions" rows="2" style="width:100%;font-size:12pt;height:280px;"></textarea>
+            </div>
+            <div>
+              <label for="Notes">Public notes: What would you tell a friend to ensure they make it perfectly?</label>
+              <br>
+              <textarea ngForm class="form-control" cols="20" id="Notes" maxlength="4000" name="Notes" rows="2" style="width:100%;height:50px;"></textarea> </div>
+            <br>
+            <p>
+              <span class="pad4r"><fa-icon [icon]="faLightbulb"></fa-icon></span> You can add photos after you add the recipe. We all love photos -- recipes with good finished-product
+              photos generally sort higher than those without.</p>
+          </div>
+
+        </fieldset>
+
+        <div>
+          <br>
+          <div style="height:50px;">
+            <span style="float:left;">
+              <input ngForm type="submit" id="finalbutton" class="btn btn-lg btn-primary btnstateless" value="Final Check and Save >>"
+                     style="margin-bottom:20px;">
+            </span>
+            <span id="waitAMoment" style="padding-top:6px;float:left;padding-left:15px;display:none;">Wait a sec, whisking and folding
+<!--              <img src="/assets/images/ajax-loader.gif">-->
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

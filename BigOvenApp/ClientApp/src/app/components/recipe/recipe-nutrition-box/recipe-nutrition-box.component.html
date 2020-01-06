@@ -1,0 +1,159 @@
+<div *ngIf="isPro">
+  <p><a routerLink="/recipe/{{recipe.Title | seoify}}/{{recipe.RecipeID}}/nutrition">View line-by-line Nutrition Insights™</a>: Discover which ingredients contribute the calories/sodium/etc.</p>
+  <table>
+    <tbody><tr>
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        Serving Size:&nbsp;{{recipe.NutritionInfo.SingularYieldUnit}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        Recipe Makes:&nbsp;{{recipe.YieldNumber}} {{recipe.YieldUnit}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <b>Calories</b>:&nbsp;{{recipe.NutritionInfo.TotalCalories}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        Calories from Fat:&nbsp;{{recipe.NutritionInfo.CaloriesFromFat}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Amt Per Serving
+      </td>
+      <td>
+        % DV
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td style="width: 220px;">
+        <b>Total Fat&nbsp;{{recipe.NutritionInfo.TotalFat | number:'1.0-2'}}g</b>
+      </td>
+      <td>
+        {{recipe.NutritionInfo.TotalFatPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        &nbsp;&nbsp;Saturated Fat&nbsp;{{recipe.NutritionInfo.SatFat | number:'1.0-2'}}g
+      </td>
+      <td>
+        {{recipe.NutritionInfo.SatFatPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        &nbsp;&nbsp;Monounsaturated Fat&nbsp;{{recipe.NutritionInfo.MonoFat | number:'1.0-2'}}g
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        &nbsp;&nbsp;Polyunsanturated Fat&nbsp;{{recipe.NutritionInfo.PolyFat | number:'1.0-2'}}g
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>Cholesterol&nbsp;{{recipe.NutritionInfo.Cholesterol | number:'1.0-2'}} mg</b>
+      </td>
+      <td>
+        {{recipe.NutritionInfo.CholesterolPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Sodium&nbsp;{{recipe.NutritionInfo.Sodium | number:'1.0-2'}}mg</b>
+      </td>
+      <td>
+        {{recipe.NutritionInfo.SodiumPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Potassium&nbsp;{{recipe.NutritionInfo.Potassium | number:'1.0-2'}}mg</b>
+      </td>
+      <td>
+        {{recipe.NutritionInfo.PotassiumPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Total Carbohydrate&nbsp;{{recipe.NutritionInfo.TotalCarbs | number:'1.0-2'}}g</b>
+      </td>
+      <td>
+        {{recipe.NutritionInfo.TotalCarbsPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        &nbsp;&nbsp;Dietary Fiber&nbsp;{{recipe.NutritionInfo.DietaryFiber| number:'1.0-2'}}g
+      </td>
+      <td>
+        {{recipe.NutritionInfo.DietaryFiberPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        &nbsp;&nbsp;Sugars, other&nbsp;{{recipe.NutritionInfo.Sugar | number:'1.0-2'}}g
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>Protein&nbsp;{{recipe.NutritionInfo.Protein | number:'1.0-2'}}g</b>
+      </td>
+      <td>
+        {{recipe.NutritionInfo.ProteinPct | percent:'1.0-1'}}
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3">
+        <hr>
+        Powered by: USDA Nutrition Database
+        <p class="text-muted">Disclaimer:  Nutrition facts are derived from linked ingredients and may or may not be complete.  Always consult a licensed nutritionist or doctor if you have a nutrition-related medical condition.</p>
+      </td>
+    </tr>
+    </tbody></table>
+</div>
