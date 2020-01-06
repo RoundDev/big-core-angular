@@ -30,13 +30,6 @@
 <div *ngIf="!recipe.IsBookmark" class="row justify-content-center line-breaker instructions">
   <div id="steps">
     <table class="table table-striped">
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        {{formatSteps(this.steps)}}-->
-<!--        {{recipe.Instructions | stepsFormat}}-->
-<!--        <div [innerHTML]="recipe.Instructions"></div>-->
-<!--      </tr>-->
-<!--      </thead>-->
       <tbody>
       <tr *ngFor="let step of readInstructions(this.steps); let i = index">
         <td>
@@ -60,7 +53,7 @@
     <div class="col-12 blogger-col">
       <p>
         Blogger reciep follow the link for instructions
-        <a href="{{recipe.BookmarkURL}}">{{recipe.BookmarkURL}}</a>
+        <a target="_blank" href="{{recipe.BookmarkURL}}" title="{{recipe.BookmarkURL}}">{{recipe.BookmarkURL}}</a>
       </p>
     </div>
   </div>

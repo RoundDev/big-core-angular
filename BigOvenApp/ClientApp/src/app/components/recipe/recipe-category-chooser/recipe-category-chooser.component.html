@@ -1,0 +1,21 @@
+<span style="float:left;width:200px;">
+  <select [(ngModel)]="mainCategory" name="mainCategory" class="form-control" (change)="changeDrop();" id="mainCategory">
+    <option value="0">-- any category --</option>
+    <option value="1">Appetizers</option>
+    <option value="2">Bread</option>
+    <option value="3">Breakfast</option>
+    <option value="4">Desserts</option>
+    <option value="5">Drinks</option>
+    <option value="6">Main Dish</option>
+    <option value="7">Salad</option>
+    <option value="8">Side Dish</option>
+    <option value="9">Soups, Stews and Chili</option>
+    <option value="10">Marinades and Sauces</option>
+    <option value="11">Other</option>
+  </select>
+</span>
+<span style="float:left;width:200px;">
+  <select [(ngModel)]="subCategory" name="subCategory" class="form-control" id="subCategory">
+    <option *ngFor="let subcat of subcats" value="{{subcat.ID}}">{{subcat.Category}}</option>
+  </select>
+</span>

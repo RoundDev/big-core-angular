@@ -22,7 +22,8 @@ import {
   PaginationModule,
   RatingModule,
   TabsModule,
-  TypeaheadModule
+  TypeaheadModule,
+
 } from "ngx-bootstrap";
 import { UrlpathPipe } from './shared/pipes/urlpath.pipe';
 import { RavesHomeComponent } from './components/raves-home/raves-home.component';
@@ -77,6 +78,12 @@ import { ProBuyComponent } from './components/pro-buy/pro-buy/pro-buy.component'
 import { ProFeaturesComponent } from './components/pro-buy/pro-features/pro-features.component';
 import { MyRecipesComponent } from './components/user/my-recipes/my-recipes.component';
 import { FolderListComponent } from './components/user/folder-list/folder-list.component';
+import { RecipeNutritionBoxComponent } from './components/recipe/recipe-nutrition-box/recipe-nutrition-box.component';
+import { RecipePostComponent } from './components/recipe/recipe-post/recipe-post.component';
+import { RecipeCategoryChooserComponent } from './components/recipe/recipe-category-chooser/recipe-category-chooser.component';
+import { RecipeIngredientListComponent } from './components/recipe/recipe-ingredient-list/recipe-ingredient-list.component';
+import { RecipeIngredientLineEditorComponent } from './components/recipe/recipe-ingredient-line-editor/recipe-ingredient-line-editor.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -164,6 +171,11 @@ const routerOptions: ExtraOptions = {
     ProFeaturesComponent,
     MyRecipesComponent,
     FolderListComponent,
+    RecipeNutritionBoxComponent,
+    RecipePostComponent,
+    RecipeCategoryChooserComponent,
+    RecipeIngredientListComponent,
+    RecipeIngredientLineEditorComponent,
 
   ],
   imports: [
@@ -174,7 +186,9 @@ const routerOptions: ExtraOptions = {
     MatTabsModule,
     FontAwesomeModule,
     StarRatingModule.forRoot(),
+    TypeaheadModule.forRoot(),
     MomentModule,
+    BrowserAnimationsModule,
 
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -269,6 +283,10 @@ const routerOptions: ExtraOptions = {
       {
         path: "recipe-ideas/:title/:collId/page/:page",
         component: CollectionViewComponent
+      },
+      {
+        path: "recipe/post",
+        component: RecipePostComponent
       },
       {
         path: "pro",

@@ -23,6 +23,7 @@ export class MyRecipesComponent implements OnInit {
   folders: BigOvenModelAPI2FolderProperty[] = [];
   activeFolder: BigOvenModelAPI2FolderProperty = null;
   currentView: string = "gallery";
+  homeFolder: string = "Added";
 
 
 
@@ -37,8 +38,7 @@ export class MyRecipesComponent implements OnInit {
   }
 
   ngOnInit() {
-    // let defaultFolder: BigOvenModelAPI2FolderProperty = {} as any;
-    // defaultFolder.Name = 'added';
+
     if (this.subscriptionNewRecipesLoaded === null) {
       this.subscriptionNewRecipesLoaded = this.userService.getonRecipesLoadedForFolderEmitter()
         .subscribe(status => this.recipesReloaded(status));
@@ -50,6 +50,8 @@ export class MyRecipesComponent implements OnInit {
         .subscribe(activeFolder => this.folderChanged(activeFolder));
 
     }
+
+
 
     // get the params on the route
     console.log("currentView");
@@ -93,9 +95,13 @@ export class MyRecipesComponent implements OnInit {
 
   folderChanged(activeFolder: BigOvenModelAPI2FolderProperty) {
     this.activeFolder = activeFolder;
-
-    // now load the results
-    this.userService.getRecipesInFolder(activeFolder, this.authService.userIdFromJWT());
+    if (this.subscriptionFolderChanged === null) {
+      this.activeFolder.Name = this.homeFolder;
+      this.userService.getRecipesInFolder(activeFolder, this.authService.userIdFromJWT());
+    } else {
+      // now load the results
+      this.userService.getRecipesInFolder(activeFolder, this.authService.userIdFromJWT());
+    }
   }
 
   recipesReloaded(status) {

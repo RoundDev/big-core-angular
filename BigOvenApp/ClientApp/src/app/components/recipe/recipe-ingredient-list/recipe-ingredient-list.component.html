@@ -1,0 +1,8 @@
+<div *ngFor="let iLine of ingredientLines; let i=index;">
+  <app-recipe-ingredient-line-editor [(ingredientLine)]="ingredientLines[i]" (remove)="removeLine($event, i);" (addBefore)="addBeforeLine($event, i);"></app-recipe-ingredient-line-editor>
+</div>
+
+<br/>
+<div style="padding-left:1.3%;">
+  <button (click)="appendLine();" class="btn btn-default" style="width:200px;"><i class="fa fa-plus"></i> Add Line</button>
+</div>
