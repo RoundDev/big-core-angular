@@ -18,6 +18,7 @@ export class RecipePostComponent implements OnInit {
   cuisines = this.globalVars.bo_global_cuisines;
   cuisine: string;
   isAdmin: boolean = false;
+  selectedMainIngredient: string;
 
   faAlignJustify = faAlignJustify;
   faCopy = faCopy;

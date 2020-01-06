@@ -229,12 +229,12 @@
             </div>
 
             <div style="clear:both;">
-              <label for="PrimaryIngredient">Main Ingredient
+              <label for="mainIngredient">Main Ingredient
                 <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="example: Chicken.  Enter just one."></fa-icon>
               </label>
               <br/>
 
-              <input ngForm name="mainIngredient" [(ngModel)]="selectedMainIngredient" placeholder="" [typeahead]="mainIngredients" class="form-control"/>
+              <input ngForm id="mainIngredient" name="mainIngredient" [(ngModel)]="selectedMainIngredient" placeholder="" [typeahead]="mainIngredients" class="form-control"/>
 
             </div>
 
@@ -243,7 +243,7 @@
                 <fa-icon [icon]="faQuestionCircle" class="tipsytip" title="ex: American, Japanese, etc.; leave blank if unknown"></fa-icon>
               </label>
               <br/>
-              <input ngForm name="cuisine" [(ngModel)]="cuisine" placeholder="" [typeahead]="cuisines" class="form-control" />
+              <input ngForm id="Cuisine" name="cuisine" [(ngModel)]="cuisine" placeholder="" [typeahead]="cuisines" class="form-control" />
 
             </div>
 

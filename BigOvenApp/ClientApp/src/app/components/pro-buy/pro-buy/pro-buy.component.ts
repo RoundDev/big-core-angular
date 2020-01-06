@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BigOvenAuthService} from "../../../shared/services/bigovenauth.service";
 
 @Component({
   selector: 'app-pro-buy',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProBuyComponent implements OnInit {
 
-  constructor() { }
+  isPro: boolean = false;
+  constructor(public bigovenAuthService: BigOvenAuthService) {
+    this.isPro = bigovenAuthService.isPro();
+  }
 
   ngOnInit() {
   }
